@@ -1,0 +1,7 @@
+post_id,text,created_at,author,is_reply,is_repost,likes
+synthetic-001,SYNTHETIC test: Tesla example.,2024-07-03T17:30:00Z,elonmusk,false,false,10
+synthetic-002,SYNTHETIC test: Bitcoin example.,2024-07-06T12:00:00+00:00,elonmusk,false,false,
+synthetic-001,SYNTHETIC test: Tesla example.,2024-07-03T17:30:00Z,elonmusk,false,false,10
+synthetic-003,SYNTHETIC reply.,2024-07-05T12:00:00Z,elonmusk,true,false,0
+synthetic-004,SYNTHETIC unknown metadata.,2024-07-05T12:00:00Z,elonmusk,,,0
+synthetic-005,SYNTHETIC invalid timestamp.,not-a-date,elonmusk,false,false,0

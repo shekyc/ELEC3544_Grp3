@@ -1,0 +1,9 @@
+{
+  "post_id": "id",
+  "text": "tweet",
+  "created_at": "created_at",
+  "author": "username",
+  "is_reply": "is_reply",
+  "is_repost": "is_repost",
+  "likes": "likes_count"
+}
