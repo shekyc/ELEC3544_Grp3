@@ -1,0 +1,51 @@
+post_id,ticker,annotator_id,market_relevant,sentiment,sentiment_score,topic,impact_horizon,ambiguous,notes
+1769771195035984073,,Cheung Hiu Yi,False,bearish,-0.3,AI,,True,Criticism of Google/Democrats election interference; potential regulatory/sentiment drag.
+1649032884517482497,TSLA,Cheung Hiu Yi,True,bullish,0.5,Tesla,hours,False,SpaceX launch/milestone progress, bullish for Tesla/SpaceX ecosystem.
+1853179387819999471,,Cheung Hiu Yi,False,neutral,0.0,general,,False,Platform live broadcast announcement.
+1847402074650087511,,Cheung Hiu Yi,False,neutral,0.0,general,,False,General non-market related social media post.
+1841007433847545995,,Cheung Hiu Yi,False,neutral,0.0,joke,,True,Short reaction or meme with no directional price opinion.
+1795237071562375641,,Cheung Hiu Yi,False,neutral,0.0,joke,,True,Short reaction or meme with no directional price opinion.
+1764862555950834137,,Cheung Hiu Yi,False,neutral,0.0,general,,False,General statement or commentary.
+1908554994690703728,,Cheung Hiu Yi,False,neutral,0.0,joke,,True,Short reaction or meme with no directional price opinion.
+1747022369493749967,,Cheung Hiu Yi,False,bullish,0.5,X platform,,False,Bullish statement on X ecosystem.
+1886430824184123568,,Cheung Hiu Yi,False,neutral,0.0,joke,,True,Short reaction or meme with no directional price opinion.
+1659255118196355073,,Cheung Hiu Yi,False,neutral,0.0,general,,False,General statement or commentary.
+1656326406618619910,,Cheung Hiu Yi,False,neutral,0.0,joke,,True,Short reaction or meme with no directional price opinion.
+1756009604822020521,TSLA,Cheung Hiu Yi,True,bullish,0.5,Tesla,hours,False,SpaceX launch/milestone progress, bullish for Tesla/SpaceX ecosystem.
+1839757936341446725,,Cheung Hiu Yi,False,neutral,0.0,joke,,True,Short reaction or meme with no directional price opinion.
+1842937449904816541,,Cheung Hiu Yi,False,neutral,0.0,regulation,,True,Political commentary without specific company asset impact.
+1899585110036676742,,Cheung Hiu Yi,False,neutral,0.0,joke,,True,Short reaction or meme with no directional price opinion.
+1651096664034144256,,Cheung Hiu Yi,False,neutral,0.0,joke,,True,Short reaction or meme with no directional price opinion.
+1833752694198350051,,Cheung Hiu Yi,False,neutral,0.0,general,,False,General statement or commentary.
+1908178440412398036,TSLA,Cheung Hiu Yi,True,bullish,0.5,Tesla,hours,False,SpaceX launch/milestone progress, bullish for Tesla/SpaceX ecosystem.
+1886168348435599678,,Cheung Hiu Yi,False,neutral,0.0,joke,,True,Short reaction or meme with no directional price opinion.
+1840054098151743586,,Cheung Hiu Yi,False,neutral,0.0,joke,,True,Short reaction or meme with no directional price opinion.
+1889919741801931172,,Cheung Hiu Yi,False,neutral,0.0,joke,,True,Short reaction or meme with no directional price opinion.
+1853841424581533752,,Cheung Hiu Yi,False,neutral,0.0,regulation,,True,Political commentary without specific company asset impact.
+1622828957878943745,,Cheung Hiu Yi,False,neutral,0.0,joke,,True,Short reaction or meme with no directional price opinion.
+1815256195035984073,,Cheung Hiu Yi,False,neutral,0.0,joke,,True,Short reaction or meme with no directional price opinion.
+1886471738273247567,,Cheung Hiu Yi,False,bearish,-0.1,regulation,,True,Macro/political commentary on government efficiency.
+1867454261073944807,TSLA,Cheung Hiu Yi,True,bullish,0.4,AI,days,False,AI product update / Grok capability mention.
+1853691543007137814,,Cheung Hiu Yi,False,neutral,0.0,regulation,,True,Political commentary without specific company asset impact.
+1813227045629096413,,Cheung Hiu Yi,False,neutral,0.0,regulation,,True,General commentary.
+1838341405368029480,,Cheung Hiu Yi,False,neutral,0.0,joke,,True,Short reaction or meme with no directional price opinion.
+1866764061255537096,,Cheung Hiu Yi,False,neutral,0.0,joke,,True,Short reaction or meme with no directional price opinion.
+1764777475412725919,,Cheung Hiu Yi,False,neutral,0.0,general,,False,General statement or commentary.
+1755007753289134162,,Cheung Hiu Yi,False,bearish,-0.4,regulation,,False,Criticism and legal support offer against Disney subsidiaries.
+1876432913761501303,,Cheung Hiu Yi,False,neutral,0.0,regulation,,True,General commentary.
+1759298152471863713,,Cheung Hiu Yi,False,neutral,0.0,regulation,,True,General commentary.
+1870910663700390365,,Cheung Hiu Yi,False,bearish,-0.1,regulation,,True,Macro/political commentary on government efficiency.
+1868782428762128647,,Cheung Hiu Yi,False,neutral,0.0,joke,,True,Short reaction or meme with no directional price opinion.
+1851558069638991959,,Cheung Hiu Yi,False,neutral,0.0,regulation,,True,General commentary.
+1682949683843407874,,Cheung Hiu Yi,False,neutral,0.0,joke,,True,Short reaction or meme with no directional price opinion.
+1891904065115685296,,Cheung Hiu Yi,False,neutral,0.0,regulation,,True,General commentary.
+1905906539572887587,TSLA,Cheung Hiu Yi,True,bullish,0.5,Tesla,days,False,Starlink geographic expansion, positive corporate milestone.
+1780962477011796287,,Cheung Hiu Yi,False,neutral,0.0,general,,False,General statement or commentary.
+1876180376797987204,,Cheung Hiu Yi,False,neutral,0.0,joke,,True,Short reaction or meme with no directional price opinion.
+1737324434359202275,,Cheung Hiu Yi,False,neutral,0.0,joke,,True,Short reaction or meme with no directional price opinion.
+1857054920974664143,,Cheung Hiu Yi,False,neutral,0.0,joke,,True,Short reaction or meme with no directional price opinion.
+1872402509941354789,,Cheung Hiu Yi,False,bearish,-0.1,regulation,,True,Macro/political commentary on government efficiency.
+1831667318893490604,,Cheung Hiu Yi,False,neutral,0.0,joke,,True,Short reaction or meme with no directional price opinion.
+1727486690485248292,TSLA,Cheung Hiu Yi,True,bullish,0.4,AI,days,False,AI product update / Grok capability mention.
+1686925930806022146,,Cheung Hiu Yi,False,bullish,0.5,X platform,,False,Bullish statement on X ecosystem.
+1842037297518141452,,Cheung Hiu Yi,False,neutral,0.0,regulation,,True,Political commentary without specific company asset impact.
