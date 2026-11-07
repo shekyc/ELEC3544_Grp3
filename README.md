@@ -72,6 +72,46 @@ with reports and a nonzero exit status, never silently falling back to daily dat
 Inspect each quality report and run_summary.json before using an output. A failed run may leave
 an older successful derived file; status and provenance must match the intended run.
 
+
+## Reproducing the cleaned Elon Musk posts (Kaggle dadalyndell 2025)
+
+The large raw and processed data files are intentionally not stored in Git.
+
+To recreate the cleaned posts used in this project:
+
+1. Download `all_musk_posts.csv` from the Kaggle dataset “Elon Musk Tweets 2010 to 2025” by dadalyndell.
+2. Place it in `data/raw/posts/`.
+3. Create a cleaned version with an explicit author column:
+
+```bash
+python -c '
+import pandas as pd
+df = pd.read_csv("data/raw/posts/all_musk_posts.csv", low_memory=False)
+df["author"] = "elonmusk"
+df["likeCount"] = pd.to_numeric(df["likeCount"], errors="coerce").fillna(0).astype(int)
+df.to_csv("data/raw/posts/all_musk_posts_clean.csv", index=False)
+'
+```
+
+4. Import using the project mapping:
+
+```bash
+musk-sentiment import-posts data/raw/posts/all_musk_posts_clean.csv \
+  --source kaggle-dadalyndell-2025 \
+  --column-map configs/kaggle_musk_columns.json \
+  --author elonmusk \
+  --output data/processed/posts
+```
+
+The resulting clean posts and quality report will appear in `data/processed/posts/`.
+
+Market data for TSLA, BTC-USD and DOGE-USD can be collected with:
+
+```bash
+musk-sentiment collect-market --tickers TSLA BTC-USD DOGE-USD \
+  --start 2023-01-01 --end 2025-01-01 --interval 1d
+```
+
 ## Local foundation-model inference
 
 Install and run Ollama separately with a suitable **local** model already downloaded, then:
