@@ -34,21 +34,24 @@ ID_COL, TEXT_COL, SPLIT_COL = "post_id", "text", "split"
 # Label columns, in order. REPLACE these with the exact fields in docs/ANNOTATION.md,
 # and keep the same names/order as the pilot label CSV so results can be compared later.
 LABEL_COLS = [
+    "ticker",
+    "annotator_id",
     "market_relevant",
-    "assets",
     "sentiment",
     "sentiment_score",
-    "ambiguous",
     "topic",
+    "impact_horizon",
+    "ambiguous",
     "notes",
 ]
 
 # Optional dropdowns (column -> allowed values). Must match the guidelines' wording exactly.
 # Delete a line (or leave the dict empty) for free-text columns.
 DROPDOWNS = {
-    "market_relevant": ["yes", "no"],
+    "market_relevant": ["true", "false"],
     "sentiment": ["bullish", "bearish", "neutral"],
-    "ambiguous": ["yes", "no"],
+    "impact_horizon": ["hours", "days", "unknown"],
+    "ambiguous": ["true", ""],
 }
 # -------------------------------------------------------------------------------
 
