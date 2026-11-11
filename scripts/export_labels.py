@@ -12,7 +12,7 @@ import pandas as pd
 #     print(f"Saved {len(df)} rows to {dst}")
 
 src = f"annotations/templates/dev_yik_yu_hang.xlsx"
-dst = f"annotations/final_labels_dev_yik_yu_hang.xlsx"
+dst = f"annotations/final_labels_dev_yik_yu_hang.csv"
 try:
   df = pd.read_excel(src, dtype={"post_id": str})
 except FileNotFoundError:
