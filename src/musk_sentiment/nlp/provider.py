@@ -84,6 +84,6 @@ class SyntheticProvider:
                 ],
                 "topics": ["synthetic_fixture"],
                 "impact_horizon": "unknown",
-                "ambiguity": "Synthetic fixture; not model inference",
+                "ambiguity": "true",
             }
         )

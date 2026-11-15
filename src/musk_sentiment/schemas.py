@@ -111,7 +111,7 @@ class SentimentOutput(Record):
     assets: list[AssetSentiment]
     topics: list[Nonempty]
     impact_horizon: Literal["intraday", "short_term", "long_term", "unknown"]
-    ambiguity: Nonempty
+    ambiguity: Literal["true", "false"]
 
     @model_validator(mode="after")
     def relevant_assets(self):
