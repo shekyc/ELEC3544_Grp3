@@ -76,6 +76,7 @@ Return ONLY valid JSON with exactly these fields:
 No extra fields. No markdown. No comments.
 """
 
+
 def infer(
     post: CleanPost, assets: list[Asset], provider: Provider, cache_dir: Path, attempts: int = 3
 ) -> NLPRecord:
