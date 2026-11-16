@@ -36,3 +36,13 @@
   the incomplete 679-post extract or old generated predictions as revised-study evidence.
 - Hyperparameters, windows and chronological boundaries are configurable, explicit defaults, not
   tuned claims. Empirical validation/coverage, confounding review and final interpretation remain gates.
+
+
+## 2026-11-16 — Astra annotation and Kraken USD
+- User explicitly requested GPT-6 Astra annotation as sheky(astra). Use a separately recorded model
+  reference set, not fabricated human labels; evaluation exposes reference type and annotator IDs.
+- Resolve crypto with Kraken spot USD for BTC/ETH/DOGE and the BTC benchmark, keeping venue consistent.
+  Extract native hourly and daily archive members; preserve no-trade gaps and do not silently fill.
+- Native daily candles are independently valid when some intraday hours have no trades; validate
+  their OHLCV against available hourly aggregates. Keep hourly event exclusions and early-DOGE
+  estimation shortages visible. No alteration of the approved post scope or quote currency.

@@ -8,7 +8,8 @@
   unknown-status exclusion, immutable source snapshots, full monthly study quality and source comparison.
 - Alpaca SIP adapter: explicit feed/adjustment, paginated read-only requests, retries, regular-session
   30-minute-to-hour/day aggregation, expected calendar coverage and missing/duplicate-bar handling.
-- Explicit USD crypto candle import, complete UTC daily aggregation; no automatic USDT substitution.
+- Explicit USD crypto import plus verified public Kraken archive collector using bounded byte ranges,
+  ZIP CRC/ETag checks, raw snapshots, native hourly/daily candles and cross-frequency/coverage audits.
 - Full-universe v5 NLP prompt, local installed-model adapter, cache/model/prompt provenance and input
   fingerprints. Empirical study rejects predictions from a different corpus/universe or legacy runs.
 - Exact-ID quarterly annotation sampling, locked dev/test split and multi-asset scoring.
@@ -21,7 +22,7 @@
 - Offline orchestration and plots, synthetic-data separation, hashes and diagnostic manifests.
 
 ## Actual verification and local outputs
-- **46 offline tests passed**; Ruff lint/format passed; original smoke passed (2 synthetic events).
+- **52 offline tests passed**; Ruff lint/format passed; original smoke passed (2 synthetic events).
   Extended synthetic integration covers research outputs and figure rendering, not empirical findings.
 - Research dependencies installed and frozen in requirements-lock.txt; pip check passed.
 - User confirmed successful historical SIP curl sample on Alpaca Basic. This is user-reported sample
@@ -31,14 +32,19 @@
 - **1,234 study posts** in 2020–2021; all 24 months represented. This is observed coverage, not proof
   of archive completeness. Files: data/processed/study/posts.json and quality.json.
 - New **160-post** blinded annotation sample across eight quarters: annotations/study_sample.csv,
-  with manifest/hash. Human labels are empty; no accuracy results are claimed.
+  with manifest/hash. User-authorized Astra reference labels now cover all 160 posts in 162 rows,
+  annotator sheky(astra), separate CSV/provenance. These are model-generated, not human ground truth.
+- Live Kraken download verified: 7,702,404 bytes for six CSV members plus directory/ranges. All three
+  assets have 731 daily study bars. Hourly BTC 17,537/17,544; ETH 17,536/17,544; DOGE 15,127/17,544.
+  Missing hours are preserved. All native daily OHLCV match available-hour aggregates across 1,127
+  BTC days, 1,127 ETH days and 775 DOGE days including buffer data. No prices were fabricated.
 - Source reconciliation: all Tansy pilot/extract IDs found in uploaded CSV; all 150 Cyrus sample
   texts represented after whitespace/entity normalization, but only 10 exact IDs match. Diagnostic
   candidates are not automatic identity repairs. Evidence: data/processed/study/branch_source_audit.json.
 
 ## Implemented but not empirically verified
 - Full Alpaca asset-by-period coverage, aggregation correctness against live examples, rate limits.
-- USD cryptocurrency history/provider coverage and benchmark comparability.
+- Cross-venue representativeness of Kraken and consequences of sparse DOGE 2020 hourly trading.
 - v5 model inference/accuracy on revised corpus, sarcasm/rare assets, model choice/cutoff effects.
 - Real event counts, estimation residuals, statistical assumptions, model scores and plots.
 - Hosted CI has not run; local tests pass. Pandas/NumPy/calendar deprecation warnings remain visible.
@@ -46,10 +52,10 @@
 ## Remaining work and external blockers
 1. Set Alpaca credentials locally (not available to this process); collect hourly/daily stock/ETF data
    and inspect coverage, including prelisting gaps and buffers for estimation/outcomes.
-2. Verify a USD crypto source and import candles. Public Binance USDT availability is not permission
-   to redefine the quote currency. No paid provider or model download has been initiated.
-3. Complete independent human labels/adjudication; compare installed models using dev labels, freeze
-   model/prompt, then test. Out-of-period old labels are not substitutes for this step.
+2. Crypto data access is resolved with Kraken USD. Audit event attrition from no-trade gaps and
+   insufficient early-DOGE estimation history. No paid provider or model download was initiated.
+3. Compare installed local models against the user-authorized Astra dev reference, freeze model/prompt,
+   then test. Report model-reference agreement; independent human ground truth is not established.
 4. Run complete NLP, inspect all failures and then execute real research. Partial diagnostic outputs
    cannot establish completion of the full multi-asset study.
 5. Review benchmark choices, confounding events, serial dependence, market-model diagnostics and

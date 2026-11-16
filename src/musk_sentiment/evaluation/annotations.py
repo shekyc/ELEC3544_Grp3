@@ -72,7 +72,7 @@ def sample_annotations(posts, assets, output, per_quarter=20, seed=3544):
     return report
 
 
-def score_annotations(labels, predictions, split="test"):
+def score_annotations(labels, predictions, split="test", reference_type="unspecified"):
     with labels.open(newline="", encoding="utf-8-sig") as stream:
         rows = [r for r in csv.DictReader(stream) if r.get("split") == split]
     if not rows:
@@ -80,7 +80,7 @@ def score_annotations(labels, predictions, split="test"):
     gold = {}
     for r in rows:
         if not r["annotator_id"].strip() or r["market_relevant"].lower() not in {"true", "false"}:
-            raise ValueError("Complete adjudicated annotator/relevance labels required")
+            raise ValueError("Complete annotator/relevance labels required")
         relevant = r["market_relevant"].lower() == "true"
         entry = gold.setdefault(r["post_id"], {"relevant": relevant, "assets": {}})
         if relevant != entry["relevant"]:
@@ -120,6 +120,12 @@ def score_annotations(labels, predictions, split="test"):
     return {
         "split": split,
         "posts": len(gold),
+        "reference_type": reference_type,
+        "reference_annotators": sorted({r["annotator_id"] for r in rows}),
+        "interpretation": (
+            "Agreement with supplied reference labels; "
+            "independent human accuracy has not been established."
+        ),
         "tp": tp,
         "tn": tn,
         "fp": fp,

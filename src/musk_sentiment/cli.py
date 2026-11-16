@@ -13,6 +13,7 @@ from musk_sentiment.data.corpus import (
     read_posts,
     select_window,
 )
+from musk_sentiment.data.kraken import audit_crypto_coverage, collect_kraken
 from musk_sentiment.data.local_market import daily_crypto, import_crypto_csv
 from musk_sentiment.data.market import MarketDataUnavailable, collect_market
 from musk_sentiment.data.posts import import_posts
@@ -102,6 +103,17 @@ def main(argv=None):
     research.add_argument("--synthetic", action="store_true")
     plots = sub.add_parser("plot-study")
     plots.add_argument("input", type=Path)
+    score.add_argument(
+        "--reference-type",
+        choices=["model", "human", "mixed", "unspecified"],
+        default="unspecified",
+    )
+    kraken = sub.add_parser(
+        "collect-kraken", help="Download native hourly/daily USD crypto archives"
+    )
+    kraken.add_argument("--config", type=Path, default=Path("configs/project.toml"))
+    kraken.add_argument("--output", type=Path, default=Path("data/processed/market"))
+    kraken.add_argument("--raw-dir", type=Path, default=Path("data/raw/kraken"))
     args = parser.parse_args(argv)
     logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
     try:
@@ -173,8 +185,35 @@ def main(argv=None):
                 posts, cfg["assets"], args.output, args.per_quarter, cfg["research"]["seed"]
             )
         elif args.command == "score-nlp":
-            result = score_annotations(args.labels, args.predictions, args.split)
+            result = score_annotations(
+                args.labels, args.predictions, args.split, args.reference_type
+            )
             write_json(args.output, result)
+        elif args.command == "collect-kraken":
+            cfg = load_config(args.config)
+            manifest = collect_kraken(
+                cfg["assets"],
+                cfg["research"]["market_start"],
+                cfg["research"]["market_end"],
+                args.output,
+                args.raw_dir,
+            )
+            audit_crypto_coverage(
+                args.output, cfg["assets"], cfg["research"]["start"], cfg["research"]["end"]
+            )
+            result = {
+                "status": manifest["status"],
+                "downloaded_bytes": manifest["downloaded_bytes"],
+                "series": [
+                    {
+                        "ticker": a["ticker"],
+                        "interval": a["interval"],
+                        "rows": a["rows"],
+                        "missing": len(a["missing_starts"]),
+                    }
+                    for a in manifest["assets"]
+                ],
+            }
         elif args.command == "import-crypto":
             cfg = load_config(args.config)
             asset = next((a for a in cfg["assets"] if a.ticker == args.ticker), None)

@@ -26,3 +26,16 @@ and test sampling design. The old three-ticker restriction and 2023+ labels are 
 against all gold asset labels (missing predicted assets count as errors). It refuses incomplete
 relevance/annotator fields, invalid scores, conflicting labels, and missing exact-ID predictions.
 Old out-of-period labels remain on their source branches, not mixed into this evaluation.
+
+## User-authorized Astra reference (2026-11-16)
+The user selected GPT-6 Astra instead of a human annotator for this run. The resulting file is
+`annotations/study_labels_sheky_astra.csv`, annotator_id `sheky(astra)`, with a provenance sidecar.
+It covers all 160 posts in 162 rows: 61 relevant posts, 99 irrelevant, two multi-asset posts. Source
+text, IDs, dates and split/stratum are unchanged. No future prices or other model predictions were
+shown to the annotator. Model-generated does not mean fabricated fixture: synthetic=false refers
+to real source posts; annotation_kind=model_generated and is_human_ground_truth=false are explicit.
+
+Use `score-nlp --reference-type model`. Report reference agreement, not human accuracy. The same
+annotator saw dev/test source texts; these annotations do not establish a held-out evaluation of
+Astra itself. Human review is optional under the user's current instruction, not an execution blocker.
+Model inference errors, subjective scores, missing context and historical knowledge remain limitations.

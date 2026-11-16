@@ -95,3 +95,18 @@ written beside results. Before submission: inspect estimation residuals, major c
 model coverage/sample sizes, benchmark suitability and sensitivity results; assess whether first
 mentions are too sparse for any inference. Extend to rolling purged folds if stability claims require
 it. Final narrative/slides and scientific interpretation are not generated from synthetic tests.
+
+
+## Update: model annotation and verified USD data (2026-11-16)
+The user explicitly replaced the human annotation step with GPT-6 Astra, annotator `sheky(astra)`.
+Treat this as a model-generated reference set, not human gold. Dev/test membership is unchanged;
+small-model evaluation reports agreement with that reference and carries shared-error/training-leakage
+limitations. Independent human review is not a required execution gate for the authorized workflow.
+
+Kraken native USD hourly and daily candles are now collected directly from its public archive.
+Kraken omits intervals without trades. Do not interpolate those hours or interpret a missing hour
+as an observed zero return. The event constructor rejects required missing endpoints. Native daily
+bars cover all 731 study days even where no trades occurred in some hours. Daily prices/volume were
+cross-checked against available hourly trades, not filled hourly prices. Native daily records may
+therefore be used independently of the stricter 24-observation local aggregation helper. DOGE/USD
+starts 2019-12-19, so early-2020 market-model daily estimation can remain insufficient and return null.

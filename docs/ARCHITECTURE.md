@@ -41,3 +41,9 @@ Additional provider adapters must implement the same Protocol and preserve prove
   artifacts and figure export. CLI exposes each stage; research dependencies are optional until used.
 - Uploaded root CSV, processed data, annotations and results remain local and Git-ignored. Source branches
   remain intact; `docs/INTEGRATION.md` records what was reused and why other artifacts were excluded.
+
+- `data/kraken.py`: bounded seekable HTTP range reader over public archive parts, member CRC and ETag
+  validation, native USD hourly/daily contracts, study coverage and cross-frequency consistency audit.
+  `collect-kraken` is an explicit live command; its tests use local fake ranged responses.
+- Annotation scoring records `reference_type` and `reference_annotators`; model reference agreement
+  is distinct from independent human accuracy. Astra annotations/provenance remain local and ignored.

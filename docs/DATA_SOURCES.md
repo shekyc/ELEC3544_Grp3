@@ -46,3 +46,18 @@ stock bars endpoint with explicit SIP/split adjustment and 30-minute source bars
 aggregation. Unit tests mock requests; full live coverage is not yet verified. Crypto USD coverage is
 still unresolved: Binance's successfully tested public archive is USDT, not USD. An explicit local
 USD candle importer is available without silently changing the research currency.
+
+
+## Kraken USD acquisition resolved (2026-11-16)
+Official source: https://support.kraken.com/articles/360047124832-downloadable-historical-ohlcvt-open-high-low-close-volume-trades-data
+Public archive parts at `https://assets.kraken.com/marketing/institutions/Kraken_OHLCVT_Full.zip.part00`
+through part04. Standard browser User-Agent requests succeeded with HTTP 206 after earlier default
+Python-agent requests returned 403. No credentials, account, CAPTCHA bypass or paid access used.
+Native members XBTUSD, ETHUSD and XDGUSD at 60 and 1440 minutes were extracted with ranged ZIP reads;
+XBT maps to BTC, XDG maps to DOGE, quote remains actual USD. ~7.7 MB downloaded rather than 9.5 GB.
+Each member's ZIP CRC verified; member/range SHA256 and server ETags recorded. Full archive SHA256
+was not verified. Every expected study day is available, but hourly gaps remain: BTC 7, ETH 8,
+DOGE 2,417 (2,411 in 2020). No-trade omissions are documented by Kraken and daily OHLCV agrees with
+aggregated available hourly trades. See the local crypto coverage and cross-frequency audit JSONs.
+This supersedes the earlier unresolved USD-source status; representativeness and event attrition
+remain analysis limitations, not unresolved API access.

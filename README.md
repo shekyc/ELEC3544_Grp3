@@ -59,33 +59,50 @@ The configurable candidate universe includes TSLA, NVDA, RIVN, AAPL, NIO, SPY, Q
 BTC-USD, ETH-USD and DOGE-USD. Listing-age gaps (e.g. RIVN) must be distinguished from provider gaps;
 the configuration is not a claim that all candidates existed throughout the period.
 
-## 3. Supply audited USD crypto candles
-
-Alpaca's tested equity sample does not establish its 2020 crypto coverage. The verified Binance
-archive uses USDT; it is not silently substituted for USD. Until an appropriate USD source is
-validated, this is an explicit data blocker, not a reason to drop cryptocurrencies from scope.
-
-CSV columns: `ticker,quote_currency,timestamp,open,high,low,close,volume`.
-Use `quote_currency=USD`, timestamp = UTC ISO-8601 or UNIX **seconds**, and a source/version string.
+## 3. Collect verified Kraken USD crypto history
 
 ```bash
-.venv/bin/musk-sentiment import-crypto path/to/BTC-USD.csv --ticker BTC-USD --interval 1h --source 'provider/version'
-.venv/bin/musk-sentiment aggregate-crypto-daily data/processed/market/BTC-USD_1h.json --output data/processed/market/BTC-USD_1d.json
+.venv/bin/musk-sentiment collect-kraken
 ```
 
-Repeat for ETH-USD/DOGE-USD. Daily aggregation requires all 24 UTC hours, with no filling of gaps.
+No account, key or payment is needed. The collector reads selected byte ranges from Kraken's public
+split ZIP, verifies member CRCs, snapshots the downloaded ranges/CSV members and records hashes and
+ETags. It downloads native hourly and daily BTC/USD, ETH/USD and DOGE/USD files (about 7.7 MB total),
+not the complete 9.5 GB archive. The full archive SHA256 is therefore not claimed verified.
 
-## 4. Label, evaluate and run the local model
+Live verification: all three have 731 daily bars in 2020–2021. Hourly counts are BTC 17,537,
+ETH 17,536 and DOGE 15,127 out of 17,544 possible hours. Kraken omits no-trade intervals; these gaps
+are never filled. Native daily bars remain usable on days with no-trade hours. Every compared daily
+OHLCV agrees with the aggregation of available hourly records. The collector also obtains the
+available 2019 estimation buffer and January 2022 outcomes; DOGE/USD begins December 2019.
 
-`annotations/study_sample.csv` is a deterministic 160-post random/keyword-enriched sample balanced
-over eight quarters; the split column reserves dev/test labels. It contains **blank human labels**.
-See [annotation rules](docs/ANNOTATION.md). Never show future prices to annotators.
+See `crypto_study_coverage.json`, `crypto_cross_frequency_audit.json` and `kraken_manifest.json` under
+`data/processed/market`. Sparse DOGE hourly coverage affects event eligibility, particularly in 2020.
+No USD/USDT conversion or mixed-venue patching is performed.
+
+The generic `import-crypto` command remains available for other audited USD CSVs with columns
+`ticker,quote_currency,timestamp,open,high,low,close,volume`; timestamps must be UTC ISO or UNIX seconds.
+`aggregate-crypto-daily` is a stricter optional local aggregation requiring 24 hourly observations;
+it is separate from the native Kraken daily download.
+
+## 4. Evaluate against the annotation reference and run the local model
+
+`annotations/study_sample.csv` is the locked 160-post sample balanced over eight quarters.
+At the user's request, GPT-6 Astra annotated it as `sheky(astra)` in
+`annotations/study_labels_sheky_astra.csv`: 162 rows, 160 posts, 48 dev and 112 test posts.
+The `.provenance.json` sidecar records model-generated origin; this is **not human ground truth**.
+All IDs, text, dates, split/stratum, score signs and multi-asset rows were validated independently.
+The sample itself is unchanged. See [annotation rules](docs/ANNOTATION.md).
 
 ```bash
 .venv/bin/musk-sentiment nlp data/processed/study/posts.json --model YOUR_INSTALLED_MODEL
-.venv/bin/musk-sentiment score-nlp annotations/study_sample.csv data/processed/nlp/sentiments.json --split dev --output results/nlp_dev.json
-.venv/bin/musk-sentiment score-nlp annotations/study_sample.csv data/processed/nlp/sentiments.json --split test --output results/nlp_test.json
+.venv/bin/musk-sentiment score-nlp annotations/study_labels_sheky_astra.csv data/processed/nlp/sentiments.json --split dev --reference-type model --output results/nlp_dev.json
+.venv/bin/musk-sentiment score-nlp annotations/study_labels_sheky_astra.csv data/processed/nlp/sentiments.json --split test --reference-type model --output results/nlp_test.json
 ```
+
+These scores measure agreement with Astra, not independently established human accuracy. Freeze
+model/prompt using dev only before examining test scores. Both models can share errors and historical
+training leakage; annotations remain provisional research references rather than observed truth.
 
 No model is downloaded automatically. Model digest, prompt version and parameters are recorded;
 cache keys invalidate when these or input text change. To compare already-installed models, use
