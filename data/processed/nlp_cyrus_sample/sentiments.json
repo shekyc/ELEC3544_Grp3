@@ -1,0 +1,2498 @@
+[
+  {
+    "cache_key": "7df9462d2fb0c3deaf3aef55268bb2fb939ee6e9dd30640b00de724e02a685fb",
+    "model": "llama3.2:latest@a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "output": {
+      "ambiguity": "false",
+      "assets": [],
+      "impact_horizon": "unknown",
+      "market_relevant": false,
+      "post_id": "1885081785505087488",
+      "schema_version": "1",
+      "topics": [
+        "musk_ecosystem"
+      ]
+    },
+    "parameters": {
+      "seed": 3544,
+      "temperature": 0
+    },
+    "prompt_version": "financial-assets-v3",
+    "provider": "ollama-local",
+    "schema_version": "1",
+    "synthetic": false
+  },
+  {
+    "cache_key": "df01d21d2617f8a388dbe5d7fcd5d7eaf04f500cb099fd26ef201f3acc1407bf",
+    "model": "llama3.2:latest@a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "output": {
+      "ambiguity": "false",
+      "assets": [],
+      "impact_horizon": "long_term",
+      "market_relevant": false,
+      "post_id": "1785406795814510848",
+      "schema_version": "1",
+      "topics": [
+        "Tesla Supercharger",
+        "Tesla"
+      ]
+    },
+    "parameters": {
+      "seed": 3544,
+      "temperature": 0
+    },
+    "prompt_version": "financial-assets-v3",
+    "provider": "ollama-local",
+    "schema_version": "1",
+    "synthetic": false
+  },
+  {
+    "cache_key": "84a720f6c08902f4fdc396edc3b22262e9e1595d9bfa1836e8763f36f76e82b2",
+    "model": "llama3.2:latest@a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "output": {
+      "ambiguity": "false",
+      "assets": [],
+      "impact_horizon": "unknown",
+      "market_relevant": false,
+      "post_id": "1806760601701724672",
+      "schema_version": "1",
+      "topics": [
+        "musk_ecosystem",
+        "politics"
+      ]
+    },
+    "parameters": {
+      "seed": 3544,
+      "temperature": 0
+    },
+    "prompt_version": "financial-assets-v3",
+    "provider": "ollama-local",
+    "schema_version": "1",
+    "synthetic": false
+  },
+  {
+    "cache_key": "536b8c94779a8d8b7624d2a39b2337fdea37595dcc23d04278d210fec8234176",
+    "model": "llama3.2:latest@a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "output": {
+      "ambiguity": "true",
+      "assets": [],
+      "impact_horizon": "unknown",
+      "market_relevant": false,
+      "post_id": "1891364834882498560",
+      "schema_version": "1",
+      "topics": [
+        "musk_ecosystem",
+        "politics"
+      ]
+    },
+    "parameters": {
+      "seed": 3544,
+      "temperature": 0
+    },
+    "prompt_version": "financial-assets-v3",
+    "provider": "ollama-local",
+    "schema_version": "1",
+    "synthetic": false
+  },
+  {
+    "cache_key": "646bbb00df6f01443fe97f4dc959c27980966b4ac3750083946acbdf365a5a83",
+    "model": "llama3.2:latest@a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "output": {
+      "ambiguity": "false",
+      "assets": [],
+      "impact_horizon": "unknown",
+      "market_relevant": false,
+      "post_id": "1700345943105638656",
+      "schema_version": "1",
+      "topics": [
+        "musk_ecosystem",
+        "SpaceX Starlink"
+      ]
+    },
+    "parameters": {
+      "seed": 3544,
+      "temperature": 0
+    },
+    "prompt_version": "financial-assets-v3",
+    "provider": "ollama-local",
+    "schema_version": "1",
+    "synthetic": false
+  },
+  {
+    "cache_key": "5d3e54f9fb687b3c6a59db4a10e8673d22dfd2a2b5fccaab4fa0998882fc35e8",
+    "model": "llama3.2:latest@a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "output": {
+      "ambiguity": "false",
+      "assets": [],
+      "impact_horizon": "unknown",
+      "market_relevant": false,
+      "post_id": "1834354277118345472",
+      "schema_version": "1",
+      "topics": [
+        "musk_ecosystem",
+        "politics"
+      ]
+    },
+    "parameters": {
+      "seed": 3544,
+      "temperature": 0
+    },
+    "prompt_version": "financial-assets-v3",
+    "provider": "ollama-local",
+    "schema_version": "1",
+    "synthetic": false
+  },
+  {
+    "cache_key": "cff0861fea5b4476fc6e1f70f13d88fe2bf6b3bb17dd25b6b9de23747ee6a591",
+    "model": "llama3.2:latest@a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "output": {
+      "ambiguity": "false",
+      "assets": [],
+      "impact_horizon": "unknown",
+      "market_relevant": false,
+      "post_id": "1889230135741800960",
+      "schema_version": "1",
+      "topics": [
+        "musk_ecosystem"
+      ]
+    },
+    "parameters": {
+      "seed": 3544,
+      "temperature": 0
+    },
+    "prompt_version": "financial-assets-v3",
+    "provider": "ollama-local",
+    "schema_version": "1",
+    "synthetic": false
+  },
+  {
+    "cache_key": "1e2c901464870532c21de2008f899e5c498af01310ab60f7dbeb695096b24206",
+    "model": "llama3.2:latest@a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "output": {
+      "ambiguity": "false",
+      "assets": [],
+      "impact_horizon": "unknown",
+      "market_relevant": false,
+      "post_id": "1882303826214162688",
+      "schema_version": "1",
+      "topics": [
+        "musk_ecosystem"
+      ]
+    },
+    "parameters": {
+      "seed": 3544,
+      "temperature": 0
+    },
+    "prompt_version": "financial-assets-v3",
+    "provider": "ollama-local",
+    "schema_version": "1",
+    "synthetic": false
+  },
+  {
+    "cache_key": "06afd01494fbe7918d68991d4852bd3c23166beaacf9b9f1375b0e486d631c1f",
+    "model": "llama3.2:latest@a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "output": {
+      "ambiguity": "false",
+      "assets": [],
+      "impact_horizon": "unknown",
+      "market_relevant": false,
+      "post_id": "1726177644671091200",
+      "schema_version": "1",
+      "topics": [
+        "musk_ecosystem",
+        "xAI"
+      ]
+    },
+    "parameters": {
+      "seed": 3544,
+      "temperature": 0
+    },
+    "prompt_version": "financial-assets-v3",
+    "provider": "ollama-local",
+    "schema_version": "1",
+    "synthetic": false
+  },
+  {
+    "cache_key": "917512e1bff717d60c9fd114aced00a1bbe51e98c7be2abb6f8db423c7055b7c",
+    "model": "llama3.2:latest@a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "output": {
+      "ambiguity": "false",
+      "assets": [],
+      "impact_horizon": "unknown",
+      "market_relevant": false,
+      "post_id": "1861436343907426560",
+      "schema_version": "1",
+      "topics": [
+        "musk_ecosystem"
+      ]
+    },
+    "parameters": {
+      "seed": 3544,
+      "temperature": 0
+    },
+    "prompt_version": "financial-assets-v3",
+    "provider": "ollama-local",
+    "schema_version": "1",
+    "synthetic": false
+  },
+  {
+    "cache_key": "b1acf4125b0022281744b8e372abc8b31d29c259f7dd7f2c86eced87ee19b571",
+    "model": "llama3.2:latest@a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "output": {
+      "ambiguity": "false",
+      "assets": [],
+      "impact_horizon": "unknown",
+      "market_relevant": false,
+      "post_id": "1760504129485705472",
+      "schema_version": "1",
+      "topics": [
+        "musk_ecosystem",
+        "xAI"
+      ]
+    },
+    "parameters": {
+      "seed": 3544,
+      "temperature": 0
+    },
+    "prompt_version": "financial-assets-v3",
+    "provider": "ollama-local",
+    "schema_version": "1",
+    "synthetic": false
+  },
+  {
+    "cache_key": "177e9e2649b52fb6ba861b976a4097f931fde371f4fa17b74123dc6514c22ad3",
+    "model": "llama3.2:latest@a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "output": {
+      "ambiguity": "true",
+      "assets": [],
+      "impact_horizon": "unknown",
+      "market_relevant": false,
+      "post_id": "1774828819485978880",
+      "schema_version": "1",
+      "topics": [
+        "musk_ecosystem",
+        "spaceX"
+      ]
+    },
+    "parameters": {
+      "seed": 3544,
+      "temperature": 0
+    },
+    "prompt_version": "financial-assets-v3",
+    "provider": "ollama-local",
+    "schema_version": "1",
+    "synthetic": false
+  },
+  {
+    "cache_key": "31084d018e726b0eea128e2e3d6cd5b40462aed2781ac2ff2c7458cb1171097f",
+    "model": "llama3.2:latest@a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "output": {
+      "ambiguity": "true",
+      "assets": [],
+      "impact_horizon": "unknown",
+      "market_relevant": false,
+      "post_id": "1849639215199650304",
+      "schema_version": "1",
+      "topics": [
+        "musk_ecosystem",
+        "politics"
+      ]
+    },
+    "parameters": {
+      "seed": 3544,
+      "temperature": 0
+    },
+    "prompt_version": "financial-assets-v3",
+    "provider": "ollama-local",
+    "schema_version": "1",
+    "synthetic": false
+  },
+  {
+    "cache_key": "9efc7fd8b4d89109c28a702928132384ae1bb0f485fc7c796cfdf17abb3eb825",
+    "model": "llama3.2:latest@a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "output": {
+      "ambiguity": "false",
+      "assets": [],
+      "impact_horizon": "unknown",
+      "market_relevant": false,
+      "post_id": "1736812755196227840",
+      "schema_version": "1",
+      "topics": [
+        "musk_ecosystem"
+      ]
+    },
+    "parameters": {
+      "seed": 3544,
+      "temperature": 0
+    },
+    "prompt_version": "financial-assets-v3",
+    "provider": "ollama-local",
+    "schema_version": "1",
+    "synthetic": false
+  },
+  {
+    "cache_key": "9102e5ca90357f3215cbe38f91c249e2f36362277ae0957a9bb13ea8305b5fea",
+    "model": "llama3.2:latest@a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "output": {
+      "ambiguity": "false",
+      "assets": [],
+      "impact_horizon": "unknown",
+      "market_relevant": false,
+      "post_id": "1871107342932345088",
+      "schema_version": "1",
+      "topics": [
+        "musk_ecosystem"
+      ]
+    },
+    "parameters": {
+      "seed": 3544,
+      "temperature": 0
+    },
+    "prompt_version": "financial-assets-v3",
+    "provider": "ollama-local",
+    "schema_version": "1",
+    "synthetic": false
+  },
+  {
+    "cache_key": "8bc2ec8daa6d02ac9aa8259edfd437dc91591c1ecacd16327399d959ee83bcdb",
+    "model": "llama3.2:latest@a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "output": {
+      "ambiguity": "false",
+      "assets": [],
+      "impact_horizon": "unknown",
+      "market_relevant": false,
+      "post_id": "1879029405588304128",
+      "schema_version": "1",
+      "topics": [
+        "musk_ecosystem"
+      ]
+    },
+    "parameters": {
+      "seed": 3544,
+      "temperature": 0
+    },
+    "prompt_version": "financial-assets-v3",
+    "provider": "ollama-local",
+    "schema_version": "1",
+    "synthetic": false
+  },
+  {
+    "cache_key": "df93ba413e5459a585f2a5d0bdf05f2e95803c1949cb96ddfaa6fb86c0004ee1",
+    "model": "llama3.2:latest@a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "output": {
+      "ambiguity": "true",
+      "assets": [],
+      "impact_horizon": "unknown",
+      "market_relevant": false,
+      "post_id": "1858633965965316608",
+      "schema_version": "1",
+      "topics": [
+        "musk_ecosystem",
+        "spaceX"
+      ]
+    },
+    "parameters": {
+      "seed": 3544,
+      "temperature": 0
+    },
+    "prompt_version": "financial-assets-v3",
+    "provider": "ollama-local",
+    "schema_version": "1",
+    "synthetic": false
+  },
+  {
+    "cache_key": "3ab71e2b5b81263c5cdee59e777f6823f6e0cec23069475b7e6972cfe52c036b",
+    "model": "llama3.2:latest@a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "output": {
+      "ambiguity": "false",
+      "assets": [],
+      "impact_horizon": "unknown",
+      "market_relevant": false,
+      "post_id": "1837592713266593792",
+      "schema_version": "1",
+      "topics": [
+        "musk_ecosystem"
+      ]
+    },
+    "parameters": {
+      "seed": 3544,
+      "temperature": 0
+    },
+    "prompt_version": "financial-assets-v3",
+    "provider": "ollama-local",
+    "schema_version": "1",
+    "synthetic": false
+  },
+  {
+    "cache_key": "30b095d166057b0331399858c87ec6eff3afe3197485f016c5ed9e4d868bdf18",
+    "model": "llama3.2:latest@a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "output": {
+      "ambiguity": "false",
+      "assets": [],
+      "impact_horizon": "unknown",
+      "market_relevant": false,
+      "post_id": "1894561938215964672",
+      "schema_version": "1",
+      "topics": [
+        "musk_ecosystem",
+        "tax_dollars"
+      ]
+    },
+    "parameters": {
+      "seed": 3544,
+      "temperature": 0
+    },
+    "prompt_version": "financial-assets-v3",
+    "provider": "ollama-local",
+    "schema_version": "1",
+    "synthetic": false
+  },
+  {
+    "cache_key": "a9c6fc092ace46bb7bbed09a8e8f658e75264a48372c949252525aaa56c22f04",
+    "model": "llama3.2:latest@a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "output": {
+      "ambiguity": "false",
+      "assets": [],
+      "impact_horizon": "unknown",
+      "market_relevant": false,
+      "post_id": "1876826794076090624",
+      "schema_version": "1",
+      "topics": [
+        "musk_ecosystem"
+      ]
+    },
+    "parameters": {
+      "seed": 3544,
+      "temperature": 0
+    },
+    "prompt_version": "financial-assets-v3",
+    "provider": "ollama-local",
+    "schema_version": "1",
+    "synthetic": false
+  },
+  {
+    "cache_key": "086ed3160797f16d91c46e2789831598f1f4332bec4e5a34c57adab30f776103",
+    "model": "llama3.2:latest@a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "output": {
+      "ambiguity": "false",
+      "assets": [],
+      "impact_horizon": "unknown",
+      "market_relevant": false,
+      "post_id": "1825557632939339776",
+      "schema_version": "1",
+      "topics": [
+        "musk_ecosystem",
+        "starlink"
+      ]
+    },
+    "parameters": {
+      "seed": 3544,
+      "temperature": 0
+    },
+    "prompt_version": "financial-assets-v3",
+    "provider": "ollama-local",
+    "schema_version": "1",
+    "synthetic": false
+  },
+  {
+    "cache_key": "50ed431e42fbe9e90d8ae734f946f1605e0f5d282a7cefe5a11d8a1331cee225",
+    "model": "llama3.2:latest@a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "output": {
+      "ambiguity": "false",
+      "assets": [],
+      "impact_horizon": "unknown",
+      "market_relevant": false,
+      "post_id": "1764032892663906304",
+      "schema_version": "1",
+      "topics": [
+        "musk_ecosystem",
+        "SpaceX"
+      ]
+    },
+    "parameters": {
+      "seed": 3544,
+      "temperature": 0
+    },
+    "prompt_version": "financial-assets-v3",
+    "provider": "ollama-local",
+    "schema_version": "1",
+    "synthetic": false
+  },
+  {
+    "cache_key": "4482b5acf2e2aedb7d525770d6e0ad4b5280d8f6d474b9303056d3719ffbdfb7",
+    "model": "llama3.2:latest@a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "output": {
+      "ambiguity": "false",
+      "assets": [],
+      "impact_horizon": "unknown",
+      "market_relevant": false,
+      "post_id": "1852810094674939904",
+      "schema_version": "1",
+      "topics": [
+        "musk_ecosystem",
+        "politics"
+      ]
+    },
+    "parameters": {
+      "seed": 3544,
+      "temperature": 0
+    },
+    "prompt_version": "financial-assets-v3",
+    "provider": "ollama-local",
+    "schema_version": "1",
+    "synthetic": false
+  },
+  {
+    "cache_key": "e665c061a6037b83cd507788567e348788adf7d3dd4c4dff84328cb26b5c87ac",
+    "model": "llama3.2:latest@a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "output": {
+      "ambiguity": "false",
+      "assets": [],
+      "impact_horizon": "unknown",
+      "market_relevant": false,
+      "post_id": "1777659389568045312",
+      "schema_version": "1",
+      "topics": [
+        "musk_ecosystem",
+        "starlink"
+      ]
+    },
+    "parameters": {
+      "seed": 3544,
+      "temperature": 0
+    },
+    "prompt_version": "financial-assets-v3",
+    "provider": "ollama-local",
+    "schema_version": "1",
+    "synthetic": false
+  },
+  {
+    "cache_key": "0a4cba9769d6a843edede37fb55d57542ccfc6a040d068d7698f9d25d2951f56",
+    "model": "llama3.2:latest@a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "output": {
+      "ambiguity": "true",
+      "assets": [],
+      "impact_horizon": "unknown",
+      "market_relevant": false,
+      "post_id": "1679946570593374208",
+      "schema_version": "1",
+      "topics": [
+        "musk_ecosystem",
+        "xAI"
+      ]
+    },
+    "parameters": {
+      "seed": 3544,
+      "temperature": 0
+    },
+    "prompt_version": "financial-assets-v3",
+    "provider": "ollama-local",
+    "schema_version": "1",
+    "synthetic": false
+  },
+  {
+    "cache_key": "f7295d696933795efd323414b840fe5f94c9b46565199ba9019ab676f378674f",
+    "model": "llama3.2:latest@a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "output": {
+      "ambiguity": "false",
+      "assets": [],
+      "impact_horizon": "unknown",
+      "market_relevant": false,
+      "post_id": "1885158108634198272",
+      "schema_version": "1",
+      "topics": [
+        "musk_ecosystem",
+        "starlink"
+      ]
+    },
+    "parameters": {
+      "seed": 3544,
+      "temperature": 0
+    },
+    "prompt_version": "financial-assets-v3",
+    "provider": "ollama-local",
+    "schema_version": "1",
+    "synthetic": false
+  },
+  {
+    "cache_key": "d7d75e6a29066f0809f0c2772d06fb7e93ec5884ef51630804c9fc9db87d8d2f",
+    "model": "llama3.2:latest@a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "output": {
+      "ambiguity": "false",
+      "assets": [],
+      "impact_horizon": "unknown",
+      "market_relevant": false,
+      "post_id": "1838560385303032064",
+      "schema_version": "1",
+      "topics": [
+        "musk_ecosystem",
+        "starlink"
+      ]
+    },
+    "parameters": {
+      "seed": 3544,
+      "temperature": 0
+    },
+    "prompt_version": "financial-assets-v3",
+    "provider": "ollama-local",
+    "schema_version": "1",
+    "synthetic": false
+  },
+  {
+    "cache_key": "d6293e1fa8c91b9f2ae717f1e6530b79cca1a804e6f846ce948173286d508809",
+    "model": "llama3.2:latest@a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "output": {
+      "ambiguity": "false",
+      "assets": [],
+      "impact_horizon": "unknown",
+      "market_relevant": false,
+      "post_id": "1863679683201487360",
+      "schema_version": "1",
+      "topics": [
+        "musk_ecosystem"
+      ]
+    },
+    "parameters": {
+      "seed": 3544,
+      "temperature": 0
+    },
+    "prompt_version": "financial-assets-v3",
+    "provider": "ollama-local",
+    "schema_version": "1",
+    "synthetic": false
+  },
+  {
+    "cache_key": "988b2f648a5200ee25c2b4108b98d0f924d03b9b68dec3723ec8afc2a42db427",
+    "model": "llama3.2:latest@a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "output": {
+      "ambiguity": "false",
+      "assets": [],
+      "impact_horizon": "unknown",
+      "market_relevant": false,
+      "post_id": "1847776676220194816",
+      "schema_version": "1",
+      "topics": [
+        "musk_ecosystem",
+        "mars"
+      ]
+    },
+    "parameters": {
+      "seed": 3544,
+      "temperature": 0
+    },
+    "prompt_version": "financial-assets-v3",
+    "provider": "ollama-local",
+    "schema_version": "1",
+    "synthetic": false
+  },
+  {
+    "cache_key": "3556be6a4cd19e5bee2ebe1b192ed6c9658a0095767af94a556ab2b368fe0c66",
+    "model": "llama3.2:latest@a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "output": {
+      "ambiguity": "false",
+      "assets": [],
+      "impact_horizon": "unknown",
+      "market_relevant": false,
+      "post_id": "1832448037639352320",
+      "schema_version": "1",
+      "topics": [
+        "musk_ecosystem",
+        "starlink"
+      ]
+    },
+    "parameters": {
+      "seed": 3544,
+      "temperature": 0
+    },
+    "prompt_version": "financial-assets-v3",
+    "provider": "ollama-local",
+    "schema_version": "1",
+    "synthetic": false
+  },
+  {
+    "cache_key": "f8799231ca90af7044160447103f1201811a7188e20782e5964a698c9e8a69bf",
+    "model": "llama3.2:latest@a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "output": {
+      "ambiguity": "true",
+      "assets": [],
+      "impact_horizon": "unknown",
+      "market_relevant": false,
+      "post_id": "1892003547262111744",
+      "schema_version": "1",
+      "topics": [
+        "musk_ecosystem",
+        "SpaceX"
+      ]
+    },
+    "parameters": {
+      "seed": 3544,
+      "temperature": 0
+    },
+    "prompt_version": "financial-assets-v3",
+    "provider": "ollama-local",
+    "schema_version": "1",
+    "synthetic": false
+  },
+  {
+    "cache_key": "aa5abd20b360c8f64493fb729f9c1d91ed149c6d72b40f337e2dd65d86dd4ae3",
+    "model": "llama3.2:latest@a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "output": {
+      "ambiguity": "false",
+      "assets": [],
+      "impact_horizon": "unknown",
+      "market_relevant": false,
+      "post_id": "1743364627138814208",
+      "schema_version": "1",
+      "topics": [
+        "musk_ecosystem",
+        "starlink"
+      ]
+    },
+    "parameters": {
+      "seed": 3544,
+      "temperature": 0
+    },
+    "prompt_version": "financial-assets-v3",
+    "provider": "ollama-local",
+    "schema_version": "1",
+    "synthetic": false
+  },
+  {
+    "cache_key": "8c2d76ec37a119e6e71929e76cf54c75b30793cf6e16f50a5f500048abeb7c65",
+    "model": "llama3.2:latest@a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "output": {
+      "ambiguity": "false",
+      "assets": [],
+      "impact_horizon": "unknown",
+      "market_relevant": false,
+      "post_id": "1794981927125987584",
+      "schema_version": "1",
+      "topics": [
+        "musk_ecosystem",
+        "xAI"
+      ]
+    },
+    "parameters": {
+      "seed": 3544,
+      "temperature": 0
+    },
+    "prompt_version": "financial-assets-v3",
+    "provider": "ollama-local",
+    "schema_version": "1",
+    "synthetic": false
+  },
+  {
+    "cache_key": "b32a178a1cb38e89ee266676ebee45f62f5560c6587ea964b36982d289ef87a6",
+    "model": "llama3.2:latest@a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "output": {
+      "ambiguity": "false",
+      "assets": [],
+      "impact_horizon": "unknown",
+      "market_relevant": false,
+      "post_id": "1810697965268504576",
+      "schema_version": "1",
+      "topics": [
+        "musk_ecosystem",
+        "starlink"
+      ]
+    },
+    "parameters": {
+      "seed": 3544,
+      "temperature": 0
+    },
+    "prompt_version": "financial-assets-v3",
+    "provider": "ollama-local",
+    "schema_version": "1",
+    "synthetic": false
+  },
+  {
+    "cache_key": "76c62fa0e4de63de80aece14be8aba7a237ffa746f5dedaa35463fd285d8fade",
+    "model": "llama3.2:latest@a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "output": {
+      "ambiguity": "false",
+      "assets": [],
+      "impact_horizon": "unknown",
+      "market_relevant": false,
+      "post_id": "1639200036578885632",
+      "schema_version": "1",
+      "topics": [
+        "musk_ecosystem"
+      ]
+    },
+    "parameters": {
+      "seed": 3544,
+      "temperature": 0
+    },
+    "prompt_version": "financial-assets-v3",
+    "provider": "ollama-local",
+    "schema_version": "1",
+    "synthetic": false
+  },
+  {
+    "cache_key": "31c0e9cf849604260099fe1c8ad08bd35e9199b47cfe468b412da039cf4e50ec",
+    "model": "llama3.2:latest@a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "output": {
+      "ambiguity": "false",
+      "assets": [
+        {
+          "confidence": 1.0,
+          "schema_version": "1",
+          "sentiment": "bullish",
+          "sentiment_score": 1.0,
+          "ticker": "TSLA"
+        }
+      ],
+      "impact_horizon": "unknown",
+      "market_relevant": true,
+      "post_id": "1835124037934366976",
+      "schema_version": "1",
+      "topics": [
+        "Tesla cell team"
+      ]
+    },
+    "parameters": {
+      "seed": 3544,
+      "temperature": 0
+    },
+    "prompt_version": "financial-assets-v3",
+    "provider": "ollama-local",
+    "schema_version": "1",
+    "synthetic": false
+  },
+  {
+    "cache_key": "164ec61c7bd433715ae47bc7fabfea1a1ab4c9e3a39243d7371d335c05f34058",
+    "model": "llama3.2:latest@a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "output": {
+      "ambiguity": "false",
+      "assets": [],
+      "impact_horizon": "unknown",
+      "market_relevant": false,
+      "post_id": "1874151709888720896",
+      "schema_version": "1",
+      "topics": [
+        "musk_ecosystem",
+        "SpaceX"
+      ]
+    },
+    "parameters": {
+      "seed": 3544,
+      "temperature": 0
+    },
+    "prompt_version": "financial-assets-v3",
+    "provider": "ollama-local",
+    "schema_version": "1",
+    "synthetic": false
+  },
+  {
+    "cache_key": "d95e54586718fbeb3841ea317a12153dd92520e946af939c8539f728c9c9ade9",
+    "model": "llama3.2:latest@a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "output": {
+      "ambiguity": "false",
+      "assets": [
+        {
+          "confidence": 1.0,
+          "schema_version": "1",
+          "sentiment": "bullish",
+          "sentiment_score": 1.0,
+          "ticker": "TSLA"
+        }
+      ],
+      "impact_horizon": "intraday",
+      "market_relevant": true,
+      "post_id": "1811768409455026432",
+      "schema_version": "1",
+      "topics": [
+        "Tesla Model 3",
+        "Tesla",
+        "Tesla Supercharger"
+      ]
+    },
+    "parameters": {
+      "seed": 3544,
+      "temperature": 0
+    },
+    "prompt_version": "financial-assets-v3",
+    "provider": "ollama-local",
+    "schema_version": "1",
+    "synthetic": false
+  },
+  {
+    "cache_key": "686a8bc03595fa7dbdcb5848a05c55aa840f25b84708254ee35cbc74809fb626",
+    "model": "llama3.2:latest@a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "output": {
+      "ambiguity": "false",
+      "assets": [],
+      "impact_horizon": "unknown",
+      "market_relevant": false,
+      "post_id": "1853259040098308352",
+      "schema_version": "1",
+      "topics": [
+        "musk_ecosystem",
+        "politics"
+      ]
+    },
+    "parameters": {
+      "seed": 3544,
+      "temperature": 0
+    },
+    "prompt_version": "financial-assets-v3",
+    "provider": "ollama-local",
+    "schema_version": "1",
+    "synthetic": false
+  },
+  {
+    "cache_key": "58a5ffdfb2903e85a5a124fdcd0f45bc835627e9c6267dc0315507ffe4b4bf96",
+    "model": "llama3.2:latest@a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "output": {
+      "ambiguity": "true",
+      "assets": [],
+      "impact_horizon": "unknown",
+      "market_relevant": false,
+      "post_id": "1885966827227861248",
+      "schema_version": "1",
+      "topics": [
+        "musk_ecosystem",
+        "dogecoin"
+      ]
+    },
+    "parameters": {
+      "seed": 3544,
+      "temperature": 0
+    },
+    "prompt_version": "financial-assets-v3",
+    "provider": "ollama-local",
+    "schema_version": "1",
+    "synthetic": false
+  },
+  {
+    "cache_key": "80c77d387f1bded60b74178aec68371a071db2d2286f813bbbd0158ad7878b9a",
+    "model": "llama3.2:latest@a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "output": {
+      "ambiguity": "false",
+      "assets": [],
+      "impact_horizon": "unknown",
+      "market_relevant": false,
+      "post_id": "1695012164783006208",
+      "schema_version": "1",
+      "topics": [
+        "musk_ecosystem"
+      ]
+    },
+    "parameters": {
+      "seed": 3544,
+      "temperature": 0
+    },
+    "prompt_version": "financial-assets-v3",
+    "provider": "ollama-local",
+    "schema_version": "1",
+    "synthetic": false
+  },
+  {
+    "cache_key": "9d4ed4b8a0dd40bf315bcb46d25b08b07d83a34cf6d47af951a0dd1e8cc2f947",
+    "model": "llama3.2:latest@a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "output": {
+      "ambiguity": "false",
+      "assets": [],
+      "impact_horizon": "unknown",
+      "market_relevant": false,
+      "post_id": "1880063488489668864",
+      "schema_version": "1",
+      "topics": [
+        "musk_ecosystem"
+      ]
+    },
+    "parameters": {
+      "seed": 3544,
+      "temperature": 0
+    },
+    "prompt_version": "financial-assets-v3",
+    "provider": "ollama-local",
+    "schema_version": "1",
+    "synthetic": false
+  },
+  {
+    "cache_key": "8c256891de4545232053a8881b01a9a4c33f733310b77db54ff799620de2fc2e",
+    "model": "llama3.2:latest@a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "output": {
+      "ambiguity": "false",
+      "assets": [
+        {
+          "confidence": 1.0,
+          "schema_version": "1",
+          "sentiment": "bullish",
+          "sentiment_score": 1.0,
+          "ticker": "TSLA"
+        }
+      ],
+      "impact_horizon": "intraday",
+      "market_relevant": true,
+      "post_id": "1801345127941816576",
+      "schema_version": "1",
+      "topics": [
+        "Tesla annual meeting"
+      ]
+    },
+    "parameters": {
+      "seed": 3544,
+      "temperature": 0
+    },
+    "prompt_version": "financial-assets-v3",
+    "provider": "ollama-local",
+    "schema_version": "1",
+    "synthetic": false
+  },
+  {
+    "cache_key": "023d727eb53493a8b0fb2d0e7c3bf01e70b24ebf3dad9bf96c3eb3949a73df90",
+    "model": "llama3.2:latest@a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "output": {
+      "ambiguity": "false",
+      "assets": [],
+      "impact_horizon": "unknown",
+      "market_relevant": false,
+      "post_id": "1817565274377203712",
+      "schema_version": "1",
+      "topics": [
+        "musk_ecosystem",
+        "SpaceX"
+      ]
+    },
+    "parameters": {
+      "seed": 3544,
+      "temperature": 0
+    },
+    "prompt_version": "financial-assets-v3",
+    "provider": "ollama-local",
+    "schema_version": "1",
+    "synthetic": false
+  },
+  {
+    "cache_key": "971754486046405654ffadda9728d0cfcbdcd424aaf9f45a03ee4946abf26266",
+    "model": "llama3.2:latest@a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "output": {
+      "ambiguity": "false",
+      "assets": [],
+      "impact_horizon": "unknown",
+      "market_relevant": false,
+      "post_id": "1873930478795055360",
+      "schema_version": "1",
+      "topics": [
+        "musk_ecosystem",
+        "SpaceX"
+      ]
+    },
+    "parameters": {
+      "seed": 3544,
+      "temperature": 0
+    },
+    "prompt_version": "financial-assets-v3",
+    "provider": "ollama-local",
+    "schema_version": "1",
+    "synthetic": false
+  },
+  {
+    "cache_key": "e77435e7f1349fa3c992f5a88d9ca03a43ee35ad8854061996bcafcc815914fd",
+    "model": "llama3.2:latest@a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "output": {
+      "ambiguity": "false",
+      "assets": [],
+      "impact_horizon": "unknown",
+      "market_relevant": false,
+      "post_id": "1746550474558386432",
+      "schema_version": "1",
+      "topics": [
+        "musk_ecosystem",
+        "starlink"
+      ]
+    },
+    "parameters": {
+      "seed": 3544,
+      "temperature": 0
+    },
+    "prompt_version": "financial-assets-v3",
+    "provider": "ollama-local",
+    "schema_version": "1",
+    "synthetic": false
+  },
+  {
+    "cache_key": "5eefa609344e4cab5cb9d987166be3e0ee1484ad637eb8ffe823103a89ae656a",
+    "model": "llama3.2:latest@a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "output": {
+      "ambiguity": "false",
+      "assets": [
+        {
+          "confidence": 1.0,
+          "schema_version": "1",
+          "sentiment": "bullish",
+          "sentiment_score": 1.0,
+          "ticker": "TSLA"
+        }
+      ],
+      "impact_horizon": "intraday",
+      "market_relevant": true,
+      "post_id": "1792075636217090304",
+      "schema_version": "1",
+      "topics": [
+        "Tesla"
+      ]
+    },
+    "parameters": {
+      "seed": 3544,
+      "temperature": 0
+    },
+    "prompt_version": "financial-assets-v3",
+    "provider": "ollama-local",
+    "schema_version": "1",
+    "synthetic": false
+  },
+  {
+    "cache_key": "6ca85a91650007b73352e320aff48796a7f1b4a3a2585b0bc057e9e05a5e7402",
+    "model": "llama3.2:latest@a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "output": {
+      "ambiguity": "false",
+      "assets": [],
+      "impact_horizon": "unknown",
+      "market_relevant": false,
+      "post_id": "1861797386693353728",
+      "schema_version": "1",
+      "topics": [
+        "musk_ecosystem",
+        "politics"
+      ]
+    },
+    "parameters": {
+      "seed": 3544,
+      "temperature": 0
+    },
+    "prompt_version": "financial-assets-v3",
+    "provider": "ollama-local",
+    "schema_version": "1",
+    "synthetic": false
+  },
+  {
+    "cache_key": "cb46f0db6a5515d5bb5b067bcaeb859b260fd52a8f86b7c66e731603dca2cff2",
+    "model": "llama3.2:latest@a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "output": {
+      "ambiguity": "false",
+      "assets": [
+        {
+          "confidence": 0.9,
+          "schema_version": "1",
+          "sentiment": "bullish",
+          "sentiment_score": 0.9,
+          "ticker": "TSLA"
+        }
+      ],
+      "impact_horizon": "intraday",
+      "market_relevant": true,
+      "post_id": "1819797937414611200",
+      "schema_version": "1",
+      "topics": [
+        "Tesla Supercharger",
+        "Tesla",
+        "FSD",
+        "Optimus"
+      ]
+    },
+    "parameters": {
+      "seed": 3544,
+      "temperature": 0
+    },
+    "prompt_version": "financial-assets-v3",
+    "provider": "ollama-local",
+    "schema_version": "1",
+    "synthetic": false
+  },
+  {
+    "cache_key": "f9ceeed4b26ef5ae987d2a09f8f472bfbc93e424b4b2dc067d44c745114dd432",
+    "model": "llama3.2:latest@a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "output": {
+      "ambiguity": "false",
+      "assets": [],
+      "impact_horizon": "unknown",
+      "market_relevant": false,
+      "post_id": "1902026248546578432",
+      "schema_version": "1",
+      "topics": [
+        "musk_ecosystem",
+        "SpaceX"
+      ]
+    },
+    "parameters": {
+      "seed": 3544,
+      "temperature": 0
+    },
+    "prompt_version": "financial-assets-v3",
+    "provider": "ollama-local",
+    "schema_version": "1",
+    "synthetic": false
+  },
+  {
+    "cache_key": "1150df9f5398802889822b6d9112c9a5a7e0b3f6a7b4f4149e3e6c970e63fb69",
+    "model": "llama3.2:latest@a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "output": {
+      "ambiguity": "false",
+      "assets": [],
+      "impact_horizon": "unknown",
+      "market_relevant": false,
+      "post_id": "1861115977871827456",
+      "schema_version": "1",
+      "topics": [
+        "musk_ecosystem"
+      ]
+    },
+    "parameters": {
+      "seed": 3544,
+      "temperature": 0
+    },
+    "prompt_version": "financial-assets-v3",
+    "provider": "ollama-local",
+    "schema_version": "1",
+    "synthetic": false
+  },
+  {
+    "cache_key": "f88fd88017e44a9e1184ca790b8e85f41ee23fe4d6896a0d6fe835affb06373e",
+    "model": "llama3.2:latest@a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "output": {
+      "ambiguity": "true",
+      "assets": [],
+      "impact_horizon": "unknown",
+      "market_relevant": false,
+      "post_id": "1817224599467147264",
+      "schema_version": "1",
+      "topics": [
+        "musk_ecosystem"
+      ]
+    },
+    "parameters": {
+      "seed": 3544,
+      "temperature": 0
+    },
+    "prompt_version": "financial-assets-v3",
+    "provider": "ollama-local",
+    "schema_version": "1",
+    "synthetic": false
+  },
+  {
+    "cache_key": "ede1169e9e0182cb2f0fb28e036142b7763dfc9e4a246972af1f92e602d43707",
+    "model": "llama3.2:latest@a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "output": {
+      "ambiguity": "false",
+      "assets": [],
+      "impact_horizon": "unknown",
+      "market_relevant": false,
+      "post_id": "1838615674161147904",
+      "schema_version": "1",
+      "topics": [
+        "musk_ecosystem",
+        "starlink"
+      ]
+    },
+    "parameters": {
+      "seed": 3544,
+      "temperature": 0
+    },
+    "prompt_version": "financial-assets-v3",
+    "provider": "ollama-local",
+    "schema_version": "1",
+    "synthetic": false
+  },
+  {
+    "cache_key": "aaf4b49d51c52a56d5d3f2b61d662918d748005e4317f52d7c94746044921884",
+    "model": "llama3.2:latest@a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "output": {
+      "ambiguity": "false",
+      "assets": [],
+      "impact_horizon": "unknown",
+      "market_relevant": false,
+      "post_id": "1831109381611733504",
+      "schema_version": "1",
+      "topics": [
+        "musk_ecosystem"
+      ]
+    },
+    "parameters": {
+      "seed": 3544,
+      "temperature": 0
+    },
+    "prompt_version": "financial-assets-v3",
+    "provider": "ollama-local",
+    "schema_version": "1",
+    "synthetic": false
+  },
+  {
+    "cache_key": "4bdd7a0fe2641853ccca7e1323272383ddac83c5aca828c1bd5a090823dd07cc",
+    "model": "llama3.2:latest@a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "output": {
+      "ambiguity": "false",
+      "assets": [
+        {
+          "confidence": 1.0,
+          "schema_version": "1",
+          "sentiment": "bullish",
+          "sentiment_score": 1.0,
+          "ticker": "TSLA"
+        }
+      ],
+      "impact_horizon": "intraday",
+      "market_relevant": true,
+      "post_id": "1625970749755502592",
+      "schema_version": "1",
+      "topics": [
+        "Tesla Supercharger"
+      ]
+    },
+    "parameters": {
+      "seed": 3544,
+      "temperature": 0
+    },
+    "prompt_version": "financial-assets-v3",
+    "provider": "ollama-local",
+    "schema_version": "1",
+    "synthetic": false
+  },
+  {
+    "cache_key": "19b09e0b51051d481c2dbf42ce77eec3839090994e8095e67fe9ff70f9f57ecf",
+    "model": "llama3.2:latest@a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "output": {
+      "ambiguity": "false",
+      "assets": [],
+      "impact_horizon": "unknown",
+      "market_relevant": false,
+      "post_id": "1857418907549610240",
+      "schema_version": "1",
+      "topics": [
+        "musk_ecosystem"
+      ]
+    },
+    "parameters": {
+      "seed": 3544,
+      "temperature": 0
+    },
+    "prompt_version": "financial-assets-v3",
+    "provider": "ollama-local",
+    "schema_version": "1",
+    "synthetic": false
+  },
+  {
+    "cache_key": "f01f64c01ad42e6a9db1bc4611d360a53fbae1e86a55ee3da6f974d2eebc6f37",
+    "model": "llama3.2:latest@a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "output": {
+      "ambiguity": "true",
+      "assets": [],
+      "impact_horizon": "unknown",
+      "market_relevant": false,
+      "post_id": "1887700190775153152",
+      "schema_version": "1",
+      "topics": [
+        "musk_ecosystem",
+        "dogecoin"
+      ]
+    },
+    "parameters": {
+      "seed": 3544,
+      "temperature": 0
+    },
+    "prompt_version": "financial-assets-v3",
+    "provider": "ollama-local",
+    "schema_version": "1",
+    "synthetic": false
+  },
+  {
+    "cache_key": "d462d13fc2ef90429991753981c74e637ecaabd1c5ac9d09daf25bd17bc5fe3e",
+    "model": "llama3.2:latest@a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "output": {
+      "ambiguity": "true",
+      "assets": [],
+      "impact_horizon": "unknown",
+      "market_relevant": false,
+      "post_id": "1861801046949191680",
+      "schema_version": "1",
+      "topics": [
+        "musk_ecosystem",
+        "xAI"
+      ]
+    },
+    "parameters": {
+      "seed": 3544,
+      "temperature": 0
+    },
+    "prompt_version": "financial-assets-v3",
+    "provider": "ollama-local",
+    "schema_version": "1",
+    "synthetic": false
+  },
+  {
+    "cache_key": "1f3a75f2707447e6cb161c8f157c19923f28441f7bb939bf164a538dcb9b1c84",
+    "model": "llama3.2:latest@a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "output": {
+      "ambiguity": "false",
+      "assets": [],
+      "impact_horizon": "unknown",
+      "market_relevant": false,
+      "post_id": "1852859560752550144",
+      "schema_version": "1",
+      "topics": [
+        "musk_ecosystem"
+      ]
+    },
+    "parameters": {
+      "seed": 3544,
+      "temperature": 0
+    },
+    "prompt_version": "financial-assets-v3",
+    "provider": "ollama-local",
+    "schema_version": "1",
+    "synthetic": false
+  },
+  {
+    "cache_key": "d313ea9adf31e8547f0296a609c6c625825d6a3b2228d2f057d8b1114597265a",
+    "model": "llama3.2:latest@a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "output": {
+      "ambiguity": "false",
+      "assets": [],
+      "impact_horizon": "unknown",
+      "market_relevant": false,
+      "post_id": "1856949766644437248",
+      "schema_version": "1",
+      "topics": [
+        "musk_ecosystem",
+        "starlink"
+      ]
+    },
+    "parameters": {
+      "seed": 3544,
+      "temperature": 0
+    },
+    "prompt_version": "financial-assets-v3",
+    "provider": "ollama-local",
+    "schema_version": "1",
+    "synthetic": false
+  },
+  {
+    "cache_key": "a3e0b88d8d34d1b75708ec381ae3446f54e5349ececad3ccbd3f85bf98e813b9",
+    "model": "llama3.2:latest@a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "output": {
+      "ambiguity": "false",
+      "assets": [],
+      "impact_horizon": "unknown",
+      "market_relevant": false,
+      "post_id": "1820646651708735488",
+      "schema_version": "1",
+      "topics": [
+        "Cybertruck"
+      ]
+    },
+    "parameters": {
+      "seed": 3544,
+      "temperature": 0
+    },
+    "prompt_version": "financial-assets-v3",
+    "provider": "ollama-local",
+    "schema_version": "1",
+    "synthetic": false
+  },
+  {
+    "cache_key": "feb3958abf4ceacca14252e07fc53948703cb257ee8653317c8df4f23756c99e",
+    "model": "llama3.2:latest@a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "output": {
+      "ambiguity": "false",
+      "assets": [],
+      "impact_horizon": "unknown",
+      "market_relevant": false,
+      "post_id": "1815325410667749888",
+      "schema_version": "1",
+      "topics": [
+        "musk_ecosystem",
+        "ai_training"
+      ]
+    },
+    "parameters": {
+      "seed": 3544,
+      "temperature": 0
+    },
+    "prompt_version": "financial-assets-v3",
+    "provider": "ollama-local",
+    "schema_version": "1",
+    "synthetic": false
+  },
+  {
+    "cache_key": "77388c82fe8152b36d8814196ea0ffc2667e85eb1386e3e3baacec711328ad99",
+    "model": "llama3.2:latest@a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "output": {
+      "ambiguity": "true",
+      "assets": [],
+      "impact_horizon": "unknown",
+      "market_relevant": false,
+      "post_id": "1762709124805009408",
+      "schema_version": "1",
+      "topics": [
+        "musk_ecosystem",
+        "politics"
+      ]
+    },
+    "parameters": {
+      "seed": 3544,
+      "temperature": 0
+    },
+    "prompt_version": "financial-assets-v3",
+    "provider": "ollama-local",
+    "schema_version": "1",
+    "synthetic": false
+  },
+  {
+    "cache_key": "30346960b277b69b46cf26274fd29488736b04f878d88058561f6c5414b27c22",
+    "model": "llama3.2:latest@a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "output": {
+      "ambiguity": "false",
+      "assets": [
+        {
+          "confidence": 1.0,
+          "schema_version": "1",
+          "sentiment": "bullish",
+          "sentiment_score": 1.0,
+          "ticker": "TSLA"
+        }
+      ],
+      "impact_horizon": "long_term",
+      "market_relevant": true,
+      "post_id": "1802765778191597568",
+      "schema_version": "1",
+      "topics": [
+        "Tesla Megapacks",
+        "Tesla",
+        "Electric power generation efficiency"
+      ]
+    },
+    "parameters": {
+      "seed": 3544,
+      "temperature": 0
+    },
+    "prompt_version": "financial-assets-v3",
+    "provider": "ollama-local",
+    "schema_version": "1",
+    "synthetic": false
+  },
+  {
+    "cache_key": "172f303a3ef2d82557842f266d6ba0eab8d5452418f42d1f0354f9b39b7220b1",
+    "model": "llama3.2:latest@a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "output": {
+      "ambiguity": "false",
+      "assets": [],
+      "impact_horizon": "unknown",
+      "market_relevant": false,
+      "post_id": "1837410259217900032",
+      "schema_version": "1",
+      "topics": [
+        "musk_ecosystem",
+        "satellites"
+      ]
+    },
+    "parameters": {
+      "seed": 3544,
+      "temperature": 0
+    },
+    "prompt_version": "financial-assets-v3",
+    "provider": "ollama-local",
+    "schema_version": "1",
+    "synthetic": false
+  },
+  {
+    "cache_key": "c55aebb62362a6a3686baea3842f0c56aa4f49363821b4090d929a35c02d949b",
+    "model": "llama3.2:latest@a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "output": {
+      "ambiguity": "false",
+      "assets": [],
+      "impact_horizon": "unknown",
+      "market_relevant": false,
+      "post_id": "1822416885625004544",
+      "schema_version": "1",
+      "topics": [
+        "musk_ecosystem"
+      ]
+    },
+    "parameters": {
+      "seed": 3544,
+      "temperature": 0
+    },
+    "prompt_version": "financial-assets-v3",
+    "provider": "ollama-local",
+    "schema_version": "1",
+    "synthetic": false
+  },
+  {
+    "cache_key": "91f8bf01674001f429b7ddb0f92f2849cf71ad6cb0e7a60b763bf5d43946723c",
+    "model": "llama3.2:latest@a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "output": {
+      "ambiguity": "false",
+      "assets": [],
+      "impact_horizon": "unknown",
+      "market_relevant": false,
+      "post_id": "1687166164622041088",
+      "schema_version": "1",
+      "topics": [
+        "musk_ecosystem",
+        "superconductivity"
+      ]
+    },
+    "parameters": {
+      "seed": 3544,
+      "temperature": 0
+    },
+    "prompt_version": "financial-assets-v3",
+    "provider": "ollama-local",
+    "schema_version": "1",
+    "synthetic": false
+  },
+  {
+    "cache_key": "52e1287233ee1ec57381cb2b455d872eb287cbeeea3c19f6705fb217a13575e6",
+    "model": "llama3.2:latest@a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "output": {
+      "ambiguity": "false",
+      "assets": [],
+      "impact_horizon": "unknown",
+      "market_relevant": false,
+      "post_id": "1777384581978538240",
+      "schema_version": "1",
+      "topics": [
+        "musk_ecosystem"
+      ]
+    },
+    "parameters": {
+      "seed": 3544,
+      "temperature": 0
+    },
+    "prompt_version": "financial-assets-v3",
+    "provider": "ollama-local",
+    "schema_version": "1",
+    "synthetic": false
+  },
+  {
+    "cache_key": "1c4b63440793807f3d2bcc4611e3162ea4fa9a06639fa871d99d0b6b8f3517a7",
+    "model": "llama3.2:latest@a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "output": {
+      "ambiguity": "false",
+      "assets": [
+        {
+          "confidence": 1.0,
+          "schema_version": "1",
+          "sentiment": "bullish",
+          "sentiment_score": 1.0,
+          "ticker": "TSLA"
+        }
+      ],
+      "impact_horizon": "unknown",
+      "market_relevant": true,
+      "post_id": "1863102284919632128",
+      "schema_version": "1",
+      "topics": [
+        "Tesla"
+      ]
+    },
+    "parameters": {
+      "seed": 3544,
+      "temperature": 0
+    },
+    "prompt_version": "financial-assets-v3",
+    "provider": "ollama-local",
+    "schema_version": "1",
+    "synthetic": false
+  },
+  {
+    "cache_key": "0f578fc1f1a30d2dca581f842bfab3647f217bdfb7eca1c5f43dcf6455b043c0",
+    "model": "llama3.2:latest@a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "output": {
+      "ambiguity": "false",
+      "assets": [],
+      "impact_horizon": "unknown",
+      "market_relevant": false,
+      "post_id": "1720839331365929216",
+      "schema_version": "1",
+      "topics": [
+        "musk_ecosystem",
+        "Grok"
+      ]
+    },
+    "parameters": {
+      "seed": 3544,
+      "temperature": 0
+    },
+    "prompt_version": "financial-assets-v3",
+    "provider": "ollama-local",
+    "schema_version": "1",
+    "synthetic": false
+  },
+  {
+    "cache_key": "948104d18ceb47f43ee93a592cd0e1cd0f7a9cbdf084e0457b702ab9987ce272",
+    "model": "llama3.2:latest@a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "output": {
+      "ambiguity": "false",
+      "assets": [],
+      "impact_horizon": "unknown",
+      "market_relevant": false,
+      "post_id": "1867722750082875648",
+      "schema_version": "1",
+      "topics": [
+        "musk_ecosystem"
+      ]
+    },
+    "parameters": {
+      "seed": 3544,
+      "temperature": 0
+    },
+    "prompt_version": "financial-assets-v3",
+    "provider": "ollama-local",
+    "schema_version": "1",
+    "synthetic": false
+  },
+  {
+    "cache_key": "4fa6cc6d8c9bbacc7f620c381b9e1abc9364587355c99ebaa1b6194992e478ce",
+    "model": "llama3.2:latest@a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "output": {
+      "ambiguity": "false",
+      "assets": [],
+      "impact_horizon": "unknown",
+      "market_relevant": false,
+      "post_id": "1836265669631053824",
+      "schema_version": "1",
+      "topics": [
+        "musk_ecosystem",
+        "politics"
+      ]
+    },
+    "parameters": {
+      "seed": 3544,
+      "temperature": 0
+    },
+    "prompt_version": "financial-assets-v3",
+    "provider": "ollama-local",
+    "schema_version": "1",
+    "synthetic": false
+  },
+  {
+    "cache_key": "434c6d9c67d308bfae228346268d88912f43a96a1c8d5dbd715b560344f18123",
+    "model": "llama3.2:latest@a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "output": {
+      "ambiguity": "true",
+      "assets": [],
+      "impact_horizon": "unknown",
+      "market_relevant": false,
+      "post_id": "1902084259197939712",
+      "schema_version": "1",
+      "topics": [
+        "musk_ecosystem",
+        "extremism"
+      ]
+    },
+    "parameters": {
+      "seed": 3544,
+      "temperature": 0
+    },
+    "prompt_version": "financial-assets-v3",
+    "provider": "ollama-local",
+    "schema_version": "1",
+    "synthetic": false
+  },
+  {
+    "cache_key": "a39acf5c72482fd41b904a455d7eff8ccd83ddcd4e70fb3a8d09f0a5d779ef6e",
+    "model": "llama3.2:latest@a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "output": {
+      "ambiguity": "false",
+      "assets": [],
+      "impact_horizon": "unknown",
+      "market_relevant": false,
+      "post_id": "1774871838306226688",
+      "schema_version": "1",
+      "topics": [
+        "musk_ecosystem"
+      ]
+    },
+    "parameters": {
+      "seed": 3544,
+      "temperature": 0
+    },
+    "prompt_version": "financial-assets-v3",
+    "provider": "ollama-local",
+    "schema_version": "1",
+    "synthetic": false
+  },
+  {
+    "cache_key": "c0115cc6cf08fca9a5e2862f147bf3a43fd9515bfb91762eb4043dab3ca5c053",
+    "model": "llama3.2:latest@a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "output": {
+      "ambiguity": "false",
+      "assets": [
+        {
+          "confidence": 1.0,
+          "schema_version": "1",
+          "sentiment": "bullish",
+          "sentiment_score": 1.0,
+          "ticker": "TSLA"
+        }
+      ],
+      "impact_horizon": "intraday",
+      "market_relevant": true,
+      "post_id": "1677470862436450304",
+      "schema_version": "1",
+      "topics": [
+        "Tesla Cybertruck",
+        "Tesla"
+      ]
+    },
+    "parameters": {
+      "seed": 3544,
+      "temperature": 0
+    },
+    "prompt_version": "financial-assets-v3",
+    "provider": "ollama-local",
+    "schema_version": "1",
+    "synthetic": false
+  },
+  {
+    "cache_key": "7b9455d549cce5c556e357b04617c94d7ca810a6cfbb57200560088cb155b825",
+    "model": "llama3.2:latest@a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "output": {
+      "ambiguity": "false",
+      "assets": [],
+      "impact_horizon": "unknown",
+      "market_relevant": false,
+      "post_id": "1636456248768880640",
+      "schema_version": "1",
+      "topics": [
+        "musk_ecosystem"
+      ]
+    },
+    "parameters": {
+      "seed": 3544,
+      "temperature": 0
+    },
+    "prompt_version": "financial-assets-v3",
+    "provider": "ollama-local",
+    "schema_version": "1",
+    "synthetic": false
+  },
+  {
+    "cache_key": "fd3a7991a239b65e5ada1c763487395d38c0ba3c5c057175a9fc349ffeed133f",
+    "model": "llama3.2:latest@a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "output": {
+      "ambiguity": "false",
+      "assets": [],
+      "impact_horizon": "unknown",
+      "market_relevant": false,
+      "post_id": "1858868285158137856",
+      "schema_version": "1",
+      "topics": [
+        "musk_ecosystem",
+        "SpaceX Starship"
+      ]
+    },
+    "parameters": {
+      "seed": 3544,
+      "temperature": 0
+    },
+    "prompt_version": "financial-assets-v3",
+    "provider": "ollama-local",
+    "schema_version": "1",
+    "synthetic": false
+  },
+  {
+    "cache_key": "e24a48a3c7b5810618559ec37ff5db2743bb98b713db6346a581266513f4d8d9",
+    "model": "llama3.2:latest@a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "output": {
+      "ambiguity": "false",
+      "assets": [],
+      "impact_horizon": "unknown",
+      "market_relevant": false,
+      "post_id": "1900851975824019712",
+      "schema_version": "1",
+      "topics": [
+        "musk_ecosystem",
+        "SpaceX"
+      ]
+    },
+    "parameters": {
+      "seed": 3544,
+      "temperature": 0
+    },
+    "prompt_version": "financial-assets-v3",
+    "provider": "ollama-local",
+    "schema_version": "1",
+    "synthetic": false
+  },
+  {
+    "cache_key": "85fcec52b3ca1feefc5fac1b0ff94b4ff65fc9059e01d761927e5b0244e4a4a8",
+    "model": "llama3.2:latest@a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "output": {
+      "ambiguity": "false",
+      "assets": [],
+      "impact_horizon": "unknown",
+      "market_relevant": false,
+      "post_id": "1901209063322456320",
+      "schema_version": "1",
+      "topics": [
+        "musk_ecosystem",
+        "SpaceX"
+      ]
+    },
+    "parameters": {
+      "seed": 3544,
+      "temperature": 0
+    },
+    "prompt_version": "financial-assets-v3",
+    "provider": "ollama-local",
+    "schema_version": "1",
+    "synthetic": false
+  },
+  {
+    "cache_key": "4d21112eb5352253240c751f1c87ae667b6efcd620250f6d2e7da64ec3f8b8b6",
+    "model": "llama3.2:latest@a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "output": {
+      "ambiguity": "false",
+      "assets": [],
+      "impact_horizon": "unknown",
+      "market_relevant": false,
+      "post_id": "1901120097076343040",
+      "schema_version": "1",
+      "topics": [
+        "musk_ecosystem",
+        "SpaceX"
+      ]
+    },
+    "parameters": {
+      "seed": 3544,
+      "temperature": 0
+    },
+    "prompt_version": "financial-assets-v3",
+    "provider": "ollama-local",
+    "schema_version": "1",
+    "synthetic": false
+  },
+  {
+    "cache_key": "3f2130b7039f61ff919e5ae061a5af544feb7b99c87878774c23fc5fc29597d8",
+    "model": "llama3.2:latest@a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "output": {
+      "ambiguity": "false",
+      "assets": [],
+      "impact_horizon": "unknown",
+      "market_relevant": false,
+      "post_id": "1870111975495360768",
+      "schema_version": "1",
+      "topics": [
+        "musk_ecosystem",
+        "politics"
+      ]
+    },
+    "parameters": {
+      "seed": 3544,
+      "temperature": 0
+    },
+    "prompt_version": "financial-assets-v3",
+    "provider": "ollama-local",
+    "schema_version": "1",
+    "synthetic": false
+  },
+  {
+    "cache_key": "d9f911d7c4d2022c0a70cbad2624ee66632edc1c353d660858ad96d13beb7da2",
+    "model": "llama3.2:latest@a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "output": {
+      "ambiguity": "true",
+      "assets": [],
+      "impact_horizon": "unknown",
+      "market_relevant": false,
+      "post_id": "1720372289378590976",
+      "schema_version": "1",
+      "topics": [
+        "musk_ecosystem",
+        "xAI"
+      ]
+    },
+    "parameters": {
+      "seed": 3544,
+      "temperature": 0
+    },
+    "prompt_version": "financial-assets-v3",
+    "provider": "ollama-local",
+    "schema_version": "1",
+    "synthetic": false
+  },
+  {
+    "cache_key": "8104f00d48dfb49db7ac4a11d7756b698c44e9eb39fc3cc690371df8452eac7d",
+    "model": "llama3.2:latest@a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "output": {
+      "ambiguity": "false",
+      "assets": [
+        {
+          "confidence": 1.0,
+          "schema_version": "1",
+          "sentiment": "bullish",
+          "sentiment_score": 1.0,
+          "ticker": "TSLA"
+        }
+      ],
+      "impact_horizon": "unknown",
+      "market_relevant": true,
+      "post_id": "1664330035530964992",
+      "schema_version": "1",
+      "topics": [
+        "Tesla",
+        "Giga Shanghai",
+        "Tesla China SDS teams"
+      ]
+    },
+    "parameters": {
+      "seed": 3544,
+      "temperature": 0
+    },
+    "prompt_version": "financial-assets-v3",
+    "provider": "ollama-local",
+    "schema_version": "1",
+    "synthetic": false
+  },
+  {
+    "cache_key": "4fb44946afc71c1643915056dadfce4bf997a37b267257272345e6f8a4f8dadc",
+    "model": "llama3.2:latest@a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "output": {
+      "ambiguity": "true",
+      "assets": [],
+      "impact_horizon": "unknown",
+      "market_relevant": false,
+      "post_id": "1886101361370022144",
+      "schema_version": "1",
+      "topics": [
+        "musk_ecosystem",
+        "politics"
+      ]
+    },
+    "parameters": {
+      "seed": 3544,
+      "temperature": 0
+    },
+    "prompt_version": "financial-assets-v3",
+    "provider": "ollama-local",
+    "schema_version": "1",
+    "synthetic": false
+  },
+  {
+    "cache_key": "23f6f9d6e918adf1d759ce12e829013b07c15b8ba814fd6aeb38a348de7f1507",
+    "model": "llama3.2:latest@a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "output": {
+      "ambiguity": "true",
+      "assets": [],
+      "impact_horizon": "unknown",
+      "market_relevant": false,
+      "post_id": "1871440062921252864",
+      "schema_version": "1",
+      "topics": [
+        "musk_ecosystem",
+        "xAI"
+      ]
+    },
+    "parameters": {
+      "seed": 3544,
+      "temperature": 0
+    },
+    "prompt_version": "financial-assets-v3",
+    "provider": "ollama-local",
+    "schema_version": "1",
+    "synthetic": false
+  },
+  {
+    "cache_key": "1b11a57215b5830ee8c203b581c525c5c36521544978fcf246528d3104afc3e2",
+    "model": "llama3.2:latest@a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "output": {
+      "ambiguity": "false",
+      "assets": [],
+      "impact_horizon": "unknown",
+      "market_relevant": false,
+      "post_id": "1906451548819132928",
+      "schema_version": "1",
+      "topics": [
+        "musk_ecosystem",
+        "politics"
+      ]
+    },
+    "parameters": {
+      "seed": 3544,
+      "temperature": 0
+    },
+    "prompt_version": "financial-assets-v3",
+    "provider": "ollama-local",
+    "schema_version": "1",
+    "synthetic": false
+  },
+  {
+    "cache_key": "811d81ba62c6226aa84a938815029f56d6c927d2e09594bc104af1aee18d71b2",
+    "model": "llama3.2:latest@a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "output": {
+      "ambiguity": "true",
+      "assets": [],
+      "impact_horizon": "unknown",
+      "market_relevant": false,
+      "post_id": "1722098742533210624",
+      "schema_version": "1",
+      "topics": [
+        "musk_ecosystem",
+        "SpaceX"
+      ]
+    },
+    "parameters": {
+      "seed": 3544,
+      "temperature": 0
+    },
+    "prompt_version": "financial-assets-v3",
+    "provider": "ollama-local",
+    "schema_version": "1",
+    "synthetic": false
+  },
+  {
+    "cache_key": "e3f3f49d39bd45db695c97ca2939de879edbf57d2654e2360c71ad32b838b93a",
+    "model": "llama3.2:latest@a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "output": {
+      "ambiguity": "false",
+      "assets": [],
+      "impact_horizon": "unknown",
+      "market_relevant": false,
+      "post_id": "1877598445755666688",
+      "schema_version": "1",
+      "topics": [
+        "musk_ecosystem",
+        "overregulation"
+      ]
+    },
+    "parameters": {
+      "seed": 3544,
+      "temperature": 0
+    },
+    "prompt_version": "financial-assets-v3",
+    "provider": "ollama-local",
+    "schema_version": "1",
+    "synthetic": false
+  },
+  {
+    "cache_key": "28d483249b4702d5dba98b859c4dfd68275b231c380a49fd59749314896bbca2",
+    "model": "llama3.2:latest@a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "output": {
+      "ambiguity": "false",
+      "assets": [],
+      "impact_horizon": "unknown",
+      "market_relevant": false,
+      "post_id": "1905906539572887552",
+      "schema_version": "1",
+      "topics": [
+        "musk_ecosystem",
+        "starlink"
+      ]
+    },
+    "parameters": {
+      "seed": 3544,
+      "temperature": 0
+    },
+    "prompt_version": "financial-assets-v3",
+    "provider": "ollama-local",
+    "schema_version": "1",
+    "synthetic": false
+  },
+  {
+    "cache_key": "54b87ebac0d08c999025df55b7aad03f25a4a07fe83682f77620681bf0bdc545",
+    "model": "llama3.2:latest@a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "output": {
+      "ambiguity": "false",
+      "assets": [],
+      "impact_horizon": "unknown",
+      "market_relevant": false,
+      "post_id": "1626357251094249472",
+      "schema_version": "1",
+      "topics": [
+        "musk_ecosystem"
+      ]
+    },
+    "parameters": {
+      "seed": 3544,
+      "temperature": 0
+    },
+    "prompt_version": "financial-assets-v3",
+    "provider": "ollama-local",
+    "schema_version": "1",
+    "synthetic": false
+  },
+  {
+    "cache_key": "054bd36535c9758a10f920f91d057a025818d1a2398038512564821dafd74d08",
+    "model": "llama3.2:latest@a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "output": {
+      "ambiguity": "false",
+      "assets": [],
+      "impact_horizon": "unknown",
+      "market_relevant": false,
+      "post_id": "1778446811411235328",
+      "schema_version": "1",
+      "topics": [
+        "musk_ecosystem",
+        "SpaceX"
+      ]
+    },
+    "parameters": {
+      "seed": 3544,
+      "temperature": 0
+    },
+    "prompt_version": "financial-assets-v3",
+    "provider": "ollama-local",
+    "schema_version": "1",
+    "synthetic": false
+  },
+  {
+    "cache_key": "6df9369ea0b0c86b71b6aaba90aa11cd2436e08e58ffad62465f06ed13b73fc4",
+    "model": "llama3.2:latest@a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "output": {
+      "ambiguity": "false",
+      "assets": [
+        {
+          "confidence": 0.8,
+          "schema_version": "1",
+          "sentiment": "bullish",
+          "sentiment_score": 0.9,
+          "ticker": "TSLA"
+        }
+      ],
+      "impact_horizon": "long_term",
+      "market_relevant": true,
+      "post_id": "1625252299085082624",
+      "schema_version": "1",
+      "topics": [
+        "Tesla Investor Day",
+        "Tesla",
+        "Investor Day",
+        "Tesla Supercharger"
+      ]
+    },
+    "parameters": {
+      "seed": 3544,
+      "temperature": 0
+    },
+    "prompt_version": "financial-assets-v3",
+    "provider": "ollama-local",
+    "schema_version": "1",
+    "synthetic": false
+  },
+  {
+    "cache_key": "734cb2405151f262a10409055cccff956b634a8d33870ba9c65bc681d44aee17",
+    "model": "llama3.2:latest@a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "output": {
+      "ambiguity": "false",
+      "assets": [
+        {
+          "confidence": 1.0,
+          "schema_version": "1",
+          "sentiment": "bullish",
+          "sentiment_score": 1.0,
+          "ticker": "TSLA"
+        }
+      ],
+      "impact_horizon": "long_term",
+      "market_relevant": true,
+      "post_id": "1889006561541882112",
+      "schema_version": "1",
+      "topics": [
+        "Tesla Supercharger",
+        "Autonomous Ride Hailing",
+        "Autonomous Vehicle"
+      ]
+    },
+    "parameters": {
+      "seed": 3544,
+      "temperature": 0
+    },
+    "prompt_version": "financial-assets-v3",
+    "provider": "ollama-local",
+    "schema_version": "1",
+    "synthetic": false
+  },
+  {
+    "cache_key": "6ae7df74f194a46d7ef90fca966cad64c3bdcf1851afb0b21d7a2ef7a3b48ad6",
+    "model": "llama3.2:latest@a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "output": {
+      "ambiguity": "false",
+      "assets": [
+        {
+          "confidence": 1.0,
+          "schema_version": "1",
+          "sentiment": "neutral",
+          "sentiment_score": 0.0,
+          "ticker": "TSLA"
+        }
+      ],
+      "impact_horizon": "unknown",
+      "market_relevant": true,
+      "post_id": "1795471329954537984",
+      "schema_version": "1",
+      "topics": [
+        "Tesla"
+      ]
+    },
+    "parameters": {
+      "seed": 3544,
+      "temperature": 0
+    },
+    "prompt_version": "financial-assets-v3",
+    "provider": "ollama-local",
+    "schema_version": "1",
+    "synthetic": false
+  },
+  {
+    "cache_key": "09d1117ecb870df73dd330d49cf6852ff21dcec9ef98b940a44fcdb2ab763cb9",
+    "model": "llama3.2:latest@a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "output": {
+      "ambiguity": "false",
+      "assets": [],
+      "impact_horizon": "unknown",
+      "market_relevant": false,
+      "post_id": "1659602548360351744",
+      "schema_version": "1",
+      "topics": [
+        "musk_ecosystem"
+      ]
+    },
+    "parameters": {
+      "seed": 3544,
+      "temperature": 0
+    },
+    "prompt_version": "financial-assets-v3",
+    "provider": "ollama-local",
+    "schema_version": "1",
+    "synthetic": false
+  },
+  {
+    "cache_key": "0a10aca40d7e83555bf28e661315f4eb8544df366ba0b3837fdb40848e931a24",
+    "model": "llama3.2:latest@a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "output": {
+      "ambiguity": "false",
+      "assets": [
+        {
+          "confidence": 1.0,
+          "schema_version": "1",
+          "sentiment": "bullish",
+          "sentiment_score": 1.0,
+          "ticker": "TSLA"
+        }
+      ],
+      "impact_horizon": "unknown",
+      "market_relevant": true,
+      "post_id": "1850067512605671936",
+      "schema_version": "1",
+      "topics": [
+        "Tesla"
+      ]
+    },
+    "parameters": {
+      "seed": 3544,
+      "temperature": 0
+    },
+    "prompt_version": "financial-assets-v3",
+    "provider": "ollama-local",
+    "schema_version": "1",
+    "synthetic": false
+  },
+  {
+    "cache_key": "8442b57c9055cab52d6355317e2846c385e68e84b89f45290399969497b97966",
+    "model": "llama3.2:latest@a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "output": {
+      "ambiguity": "false",
+      "assets": [
+        {
+          "confidence": 1.0,
+          "schema_version": "1",
+          "sentiment": "bullish",
+          "sentiment_score": 1.0,
+          "ticker": "TSLA"
+        }
+      ],
+      "impact_horizon": "intraday",
+      "market_relevant": true,
+      "post_id": "1818667670449144320",
+      "schema_version": "1",
+      "topics": [
+        "Tesla drivetrain"
+      ]
+    },
+    "parameters": {
+      "seed": 3544,
+      "temperature": 0
+    },
+    "prompt_version": "financial-assets-v3",
+    "provider": "ollama-local",
+    "schema_version": "1",
+    "synthetic": false
+  },
+  {
+    "cache_key": "05ae5ebc53e00b86acaca76e2548895b45fa38a66f26906e61334b863be513c6",
+    "model": "llama3.2:latest@a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "output": {
+      "ambiguity": "false",
+      "assets": [],
+      "impact_horizon": "unknown",
+      "market_relevant": false,
+      "post_id": "1798718549307109888",
+      "schema_version": "1",
+      "topics": [
+        "musk_ecosystem",
+        "SpaceX Starship"
+      ]
+    },
+    "parameters": {
+      "seed": 3544,
+      "temperature": 0
+    },
+    "prompt_version": "financial-assets-v3",
+    "provider": "ollama-local",
+    "schema_version": "1",
+    "synthetic": false
+  },
+  {
+    "cache_key": "20bc2864955633c521ffdd4f391d20b8545c444c91129b699d37f580808d1bce",
+    "model": "llama3.2:latest@a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "output": {
+      "ambiguity": "false",
+      "assets": [],
+      "impact_horizon": "unknown",
+      "market_relevant": false,
+      "post_id": "1636162726140493824",
+      "schema_version": "1",
+      "topics": [
+        "musk_ecosystem",
+        "AI safety"
+      ]
+    },
+    "parameters": {
+      "seed": 3544,
+      "temperature": 0
+    },
+    "prompt_version": "financial-assets-v3",
+    "provider": "ollama-local",
+    "schema_version": "1",
+    "synthetic": false
+  },
+  {
+    "cache_key": "40da5e023f72ff2ab0b4075dcc513edb3467d379c2a43d1e3ecdc6204f9484cf",
+    "model": "llama3.2:latest@a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "output": {
+      "ambiguity": "true",
+      "assets": [],
+      "impact_horizon": "unknown",
+      "market_relevant": false,
+      "post_id": "1842025724657730048",
+      "schema_version": "1",
+      "topics": [
+        "musk_ecosystem",
+        "politics",
+        "jokes",
+        "memes"
+      ]
+    },
+    "parameters": {
+      "seed": 3544,
+      "temperature": 0
+    },
+    "prompt_version": "financial-assets-v3",
+    "provider": "ollama-local",
+    "schema_version": "1",
+    "synthetic": false
+  }
+]
