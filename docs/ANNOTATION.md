@@ -13,6 +13,12 @@ and test sampling design. The old three-ticker restriction and 2023+ labels are 
   Irrelevant or broad-topic-only posts have a blank ticker. No duplicate post/ticker labels.
 - `sentiment`: bullish, bearish, neutral. Scores: bullish (0,1], bearish [-1,0), neutral exactly 0.
   A named product or company alone is not automatically bullish.
+  Under user-approved v6, sentiment is the favourable/unfavourable/balanced stance or business,
+  valuation, adoption or prospects information conveyed by the text. Explicit price forecasts are
+  not required. Endorsements and beneficial/adverse developments can carry direction; bare names,
+  dates and routine recruiting can be neutral. Scores measure textual sentiment, not future returns.
+  Mixed signals should be explained. Missing context uses neutral only as an explicitly unresolved,
+  low-confidence fallback, not a confident absence of direction. Do not target a class balance.
 - `topic`: products, production, adoption, valuation, regulation, technology, financing, macro,
   or other. `impact_horizon`: intraday, short_term, long_term, unknown; do not invent a horizon.
 - `ambiguous`: true/false; explain sarcasm, missing context and mixed signals in notes.
@@ -39,3 +45,20 @@ Use `score-nlp --reference-type model`. Report reference agreement, not human ac
 annotator saw dev/test source texts; these annotations do not establish a held-out evaluation of
 Astra itself. Human review is optional under the user's current instruction, not an execution blocker.
 Model inference errors, subjective scores, missing context and historical knowledge remain limitations.
+
+## v6 revision and baseline preservation
+The user approved a text-based financial-sentiment definition after reviewing v5's restrictive
+price-forecast interpretation. Preserve v5 outputs at their original paths. V6 is a complete new
+Sol Light/Low run with separate inputs, outputs, provenance and Excel review. Neither baseline
+predictions nor reference labels are provided to the extractors. The old NLP test examples informed
+the definition diagnosis, so they cannot establish untouched test accuracy for this revision.
+
+## v7 targeted rules
+- Identify substantively involved assets before sentiment. Uncertain direction does not justify
+  omitting a relevant company. A company accepting a token can have neutral sentiment while the
+  token has bullish adoption sentiment; include both. Incidental handles and homonyms are excluded.
+- A product price change alone is nondirectional unless text supports a benefit or harm. Do not
+  invent demand/margin consequences. Brand jokes need an identifiable endorsement or criticism.
+- impact_horizon describes a text-supported financial/market effect, not launch or delivery dates.
+  Use unknown when only an event schedule is supplied. It does not select study return horizons.
+- V5 and v6 remain unchanged; all 2020–2021 posts are independently reprocessed as v7 with Sol Low.

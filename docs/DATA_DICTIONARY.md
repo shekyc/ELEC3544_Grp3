@@ -52,3 +52,13 @@ also record reasoning effort, annotator identity and batch input/output/provenan
 model name is the requested hosted model, not a verified immutable weights digest. Batch manifests
 bind the exact source corpus/configuration and prompt/schema; synthetic=false denotes real source
 posts, not human authorship. `summary.json` counts post relevance separately from per-asset labels.
+
+V6 retains the same schema but changes the documented sentiment construct: favourable/unfavourable
+financial stance or business/adoption/prospects information, not a required explicit price forecast.
+Do not combine v5 and v6 scores as interchangeable measurements. The ambiguity field records the
+textual basis, mixed signals or an explicitly unresolved neutral fallback; confidence refers to the
+whole interpretation, not merely ticker recognition. It remains uncalibrated.
+
+V7 keeps the v6 sentiment meaning. The assets list includes substantively involved targets even if
+neutral; omission is not a substitute for uncertain direction. impact_horizon refers to a supported
+financial/market effect (intraday, days, weeks-or-longer), not the scheduled date of a business event.

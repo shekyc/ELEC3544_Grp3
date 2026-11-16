@@ -57,3 +57,33 @@
   Astra reference scores labelled model agreement; do not tune the frozen prompt on test results.
 - Import through strict corpus/config/prompt/schema/provenance and complete exact-ID checks.
   No paid API, local weights download or change to the research scope was authorized or used.
+
+## 2026-11-16 — User-approved v6 financial sentiment definition
+- Correct the construct from narrowly interpreted price expectations to asset-specific favourable,
+  unfavourable or balanced financial stance/business/adoption information. Explicit price forecasts
+  are not required; do not infer realized returns or force directional balance.
+- Rerun all posts with GPT-6.1 Sol Low, unchanged corpus/universe/schema and the frozen v6 prompt.
+  Preserve every v5 artifact in place; record baseline hashes and store v6 separately.
+- Keep missing-context fallbacks and mixed signals explicit in ambiguity, with lower confidence
+  when direction is unresolved. Preserve scores/signs and avoid introducing new schema labels.
+- No market outcomes informed revision. Old NLP test examples were inspected during diagnosis;
+  future agreement on that set is descriptive, not an untouched evaluation.
+
+## 2026-11-16 — User-approved targeted v7 correction
+- Preserve v6's financial-sentiment definition. Include substantive neutral asset targets before
+  scoring; separate effect duration from event schedules; do not infer beneficial economics from
+  bare product-price changes or automatic endorsement from brand wordplay.
+- Rerun all 1,234 posts with Sol Light/Low, unchanged source window/universe/schema/batch membership.
+  Preserve both previous runs and their review workbooks; hash-check preservation after completion.
+- Review eight-stage readiness without silently expanding dates or adopting the proposed post-2021
+  holdout plan. Stock/ETF market collection is still required for the full real-data analysis.
+
+## 2026-11-16 — Required market collection and empirical V7 execution
+- User authorized live free Alpaca collection using existing local credentials, coverage checks and
+  step 7 using V7. Subsequently requested skipping further unmentioned-asset collection.
+- Finish TSLA/AAPL and retain required SPY/QQQ benchmarks. NVDA/RIVN were already collected;
+  stop NIO/XLY/XLK downloads. Do not shrink the frozen NLP universe or mutate V7 fingerprints.
+- Derive daily bars from the same saved SIP 30-minute pages used for hourly bars, avoiding duplicate
+  API downloads. Preserve raw snapshots and disclose missing unneeded files in run manifests.
+- Run the existing fixed chronological analysis into results/study_v7. No date expansion, prompt
+  retuning on market outcomes, changed model thresholds or invented first-mention multiplier.

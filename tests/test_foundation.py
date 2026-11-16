@@ -199,6 +199,37 @@ def test_nlp_cache_mapping_retries(tmp_path):
     assert provider.calls == 3
 
 
+def test_prompt_revision_keeps_baseline_cache_and_generates_new_record(tmp_path, monkeypatch):
+    import musk_sentiment.nlp.pipeline as pipeline
+
+    posts, _ = import_posts(
+        FIXTURE, tmp_path / "posts", tmp_path / "raw", "fixture", synthetic=True
+    )
+    assets = load_config(CONFIG)["assets"]
+
+    class CountingProvider(SyntheticProvider):
+        calls = 0
+
+        def generate(self, system, user):
+            self.calls += 1
+            return super().generate(system, user)
+
+    provider = CountingProvider()
+    baseline = infer(posts[0], assets, provider, tmp_path / "cache")
+    baseline_path = tmp_path / "cache" / f"{baseline.cache_key}.json"
+    original_bytes = baseline_path.read_bytes()
+    monkeypatch.setattr(
+        pipeline, "SYSTEM_PROMPT", pipeline.SYSTEM_PROMPT + "\nRevised fixture rule."
+    )
+    monkeypatch.setattr(pipeline, "PROMPT_VERSION", "revised-fixture")
+    revised = infer(posts[0], assets, provider, tmp_path / "cache")
+    assert provider.calls == 2
+    assert revised.cache_key != baseline.cache_key
+    assert revised.prompt_version == "revised-fixture"
+    assert baseline_path.read_bytes() == original_bytes
+    assert len(list((tmp_path / "cache").glob("*.json"))) == 2
+
+
 def test_nlp_reject_unknown_asset(tmp_path):
     posts, _ = import_posts(FIXTURE, tmp_path / "posts", tmp_path / "raw", "fixture")
     assets = load_config(CONFIG)["assets"]

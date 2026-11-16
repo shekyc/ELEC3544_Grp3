@@ -87,21 +87,27 @@ it is separate from the native Kraken daily download.
 
 ## 4. Extract sentiment and evaluate against the annotation reference
 
-The user accepted the 48-post GPT-6.1 Sol Light/Low development review and authorized the full
-1,234-post run with the unchanged v5 prompt. The Codex subagent workflow writes separately hashed
-batch outputs under `data/processed/nlp_sol_full`; it does not use the Ollama command or a paid API.
+The original 1,234-post Sol Light/v5 run is retained as the conservative price-expectation baseline
+in `data/processed/nlp` and `data/processed/nlp_sol_full`. Following the user's approved definition
+revision, v6 extracts favourable/unfavourable financial stance and business/adoption information
+without requiring a price forecast. Sol Light/Low, corpus, asset universe and schema are unchanged.
+V6 is also preserved at `data/processed/nlp_sol_v6_full` and `data/processed/nlp_sol_v6`.
+Current v7 adds targeted rules: include substantively involved neutral assets, distinguish market
+effect horizons from event dates, and avoid assumed benefits from product-price changes or jokes.
+It uses separate `data/processed/nlp_sol_v7_full` batches and `data/processed/nlp_sol_v7` outputs.
+The Codex subagent workflow does not use the Ollama command or a paid API.
 Frozen inputs contain only post ID/text/time and the configured asset universe, plus prompt/schema.
 No Astra labels or future market outcomes are supplied to extractors. Human review was not completed.
 
 After every batch exists, validate and import the saved model outputs:
 
 ```bash
-.venv/bin/musk-sentiment import-nlp-batches data/processed/nlp_sol_full
+.venv/bin/musk-sentiment import-nlp-batches data/processed/nlp_sol_v7_full --output data/processed/nlp_sol_v7
 ```
 
 This is an offline import, not a new model call. It rejects incomplete coverage, changed inputs,
 model/prompt provenance mismatches and invalid outputs; it creates pipeline-compatible
-`data/processed/nlp/sentiments.json`, per-post cache entries, summary and empty error list only after
+`data/processed/nlp_sol_v7/sentiments.json`, per-post cache entries, summary and empty error list only after
 all batches validate. Changed model outputs require a new output directory. Rerunning extraction
 requires new model execution with separately frozen inputs; do not relabel old outputs as a new run.
 The requested model/effort are recorded; an immutable backend weights digest is unavailable for
@@ -115,9 +121,8 @@ All IDs, text, dates, split/stratum, score signs and multi-asset rows were valid
 The sample itself is unchanged. See [annotation rules](docs/ANNOTATION.md).
 
 ```bash
-.venv/bin/musk-sentiment nlp data/processed/study/posts.json --model YOUR_INSTALLED_MODEL
-.venv/bin/musk-sentiment score-nlp annotations/study_labels_sheky_astra.csv data/processed/nlp/sentiments.json --split dev --reference-type model --output results/nlp_dev.json
-.venv/bin/musk-sentiment score-nlp annotations/study_labels_sheky_astra.csv data/processed/nlp/sentiments.json --split test --reference-type model --output results/nlp_test.json
+.venv/bin/musk-sentiment nlp data/processed/study/posts.json --model YOUR_INSTALLED_MODEL --output data/processed/nlp_local_v7 --cache data/processed/nlp_local_v7_cache
+.venv/bin/musk-sentiment score-nlp annotations/study_labels_sheky_astra.csv data/processed/nlp_sol_v7/sentiments.json --split dev --reference-type model --output results/nlp_v7_dev_agreement.json
 ```
 
 The `nlp --model` command above remains an optional local Ollama route only.
@@ -125,18 +130,21 @@ The `nlp --model` command above remains an optional local Ollama route only.
 These scores measure agreement with Astra, not independently established human accuracy. Freeze
 model/prompt using dev only before examining test scores. Both models can share errors and historical
 training leakage; annotations remain provisional research references rather than observed truth.
+Because test-labelled examples were inspected while diagnosing v5's definition, the old 112-post
+NLP test is no longer an untouched test for v6/v7. Any repeat comparison is descriptive only. No market
+returns were consulted to revise the definition. Retain the baseline Excel and JSON unchanged.
 
 No model is downloaded automatically. Model digest, prompt version and parameters are recorded;
 cache keys invalidate when these or input text change. To compare already-installed models, use
 separate `--output` directories and score them on dev; freeze the choice before inspecting test.
-The v5 prompt supports every configured asset and avoids mapping SpaceX-only news to TSLA.
+The v7 prompt supports every configured asset and avoids mapping SpaceX-only news to TSLA.
 A valid JSON response is not evidence of financial sentiment accuracy.
 
 ## 5. Run analysis and inspect coverage before interpreting results
 
 ```bash
-.venv/bin/musk-sentiment research
-.venv/bin/musk-sentiment plot-study results/study
+.venv/bin/musk-sentiment research --nlp data/processed/nlp_sol_v7/sentiments.json --output results/study_v7
+.venv/bin/musk-sentiment plot-study results/study_v7
 ```
 
 Outputs include validated events, rejected events with reasons, input hashes, coverage, subgroup
@@ -147,3 +155,9 @@ explicit `--synthetic` switch and are not research findings.
 
 Read [methodology](docs/METHODOLOGY.md) before interpreting return windows, CAR, overlapping events,
 benchmark exclusions, fixed chronological splits, model leakage and uncertainty.
+
+Current empirical run: `results/study_v7`. Required TSLA/AAPL and SPY/QQQ prices passed coverage
+checks; BTC/DOGE USD prices are present. The user approved skipping remaining unmentioned assets.
+`review_summary.json` and `event_validation.json` summarize 1,358 validated event/horizon rows;
+`models.json` includes explicit skips for small samples. Only TSLA qualifies for prediction tests.
+See `docs/PROJECT_STATUS.md` for findings, incomplete scientific objectives and interpretation limits.

@@ -51,3 +51,9 @@ Additional provider adapters must implement the same Protocol and preserve prove
   batch input/output sidecars bind corpus, configuration, prompt, schema, model and reasoning effort.
   Validate all batches before publishing any final NLPRecord dataset; preserve input fingerprints,
   per-post cache entries and immutable evidence snapshots. This importer does not perform inference.
+- Prompt v6 changes the measured sentiment construct without changing JSON contracts. Baseline v5
+  outputs and Excel remain in place; revised batches and final records use `nlp_sol_v6_full` and
+  `nlp_sol_v6`. Keep prompt versions distinct in cache/research runs. Import requires the currently
+  loaded prompt to match frozen inputs; old v5 records remain usable directly as baseline data.
+- V7 uses `nlp_sol_v7_full` and `nlp_sol_v7`, preserving both previous runs. Schemas and downstream
+  return-window logic are unchanged; the revised prompt affects extraction only.

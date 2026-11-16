@@ -122,3 +122,36 @@ All 1,234 posts are reprocessed, rather than silently mixing old development lab
 Assess model-reference agreement only after freezing; do not revise prompts using test agreement.
 Modern-model historical knowledge, correlated model errors and uncalibrated confidence remain
 limitations. Validation of schema/coverage does not establish semantic accuracy or market findings.
+
+## Update: v6 definition correction and retained baseline
+V5's 194/199 neutral asset labels prompted a text-only construct audit. The user authorized v6:
+financial sentiment concerns favourable/unfavourable stance or business, valuation, adoption and
+prospects information, without requiring an explicit asset-price forecast. Bullish/bearish scores
+refer to textual sentiment, not predicted realized returns or market surprise. Generic enthusiasm
+does not automatically imply strong financial sentiment. Neutral includes nondirectional or balanced
+text; unresolved context must be distinguished in ambiguity and carry lower confidence.
+
+The v5 run remains the conservative price-expectation baseline. V6 reprocesses the whole corpus
+with the same Sol Light/Low model, schema and batch partitions, no old labels or market outcomes
+shown. Preserve raw inputs/outputs/provenance and verify baseline files unchanged by hashes. The
+112-post NLP test was examined during the v5 diagnosis and cannot be called untouched for v6.
+Any cross-model or baseline comparison is descriptive. Market prediction holdouts remain governed
+by their separate chronological evaluation; no return-based prompt optimization was performed.
+
+## Update: targeted v7 corrections
+The user approved separating relevant-asset detection from sentiment assignment, retaining neutral
+companies in multi-asset payment/adoption posts. The prompt no longer equates future launch/delivery
+dates with a market-impact horizon. Factual product-price changes and brand jokes require supported
+direction rather than invented business consequences. Preserve v5/v6 and independently reprocess
+the same corpus using v7. No market data or reference labels are supplied during inference. Existing
+NLP sample evaluation remains descriptive, not an untouched test. Return windows remain configured
+independently of impact_horizon. The suggested 2022+ evaluation split has not been adopted in config.
+
+## Update: first empirical V7 execution
+Required stock/benchmark histories were collected and audited before executing the existing fixed
+analysis. User-approved omission of further unmentioned-asset downloads does not alter the frozen
+NLP universe; missing NIO/XLY/XLK files are reported but reject no current event. Daily securities
+bars reuse the exact saved 30-minute pages underlying hourly bars. No prompt/model thresholds or
+chronological boundaries were changed in response to results. Only TSLA supports prediction tests;
+small other-asset groups and first-mention samples remain limitations. Headline daily explanatory
+returns include pre-publication movement and must not be presented as achievable post-entry profit.

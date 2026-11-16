@@ -10,7 +10,7 @@
   30-minute-to-hour/day aggregation, expected calendar coverage and missing/duplicate-bar handling.
 - Explicit USD crypto import plus verified public Kraken archive collector using bounded byte ranges,
   ZIP CRC/ETag checks, raw snapshots, native hourly/daily candles and cross-frequency/coverage audits.
-- Full-universe v5 NLP prompt, local installed-model adapter, cache/model/prompt provenance and input
+- Full-universe versioned NLP prompt, local installed-model adapter, cache/model/prompt provenance and input
   fingerprints. Empirical study rejects predictions from a different corpus/universe or legacy runs.
 - Exact-ID quarterly annotation sampling, locked dev/test split and multi-asset scoring.
 - Multi-asset events: explanatory and predictive endpoints separated, first/repeated asset/topic
@@ -22,11 +22,12 @@
 - Offline orchestration and plots, synthetic-data separation, hashes and diagnostic manifests.
 
 ## Actual verification and local outputs
-- **60 offline tests passed**; Ruff lint/format passed; original smoke passed (2 synthetic events).
+- **61 offline tests passed**; Ruff lint/format passed; original smoke passed (2 synthetic events).
   Extended synthetic integration covers research outputs and figure rendering, not empirical findings.
 - Research dependencies installed and frozen in requirements-lock.txt; pip check passed.
-- User confirmed successful historical SIP curl sample on Alpaca Basic. This is user-reported sample
-  access, not a live test of the new collector or proof of every asset/year's coverage.
+- Live Alpaca SIP collection now verified with the locally supplied credentials. TSLA/AAPL and
+  required SPY/QQQ benchmarks have complete regular-session hourly/daily coverage and buffers.
+  NVDA/RIVN were already collected before the user requested skipping remaining unmentioned assets.
 - Original uploaded CSV: 55,099 rows. New full archive import: 14,018 originals; 828 unknown-status,
   40,124 reply/repost and 129 other-author exclusions. Immutable raw snapshot retained locally.
 - **1,234 study posts** in 2020–2021; all 24 months represented. This is observed coverage, not proof
@@ -53,6 +54,29 @@
 - Post-freeze Astra reference agreement: test relevance 81.25%, exact asset sets 85.71%, asset
   sentiment 38.24% (13/34 reference assets). These measure cross-model agreement, not human accuracy.
   Results under results/nlp_sol_{dev,test}_agreement.json. No prompt revision followed test scoring.
+  This statement describes the v5 run; the subsequently authorized v6 revision is described below.
+- **V6 revised full extraction completed:** user approved financial stance/business/adoption meaning
+  without requiring price forecasts. All 1,234 posts reprocessed with Sol Light/Low in 13 frozen
+  batches; exact coverage, schema, model/prompt/config hashes and provenance validated. Separate
+  outputs: data/processed/nlp_sol_v6/{sentiments,summary,errors,baseline_comparison}.json; errors empty.
+  Counts: 266 relevant posts, 197 posts/asset labels (TSLA 165, DOGE 22, BTC 7, AAPL 3), comprising
+  117 bullish, 10 bearish, 70 neutral. Matched baseline assignments changed neutral to bullish 115
+  times and neutral to bearish 6 times; two asset assignments added, four removed. These are changes
+  in the measured sentiment construct, not evidence of improved accuracy or price predictability.
+  All 1,320 baseline files verified unchanged, including previous Excel, raw batches and caches.
+  No market outcomes or previous model labels were supplied to the v6 extractors. The old NLP test
+  examples informed the preceding definition diagnosis, so it is no longer untouched for v6.
+  Review workbook: outputs/sol-v6-review/Sol_Light_V6_Financial_Sentiment_Review.xlsx.
+- **V7 targeted rerun completed:** all 1,234 posts independently reprocessed with Sol Light/Low.
+  Complete exact-ID/schema/provenance validation passed; no missing/duplicate IDs and errors empty.
+  Current outputs: data/processed/nlp_sol_v7; frozen batches: data/processed/nlp_sol_v7_full.
+  Counts: 242 relevant posts, 190 asset-assigned posts, 194 asset labels (TSLA 161, DOGE 23, BTC 7,
+  AAPL 3), comprising 96 bullish, 9 bearish, 89 neutral. All assigned-post impact horizons are unknown;
+  configured return windows remain independent. Targeted checks confirm both assets in the three
+  Tesla/crypto payment examples, neutral bare product-price changes/brand joke, and no inferred
+  market-effect duration from product schedules. These checks do not establish independent accuracy.
+  All 2,642 v5/v6 artifacts verified unchanged. Review workbook:
+  outputs/sol-v7-review/Sol_Light_V7_Financial_Sentiment_Review.xlsx.
 - Live Kraken download verified: 7,702,404 bytes for six CSV members plus directory/ranges. All three
   assets have 731 daily study bars. Hourly BTC 17,537/17,544; ETH 17,536/17,544; DOGE 15,127/17,544.
   Missing hours are preserved. All native daily OHLCV match available-hour aggregates across 1,127
@@ -61,26 +85,65 @@
   texts represented after whitespace/entity normalization, but only 10 exact IDs match. Diagnostic
   candidates are not automatic identity repairs. Evidence: data/processed/study/branch_source_audit.json.
 
+## Empirical V7 run completed
+- User authorized proceeding with the four mentioned assets and their required benchmarks; no
+  further NIO/XLY/XLK collection. Their six missing configured files remain visible in the manifest
+  and do not remove any V7 event. The configured NLP universe and 2020–2021 post scope are unchanged.
+- TSLA/AAPL/SPY/QQQ each have 3,526/3,526 hourly and 505/505 daily study bars; including buffers,
+  5,421 hourly and 777 daily bars. No duplicates, invalid OHLCV, missing session bars or hourly/daily
+  aggregate mismatches. Daily series reuse the same immutable SIP 30-minute snapshots. NVDA is
+  also complete; RIVN begins November 2021 and has no gaps within its available span.
+- Coverage evidence: data/processed/market/equities_{collection_manifest,coverage_audit}.json.
+- results/study_v7: 190 unique posts, 194 post–asset pairs, 1,358 event/horizon rows, zero rejections.
+  Counts at every horizon: TSLA 161, DOGE 23, BTC 7, AAPL 3. Existing crypto gaps do not intersect
+  required event windows. TSLA/AAPL use all 120 estimation pairs; DOGE hourly uses 105–120.
+  All 1,358 timestamp/return arithmetic checks passed in event_validation.json. No synthetic rows.
+- Descriptive groups, isolated-event sensitivity, chronological model evaluation and 21 standard
+  figures generated. v7_daily_uncertainty.png adds cluster means and uncertainty; review_summary.json
+  consolidates event counts and preliminary diagnostics. Market outcomes did not change the NLP.
+- Only TSLA meets model sample thresholds: final test uses 128 training and 33 evaluation events
+  at each horizon. DOGE has only two final-test events, BTC zero and AAPL two; these model groups
+  are explicitly skipped. NLP improvement is mixed, not evidence of reliable predictive advantage.
+- One-day event-weighted raw means: TSLA +1.37%, DOGE +14.60%, BTC +0.37%, AAPL +3.47%.
+  These daily windows include pre-publication movement. DOGE's market-model CAR mean is +4.83%,
+  but its equal-cluster CI includes zero; isolated-event evidence is sparse (3 DOGE daily events).
+  BTC abnormal returns are null because its configured benchmark is itself, not fake zero CAR.
+- Only four first-observed asset mentions exist (three with abnormal returns). Inference is
+  suppressed below five clusters; a reliable first-mention boost cannot be established here.
+
 ## Implemented but not empirically verified
-- Full Alpaca asset-by-period coverage, aggregation correctness against live examples, rate limits.
+- Uncollected NIO/XLY/XLK histories, unnecessary for the current V7 mentioned-asset analysis.
 - Cross-venue representativeness of Kraken and consequences of sparse DOGE 2020 hourly trading.
-- Independent semantic accuracy of v5 extraction, sarcasm/rare assets, model choice/cutoff effects.
-- Real event counts, estimation residuals, statistical assumptions, model scores and plots.
+- Independent semantic accuracy of v7 extraction, sarcasm/rare assets, model choice/cutoff effects.
+- Estimation residual assumptions, confounding controls and robustness beyond the current fixed
+  settings. Real counts/scores/plots exist, but do not establish causal or prospective validity.
 - Hosted CI has not run; local tests pass. Pandas/NumPy/calendar deprecation warnings remain visible.
 
-## Remaining work and external blockers
-1. Set Alpaca credentials locally (not available to this process); collect hourly/daily stock/ETF data
-   and inspect coverage, including prelisting gaps and buffers for estimation/outcomes.
-2. Crypto data access is resolved with Kraken USD. Audit event attrition from no-trade gaps and
-   insufficient early-DOGE estimation history. No paid provider or model download was initiated.
-3. NLP extraction is complete with user-approved Sol Light/v5. Independent human ground truth remains
-   unestablished; record the sparse directional labels and reference disagreement in interpretation.
-4. Execute real research after stock/ETF collection. Partial diagnostic outputs cannot establish
-   completion of the full multi-asset study; no eligible asset mentions must be reported explicitly.
-5. Review benchmark choices, confounding events, serial dependence, market-model diagnostics and
-   sample sizes. Rolling purged cross-validation/expanded robustness beyond the fixed chronological
-   validation/test implementation remains further work if making stability claims.
-6. Produce final scientific interpretation, report and presentation from validated outputs.
+## Remaining work and limitations
+1. Interpret the completed event study and prediction outputs, including overlap sensitivity,
+   benchmark dependence, small samples, historical LLM leakage and mixed NLP improvement.
+2. First-mention comparisons/indicators are computed. An explicit sentiment-by-first-mention
+   interaction is still not implemented; four first mentions cannot support a convincing boost claim.
+3. Independent human ground truth remains unestablished, following the user-approved model-reference
+   workflow. Do not relabel model agreement as accuracy or tune NLP using these inspected returns.
+4. Unmentioned-asset spillover analysis, alternative benchmark/estimation settings and rolling purged
+   evaluation are not implemented/run. Do not represent the present results as completing every
+   original scientific objective. The user approved skipping further unmentioned-asset downloads.
+5. Prepare final interpretation and presentation. Preserve adverse/unsuccessful results.
 
-No empirical market-return findings exist on this branch. Neither synthetic tests nor a valid model
-JSON response establish research-stage readiness. The original proposal objectives are retained.
+## Eight-step progress after empirical V7 run
+| Step | Status |
+|---|---|
+| 1. Stock/ETF prices | Required assets and benchmarks collected and audited; complete study coverage. |
+| 2. NLP model setup | Sol Light/Low operational. |
+| 3. Annotation reference | Astra 160-post model reference exists; no independent human ground truth. |
+| 4. USD crypto history | Collected; gaps preserved; no V7 event-window rejections. |
+| 5. Validate/freeze NLP | V7 frozen; targeted qualitative/structural checks passed. |
+| 6. Full corpus extraction | Complete: 1,234 V7 outputs; earlier runs preserved. |
+| 7. Research analysis | Empirical event study, subgroup/sensitivity analysis and eligible prediction tests executed; remaining methodological limitations above. |
+| 8. Interpretation/slides | Results available; final presentation pending. |
+
+Readiness evidence: results/step7_readiness_v7.json. Run evidence: results/study_v7/manifest.json,
+review_summary.json and event_validation.json. Proceed to interpretation/slides with the explicit
+limitations above. The proposed post-2021 holdout remains unadopted: validation starts 2021-01-01,
+final test starts 2021-07-01. These results are retrospective associations, not causal findings.
