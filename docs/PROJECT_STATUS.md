@@ -34,6 +34,12 @@
 - New **160-post** blinded annotation sample across eight quarters: annotations/study_sample.csv,
   with manifest/hash. User-authorized Astra reference labels now cover all 160 posts in 162 rows,
   annotator sheky(astra), separate CSV/provenance. These are model-generated, not human ground truth.
+- User-requested GPT-6.1 Sol Light/Low development run independently labelled all 48 dev posts
+  without Astra labels or test posts. Exact IDs and SentimentOutput contracts validated; 20 relevant
+  posts and 16 asset labels. Local JSON/provenance: annotations/study_dev_sol_light*.json. Excel
+  review: outputs/sol-dev-review/Sol_Light_Development_Review.xlsx, with blank interpretation/comment
+  fields and nonblank/nonzero attribute highlights. Human review is pending. This is a development
+  extraction artifact, not an NLPRecord production run or a frozen model selection.
 - Live Kraken download verified: 7,702,404 bytes for six CSV members plus directory/ranges. All three
   assets have 731 daily study bars. Hourly BTC 17,537/17,544; ETH 17,536/17,544; DOGE 15,127/17,544.
   Missing hours are preserved. All native daily OHLCV match available-hour aggregates across 1,127
