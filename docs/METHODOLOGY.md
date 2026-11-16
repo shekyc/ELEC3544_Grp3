@@ -110,3 +110,15 @@ bars cover all 731 study days even where no trades occurred in some hours. Daily
 cross-checked against available hourly trades, not filled hourly prices. Native daily records may
 therefore be used independently of the stricter 24-observation local aggregation helper. DOGE/USD
 starts 2019-12-19, so early-2020 market-model daily estimation can remain insufficient and return null.
+
+## Update: user-approved full Sol extraction (2026-11-16)
+Following a 48-development-post Sol Light review artifact, the user accepted the model's overall
+judgment and requested full extraction without completing independent human review. Freeze
+GPT-6.1 Sol Low reasoning and the unchanged v5 instructions/schema before full inference. Each post
+is interpreted from its supplied text, timestamp and permitted assets; no reference labels or market
+outcomes are shown. Bounded batches share instructions but request a separate output for every post.
+Record batch membership/context and hashes; do not equate batching to independent single-post calls.
+All 1,234 posts are reprocessed, rather than silently mixing old development labels into final data.
+Assess model-reference agreement only after freezing; do not revise prompts using test agreement.
+Modern-model historical knowledge, correlated model errors and uncalibrated confidence remain
+limitations. Validation of schema/coverage does not establish semantic accuracy or market findings.

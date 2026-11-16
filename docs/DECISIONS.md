@@ -46,3 +46,14 @@
 - Native daily candles are independently valid when some intraday hours have no trades; validate
   their OHLCV against available hourly aggregates. Keep hourly event exclusions and early-DOGE
   estimation shortages visible. No alteration of the approved post scope or quote currency.
+
+## 2026-11-16 — Freeze Sol Light for the full corpus
+- User accepted the overall 48-post development review and explicitly requested all study posts
+  processed with the same setup. Freeze GPT-6.1 Sol, Low/Light reasoning, v5 prompt and schema.
+- Re-extract all 1,234 posts, including development posts, in bounded parallel batches. No previous
+  model labels, future prices or outcomes are supplied. Batch context differs from per-post local
+  Ollama calls; preserve batch membership and input/output hashes rather than claiming equivalence.
+- User trust is authorization to proceed, not completed human review or measured accuracy. Keep
+  Astra reference scores labelled model agreement; do not tune the frozen prompt on test results.
+- Import through strict corpus/config/prompt/schema/provenance and complete exact-ID checks.
+  No paid API, local weights download or change to the research scope was authorized or used.

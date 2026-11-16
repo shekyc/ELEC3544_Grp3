@@ -85,7 +85,27 @@ The generic `import-crypto` command remains available for other audited USD CSVs
 `aggregate-crypto-daily` is a stricter optional local aggregation requiring 24 hourly observations;
 it is separate from the native Kraken daily download.
 
-## 4. Evaluate against the annotation reference and run the local model
+## 4. Extract sentiment and evaluate against the annotation reference
+
+The user accepted the 48-post GPT-6.1 Sol Light/Low development review and authorized the full
+1,234-post run with the unchanged v5 prompt. The Codex subagent workflow writes separately hashed
+batch outputs under `data/processed/nlp_sol_full`; it does not use the Ollama command or a paid API.
+Frozen inputs contain only post ID/text/time and the configured asset universe, plus prompt/schema.
+No Astra labels or future market outcomes are supplied to extractors. Human review was not completed.
+
+After every batch exists, validate and import the saved model outputs:
+
+```bash
+.venv/bin/musk-sentiment import-nlp-batches data/processed/nlp_sol_full
+```
+
+This is an offline import, not a new model call. It rejects incomplete coverage, changed inputs,
+model/prompt provenance mismatches and invalid outputs; it creates pipeline-compatible
+`data/processed/nlp/sentiments.json`, per-post cache entries, summary and empty error list only after
+all batches validate. Changed model outputs require a new output directory. Rerunning extraction
+requires new model execution with separately frozen inputs; do not relabel old outputs as a new run.
+The requested model/effort are recorded; an immutable backend weights digest is unavailable for
+the hosted subagent. Outputs are real-post model extractions, not human ground truth.
 
 `annotations/study_sample.csv` is the locked 160-post sample balanced over eight quarters.
 At the user's request, GPT-6 Astra annotated it as `sheky(astra)` in
@@ -99,6 +119,8 @@ The sample itself is unchanged. See [annotation rules](docs/ANNOTATION.md).
 .venv/bin/musk-sentiment score-nlp annotations/study_labels_sheky_astra.csv data/processed/nlp/sentiments.json --split dev --reference-type model --output results/nlp_dev.json
 .venv/bin/musk-sentiment score-nlp annotations/study_labels_sheky_astra.csv data/processed/nlp/sentiments.json --split test --reference-type model --output results/nlp_test.json
 ```
+
+The `nlp --model` command above remains an optional local Ollama route only.
 
 These scores measure agreement with Astra, not independently established human accuracy. Freeze
 model/prompt using dev only before examining test scores. Both models can share errors and historical

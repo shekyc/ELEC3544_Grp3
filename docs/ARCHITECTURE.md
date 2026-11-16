@@ -47,3 +47,7 @@ Additional provider adapters must implement the same Protocol and preserve prove
   `collect-kraken` is an explicit live command; its tests use local fake ranged responses.
 - Annotation scoring records `reference_type` and `reference_annotators`; model reference agreement
   is distinct from independent human accuracy. Astra annotations/provenance remain local and ignored.
+- `nlp/batches.py`: offline import of actual Codex subagent extraction outputs. Frozen manifests and
+  batch input/output sidecars bind corpus, configuration, prompt, schema, model and reasoning effort.
+  Validate all batches before publishing any final NLPRecord dataset; preserve input fingerprints,
+  per-post cache entries and immutable evidence snapshots. This importer does not perform inference.

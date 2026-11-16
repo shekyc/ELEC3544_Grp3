@@ -46,3 +46,9 @@ ticker; timestamps are timezone-aware ISO or integer UNIX seconds, never inferre
 Annotation sample CSV preserves post_id as text and adds split/stratum. Labels are initially blank.
 Study outputs carry coverage, rejected events, input SHA256 hashes and a diagnostic status; model
 scores and bootstrap tables must be interpreted with the adjacent manifest and methodology.
+
+Agent-extracted `NLPRecord.input_sha256` hashes the canonical per-post prompt payload. Parameters
+also record reasoning effort, annotator identity and batch input/output/provenance hashes. The
+model name is the requested hosted model, not a verified immutable weights digest. Batch manifests
+bind the exact source corpus/configuration and prompt/schema; synthetic=false denotes real source
+posts, not human authorship. `summary.json` counts post relevance separately from per-asset labels.

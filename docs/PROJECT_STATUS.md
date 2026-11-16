@@ -22,7 +22,7 @@
 - Offline orchestration and plots, synthetic-data separation, hashes and diagnostic manifests.
 
 ## Actual verification and local outputs
-- **52 offline tests passed**; Ruff lint/format passed; original smoke passed (2 synthetic events).
+- **60 offline tests passed**; Ruff lint/format passed; original smoke passed (2 synthetic events).
   Extended synthetic integration covers research outputs and figure rendering, not empirical findings.
 - Research dependencies installed and frozen in requirements-lock.txt; pip check passed.
 - User confirmed successful historical SIP curl sample on Alpaca Basic. This is user-reported sample
@@ -40,6 +40,19 @@
   review: outputs/sol-dev-review/Sol_Light_Development_Review.xlsx, with blank interpretation/comment
   fields and nonblank/nonzero attribute highlights. Human review is pending. This is a development
   extraction artifact, not an NLPRecord production run or a frozen model selection.
+- User subsequently accepted the development run and authorized full extraction with the same model
+  and prompt. **All 1,234 posts processed** in 13 frozen GPT-6.1 Sol Light/Low batches; no missing or
+  duplicate IDs. Full corpus/config/prompt/schema and sidecar hashes checked before NLPRecord import.
+  Outputs: data/processed/nlp/sentiments.json, summary.json, errors.json (empty), and per-post cache.
+  Raw batch inputs/outputs/provenance and snapshots retained in data/processed/nlp_sol_full.
+  Model-labelled counts: 379 relevant posts, 196 posts with assets, 199 asset labels (TSLA 167,
+  DOGE 22, BTC 7, AAPL 3); 194 neutral, 1 bullish and 4 bearish. These are NLP outputs, not market
+  findings. Sparse directional sentiment is a material limitation for downstream comparisons.
+  Readable full results: outputs/sol-full-results/Sol_Light_Full_Results.xlsx (1,237 post/asset rows,
+  1,234 exact string IDs, nonzero attribute highlights and blank interpretation/comment columns).
+- Post-freeze Astra reference agreement: test relevance 81.25%, exact asset sets 85.71%, asset
+  sentiment 38.24% (13/34 reference assets). These measure cross-model agreement, not human accuracy.
+  Results under results/nlp_sol_{dev,test}_agreement.json. No prompt revision followed test scoring.
 - Live Kraken download verified: 7,702,404 bytes for six CSV members plus directory/ranges. All three
   assets have 731 daily study bars. Hourly BTC 17,537/17,544; ETH 17,536/17,544; DOGE 15,127/17,544.
   Missing hours are preserved. All native daily OHLCV match available-hour aggregates across 1,127
@@ -51,7 +64,7 @@
 ## Implemented but not empirically verified
 - Full Alpaca asset-by-period coverage, aggregation correctness against live examples, rate limits.
 - Cross-venue representativeness of Kraken and consequences of sparse DOGE 2020 hourly trading.
-- v5 model inference/accuracy on revised corpus, sarcasm/rare assets, model choice/cutoff effects.
+- Independent semantic accuracy of v5 extraction, sarcasm/rare assets, model choice/cutoff effects.
 - Real event counts, estimation residuals, statistical assumptions, model scores and plots.
 - Hosted CI has not run; local tests pass. Pandas/NumPy/calendar deprecation warnings remain visible.
 
@@ -60,10 +73,10 @@
    and inspect coverage, including prelisting gaps and buffers for estimation/outcomes.
 2. Crypto data access is resolved with Kraken USD. Audit event attrition from no-trade gaps and
    insufficient early-DOGE estimation history. No paid provider or model download was initiated.
-3. Compare installed local models against the user-authorized Astra dev reference, freeze model/prompt,
-   then test. Report model-reference agreement; independent human ground truth is not established.
-4. Run complete NLP, inspect all failures and then execute real research. Partial diagnostic outputs
-   cannot establish completion of the full multi-asset study.
+3. NLP extraction is complete with user-approved Sol Light/v5. Independent human ground truth remains
+   unestablished; record the sparse directional labels and reference disagreement in interpretation.
+4. Execute real research after stock/ETF collection. Partial diagnostic outputs cannot establish
+   completion of the full multi-asset study; no eligible asset mentions must be reported explicitly.
 5. Review benchmark choices, confounding events, serial dependence, market-model diagnostics and
    sample sizes. Rolling purged cross-validation/expanded robustness beyond the fixed chronological
    validation/test implementation remains further work if making stability claims.

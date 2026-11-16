@@ -18,6 +18,7 @@ from musk_sentiment.data.local_market import daily_crypto, import_crypto_csv
 from musk_sentiment.data.market import MarketDataUnavailable, collect_market
 from musk_sentiment.data.posts import import_posts
 from musk_sentiment.evaluation.annotations import sample_annotations, score_annotations
+from musk_sentiment.nlp.batches import import_batch_run
 from musk_sentiment.nlp.pipeline import infer
 from musk_sentiment.nlp.provider import OllamaProvider
 from musk_sentiment.schemas import MarketObservation
@@ -57,6 +58,11 @@ def main(argv=None):
     nlp.add_argument("--config", type=Path, default=Path("configs/project.toml"))
     nlp.add_argument("--output", type=Path, default=Path("data/processed/nlp"))
     nlp.add_argument("--cache", type=Path, default=Path("data/processed/nlp_cache"))
+    batches = sub.add_parser("import-nlp-batches", help="Validate and import frozen agent outputs")
+    batches.add_argument("run_dir", type=Path)
+    batches.add_argument("--posts", type=Path, default=Path("data/processed/study/posts.json"))
+    batches.add_argument("--config", type=Path, default=Path("configs/project.toml"))
+    batches.add_argument("--output", type=Path, default=Path("data/processed/nlp"))
     market.add_argument("--provider", choices=["alpaca", "yfinance"])
     market.add_argument("--asset-class", nargs="+", choices=["stock", "etf", "crypto"])
     kaggle = sub.add_parser("import-kaggle", help="Import original CSV; preserve unknown flags")
@@ -240,6 +246,8 @@ def main(argv=None):
             )
         elif args.command == "plot-study":
             result = plot_research(args.input)
+        elif args.command == "import-nlp-batches":
+            result = import_batch_run(args.run_dir, args.posts, args.config, args.output)
         elif args.command == "nlp":
             cfg = load_config(args.config)
             assets = cfg["assets"]
