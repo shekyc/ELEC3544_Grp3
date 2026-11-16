@@ -72,7 +72,6 @@ with reports and a nonzero exit status, never silently falling back to daily dat
 Inspect each quality report and run_summary.json before using an output. A failed run may leave
 an older successful derived file; status and provenance must match the intended run.
 
-
 ## Reproducing the cleaned Elon Musk posts (Kaggle dadalyndell 2025)
 
 The large raw and processed data files are intentionally not stored in Git.
@@ -103,21 +102,46 @@ musk-sentiment import-posts data/raw/posts/all_musk_posts_clean.csv \
   --output data/processed/posts
 ```
 
-The resulting clean posts and quality report will appear in `data/processed/posts/`.
+5. Create the 2023–2025 research subset (Kaggle data ends 13 April 2025):
 
-Market data for TSLA, BTC-USD and DOGE-USD can be collected with:
+```bash
+python -c '
+import json
+from pathlib import Path
+posts = json.load(open("data/processed/posts/posts.json"))
+subset = [p for p in posts if "2023-01-01" <= p.get("created_at","") < "2025-04-14"]
+Path("data/processed/posts/posts_23_25.json").write_text(json.dumps(subset, indent=2))
+print(f"Wrote {len(subset)} posts to posts_23_25.json")
+'
+```
+
+```bash
+python -c '
+import json
+from pathlib import Path
+posts = json.load(open("data/processed/posts/posts.json"))
+subset = [p for p in posts if "2020-10-01" <= p.get("created_at","") < "2021-12-31"]
+Path("data/processed/posts/posts_20_21.json").write_text(json.dumps(subset, indent=2))
+print(f"Wrote {len(subset)} posts to posts_20_21.json")
+'
+```
+
+The full clean posts and quality report appear in `data/processed/posts/`.  
+The research window used for NLP and market alignment is `posts_23_25.json`.
+
+Market data for TSLA, BTC-USD and DOGE-USD (covering the same window):
 
 ```bash
 musk-sentiment collect-market --tickers TSLA BTC-USD DOGE-USD \
-  --start 2023-01-01 --end 2025-01-01 --interval 1d
+  --start 2023-01-01 --end 2025-04-30 --interval 1d
 ```
 
 ## Local foundation-model inference
 
-Install and run Ollama separately with a suitable **local** model, llama3.2, already downloaded, then:
+Install and run Ollama separately with a suitable **local** model (llama3.2), then:
 
 ```bash
-.venv/bin/musk-sentiment nlp data/processed/posts/posts.json --model llama3.2
+.venv/bin/musk-sentiment nlp data/processed/posts/posts_20_21.json --model llama3.2
 ```
 
 Prompt version `financial-assets-v3` was validated on a 100-post human-labeled sample
@@ -126,6 +150,38 @@ Outputs are written to `data/processed/nlp/` (`sentiments.json` and `errors.json
 The adapter requires locally installed weights and records their digest. It uses loopback only,
 validated JSON output, bounded retries and a content-addressed cache. No model download is
 triggered. Successful records persist if some requests fail; errors are recorded for incremental retry.
+
+
+Create 20-21 posts json to csv with text 
+```bash 
+python - << 'PY'
+import json, pandas as pd
+
+recs = json.load(open('data/processed/nlp/sentiments.json'))
+posts = json.load(open('data/processed/posts/posts_20_21.json'))
+text_map = {p['post_id']: p.get('normalized_text') or p.get('text', '') for p in posts}
+
+rows = []
+for r in recs:
+    o = r['output']
+    assets = o.get('assets', [])
+    pid = o['post_id']
+    rows.append({
+        'post_id': pid,
+        'text': text_map.get(pid, ''),
+        'market_relevant': o['market_relevant'],
+        'tickers': ','.join(a['ticker'] for a in assets),
+        'sentiments': ','.join(a.get('sentiment', '') for a in assets),
+        'sentiment_scores': ','.join(str(a.get('sentiment_score', '')) for a in assets),
+        'topics': '|'.join(o.get('topics', [])),
+        'impact_horizon': o.get('impact_horizon'),
+        'ambiguity': o.get('ambiguity'),
+    })
+
+pd.DataFrame(rows).to_csv('data/processed/nlp/sentiments_2021_summary.csv', index=False)
+print(f'wrote {len(rows)} rows to sentiments_2021_summary.csv')
+PY
+```
 
 ## Documentation
 
