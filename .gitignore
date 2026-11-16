@@ -24,3 +24,6 @@ reports/*
 /output/
 /annotations/*.csv
 /annotations/*.json
+/annotations/*.txt
+/annotations/*.xlsx
+/outputs/
