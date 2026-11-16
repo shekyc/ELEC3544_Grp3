@@ -30,3 +30,19 @@ Engagement snapshot times are never inferred from post time. Reports contain inp
 counts, invalid-row reasons, source hash, observed time range and monthly accepted counts.
 Market reports include request dates/frequency, retrieval time, row count, rejected rows and raw path.
 Observed coverage does not imply complete coverage. Preserve the report alongside every dataset.
+
+## StudyRow and integration outputs
+`StudyRow` extends analysis without changing the legacy `EventReturn` contract. It includes
+post_id/ticker/asset_class/interval/horizon, posted_at, baseline_at, outcome_at (explanatory), entry_at
+and label_end (predictive), mention_index, topic_mention_indices, topics, sentiment_score, raw_return,
+benchmark_return, benchmark_car, market_model_car, estimation_n, alpha/beta, predictive_return,
+features and synthetic. CARs are sums of simple-return residuals, all returns in decimal units.
+A null market_model_car means insufficient estimation coverage/variance or no independent benchmark.
+
+Alpaca source strings identify SIP, split adjustment and regular-session 30-minute aggregation.
+Quality reports contain requested dates, raw snapshot paths, expected counts, missing starts and
+rejected input records. Crypto CSV imports require literal quote_currency=USD and an exact configured
+ticker; timestamps are timezone-aware ISO or integer UNIX seconds, never inferred milliseconds.
+Annotation sample CSV preserves post_id as text and adds split/stratum. Labels are initially blank.
+Study outputs carry coverage, rejected events, input SHA256 hashes and a diagnostic status; model
+scores and bootstrap tables must be interpreted with the adjacent manifest and methodology.

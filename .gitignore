@@ -18,3 +18,9 @@ results/*
 !results/.gitkeep
 reports/*
 !reports/.gitkeep
+
+# Local source upload and document artifacts
+/all_musk_posts*.csv
+/output/
+/annotations/*.csv
+/annotations/*.json

@@ -1,64 +1,97 @@
-# Methodology and scientific safeguards
+# Methodology — 2020–2021 implementation
 
-## Research scope
-Keep all three proposal objectives: abnormal returns and financial sentiment; reactions across
-stocks/ETFs/cryptocurrencies; variation over periods and first versus subsequent observed mentions.
-Foundation-model text interpretation supplies inputs; statistical and traditional ML methods assess
-associations and predictive usefulness. No empirical or causal conclusions are available yet.
+## Population and provenance
+Original posts dated [2020-01-01, 2022-01-01) UTC; verified string ID and author from the source
+status URL. Unknown reply/repost metadata is excluded, not converted to false. Preserve raw bytes,
+source identifiers, import rejection categories, and every month's counts. Nonempty months do not
+establish completeness. Full post text is not a command or instruction to the model.
 
-## Corpus and NLP
-Retain original text, emojis and punctuation. Restrict initial empirical corpus to verified original
-posts from the named author; uncertain metadata is excluded and reported. Do not infer completeness
-from a date range or an archive title. Inspect monthly counts, missing periods and source consistency.
-First mention means first observed in the analyzed corpus, not first-ever mention by Musk; future
-implementation must define asset/topic grouping and ties and account for left censoring.
+Asset universe remains configurable across stocks, market/sector ETFs and crypto. Current candidates
+are not a final coverage-approved universe. RIVN's prelisting period cannot be filled. Current SPY
+and BTC benchmark mappings point to themselves: these assets receive raw returns only; no fake zero
+abnormal returns. Other mappings are provisional scientific choices to review before final analysis.
+Crypto uses USD quote prices; USDT cannot be relabelled USD. No silent hourly/daily substitution.
 
-Financial sentiment concerns expected asset direction, not general positive language. Multiple
-asset sentiments are allowed. The prompt requests ambiguity handling and an unknown horizon when
-unsupported; no claim is made that the model reliably follows these instructions in practice.
-Confidence is not calibrated. Manual stratified labels (asset, time, relevance, sarcasm, rare cases)
-and inter-annotator adjudication are prerequisites to accuracy claims and model selection.
-The local model's training cutoff may encode knowledge of historical events; document it and assess
-this limitation even when prompts omit future information. Do not add future market-wrap headlines.
+## Financial NLP and human validation
+v5 incorporates the useful financial/linguistic distinction and ambiguity handling from Tansy's work
+without its fixed three-ticker list. Private-company ecosystem news alone does not establish TSLA
+exposure. Multi-asset directions and broad relevant topics with no defensible ticker are allowed.
+Topics use stable general categories, not future event-specific examples. Confidence is uncalibrated.
+No future prices or headlines enter prompts. The modern model's training may nevertheless contain
+2020–2021 outcomes: this remains retrospective research, not a point-in-time NLP backtest.
 
-## Event alignment: tested primitives and proposed production policy
-The next-trading-time helper uses regular US sessions including holidays, early closes and DST;
-crypto is continuous. Intraday prices have explicit opening and closing availability times. Never
-use a bar's close at its opening timestamp. Reject incomplete and invalid bars.
+Quarter-balanced random and keyword-enriched sampling adapts Cyrus's dev/test approach while keeping
+IDs as strings. Freeze dev/test membership; use dev for prompt/model selection, test after freezing.
+Obtain independent labels/adjudication and inspect sarcasm/rare-asset errors. Test metrics include
+relevance, asset-set agreement and gold-asset sentiment accuracy; relevance accuracy is not sentiment
+accuracy. Enriched sampling does not estimate population prevalence. No empirical NLP accuracy has
+yet been measured on this new corpus.
 
-The synthetic example uses the last completed close before an after-hours/weekend post and the
-next full session close. This includes intervening overnight movement and is not an executable
-post-publication strategy. It is a contract demonstration, not a full event construction algorithm.
-Production work must separately define explanatory event windows and tradable prediction targets.
-For daily post-day analysis, the previous observable close may be stale or include substantial
-pre/post gaps; report lag and contamination rather than claiming a precise immediate reaction.
-For intraday posts, distinguish the in-progress bar from the next complete trading bar. Never silently
-replace a requested hour with a daily observation. Missing required endpoints invalidate an event.
-Calendar helpers do not model venue-specific halts; missing bars need explicit coverage checks.
+## Prices and availability
+Alpaca: explicit SIP, split adjustment, pagination; source 30-minute bars are aggregated from the
+regular session open. Thus 09:00–09:30 premarket does not enter the first 09:30–10:30 hourly bar.
+Early closes and DST use exchange calendars. A final 1h-labelled session bar can be 30 minutes.
+Every required constituent must exist; duplicate constituents invalidate that aggregate. Daily bars
+are aggregated from the same regular-session inputs for a consistent session definition.
+Crypto is continuous UTC; a daily aggregate requires all 24 hours. No gap filling is performed.
+The collector requests 2019 estimation history and January 2022 outcomes without adding posts outside
+the approved two-year window. Provider gaps and prelisting gaps remain visible in quality reports.
 
-Yahoo adjusted OHLC histories are downloaded as a consistent price basis and raw responses are
-snapshotted. They can reflect corporate actions unavailable at the historical prediction time;
-future forecasting features need point-in-time review, particularly absolute price and volume.
-Historical likes/retweets are mature snapshots, not known-at-post predictors. Exclude them unless
-observation time proves availability. Current schemas track availability but cannot prove provenance.
+Current split-adjusted history is not point-in-time history. Models use returns/volatility, not
+absolute adjusted prices, mature engagement counts or current fundamentals. Keep this limitation
+in reporting. No claim is made about real-time execution latency or achievable trading returns.
 
-## Returns and validation
-Simple return = after / before - 1. Benchmark-adjusted return = asset return - benchmark return,
-using identical observation endpoints. Benchmarks in the candidate config are provisional: do not
-compute self-relative abnormal returns (BTC relative to BTC, or SPY relative to SPY). Decide an
-alternative or report raw returns for those benchmark assets. Crypto/equity sessions cannot be
-naively joined by date. Market-model fitting requires a pre-event estimation window; CAR aggregates
-period abnormal returns, not arbitrary overlapping event returns. Both remain planned.
+## Two distinct outcomes
+For explanation, take the latest completed close before/at the post, then the first bar closing
+strictly after the post and the configured number of successive trading bars. For a mid-bar post,
+this includes price movement before publication within the unfinished bar; for an after-hours post,
+it includes overnight/weekend movement. Record baseline/post/outcome times and interpret accordingly.
 
-A basic chronological holdout purges any training label ending at or after the cutoff. Production
-cross-validation must purge overlapping windows at every fold, fit scalers/selectors on training
-only, and keep concurrent/clustered events together. Avoid tuning on the final test period.
-Event clustering, confounders, repeated testing, serial dependence and clustered/bootstrap uncertainty
-must be addressed before reporting significance. These are planned safeguards, not completed tests.
+For prediction, enter at the **next complete bar's open at/after publication**, then exit at the
+configured horizon's close. This target is stored separately from the explanatory return. Features
+use only completed bars at publication; no in-progress close is treated as already observable.
+Missing required asset or benchmark bars reject the event rather than advancing to a later price.
+Default horizons: hourly 1/3/6/24 trading bars, daily 1/3/5 sessions. These are configurable defaults,
+not selected after inspecting returns. A horizon of 24 equity bars is not 24 wall-clock hours.
 
-## Planned model and reporting stages
-Historical-mean and zero-signal baselines; lagged-return baseline; linear/regularized regression;
-tree model; market-only vs NLP-augmented comparison; MAE, RMSE, directional accuracy and out-of-sample
-improvement. Study temporal/repeated-mention variation and alternative windows/assets/periods.
-Report null findings and limitations honestly. Model fitting, statistical intervals/significance,
-robustness suites and publication figures are outside this foundation milestone.
+## Mentions, abnormal returns and uncertainty
+Asset mentions and asset/topic mentions are counted chronologically across the entire prepared
+corpus, before market-coverage rejection. Tied timestamps use string post ID as a deterministic tie
+break. First means first observed since corpus start, never first-ever; topic counts use model
+categories and are affected by classification errors and left censoring.
+
+Raw return = ending close / baseline close - 1. Benchmark return uses identical endpoints.
+Benchmark CAR = sum of successive asset-minus-benchmark simple returns, not the difference of two
+compounded returns. Market-model CAR = sum(asset return - alpha - beta × benchmark return).
+OLS fits up to 120 prior matched return pairs, all ending before/at publication; at least 60 pairs
+and nonzero benchmark variance are required. Otherwise market-model CAR is null, never replaced by
+another definition. Estimation-window and residual diagnostics require empirical review.
+
+Describe asset, asset class, year, sentiment, first/subsequent asset and asset/topic groups.
+Overlapping explanatory/predictive windows form time clusters. Report ordinary event means and
+separately equal-cluster means. Bootstrap 95% intervals resample cluster means; suppress inference
+below five clusters. Exploratory two-sided sign-flip tests assume independent clusters and symmetric
+cluster means under the null. BH-FDR adjusts p values across the emitted table; confidence intervals
+remain unadjusted. Neither procedure removes confounding or all serial dependence. Do not describe
+these as causal effects. Isolated-event sensitivity excludes clusters with multiple events; alternate
+horizons, benchmarks and estimation settings can be rerun into separate result directories.
+
+## Prediction evaluation
+Separate models per asset/frequency/horizon. Validation begins 2021-01-01; final test begins
+2021-07-01. Training labels must finish strictly before the boundary; overlapping clusters crossing
+into evaluation cannot enter training. Validation labels ending in final test are excluded.
+Vectorizers/scalers fit only on training. Fixed hyperparameters avoid tuning on final test:
+linear regression; Ridge alpha=1; random forest 100 trees, depth 3, minimum leaf 5, fixed seed.
+Compare market-only return/volatility inputs against NLP-augmented sentiment, first-mention and topics.
+Zero, historical mean and lagged-return × horizon baselines are included. Report MAE, RMSE,
+directional accuracy and paired NLP MAE improvement with cluster bootstrap intervals. A minimum of
+20 training and 5 evaluation events is needed to fit; skipped groups are explicitly listed.
+This is a fixed chronological validation/test implementation, not a completed rolling CV study.
+
+## Empirical acceptance and remaining work
+Outputs are diagnostic until full corpus/market coverage and human-label quality are checked.
+No synthetic rows enter empirical runs. Input hashes, model versions, omissions and limitations are
+written beside results. Before submission: inspect estimation residuals, major confounding events,
+model coverage/sample sizes, benchmark suitability and sensitivity results; assess whether first
+mentions are too sparse for any inference. Extend to rolling purged folds if stability claims require
+it. Final narrative/slides and scientific interpretation are not generated from synthetic tests.

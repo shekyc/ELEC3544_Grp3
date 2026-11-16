@@ -29,3 +29,15 @@ Concurrency is not coordinated: use separate output directories for parallel run
 Tests use fixture providers and fake Yahoo transports. The smoke pipeline is not the production
 alignment engine: it uses a fixed after-hours/weekend example and manually neutral benchmark.
 Additional provider adapters must implement the same Protocol and preserve provenance.
+
+## Integration branch additions (2026-11-16)
+- `data/corpus.py`: exact-ID readers, conservative Kaggle import, study-window quality and source comparison.
+- `data/alpaca.py`: credentialed read-only SIP collection, immutable response pages, expected session grids,
+  complete regular-session aggregation and gaps. `data/local_market.py`: explicit USD crypto import.
+- `evaluation/annotations.py`: quarter-stratified frozen samples and exact-ID multi-asset scoring.
+- `analysis/study.py`: validated event windows, mentions, market model/CAR, clustering and inference.
+- `models/research.py`: chronological overlap-purged baselines and market-only/NLP comparisons.
+- `analysis/run.py`: offline orchestration, separate synthetic/empirical inputs, hashes, rejection/coverage
+  artifacts and figure export. CLI exposes each stage; research dependencies are optional until used.
+- Uploaded root CSV, processed data, annotations and results remain local and Git-ignored. Source branches
+  remain intact; `docs/INTEGRATION.md` records what was reused and why other artifacts were excluded.

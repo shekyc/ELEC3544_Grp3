@@ -22,3 +22,17 @@
     market model, inferential statistics, predictive fits and figures follow in later milestones.
 11. Exact installed dependencies recorded in requirements-lock.txt; test CI on Python 3.13.
     Upstream NumPy/pandas/calendar deprecation warnings are documented, not hidden.
+
+## 2026-11-16 — Restore original scope; narrow only post dates
+- User approved full calendar years 2020–2021, retaining all asset classes and analysis objectives.
+- User confirmed a successful Basic-account Alpaca historical SIP sample. Full-period coverage and
+  this implementation's 30-minute aggregation are not yet live-verified; credentials remain local.
+- Keep yfinance explicitly selectable, add Alpaca SIP equity/ETF history; do not assume it supplies
+  2020 crypto, and do not substitute USDT for USD without a scientific decision.
+- Request price buffers outside post scope for pre-event estimation and late-window outcomes.
+- Copy only useful mapping/guidance/sampling design from the reviewed branches. Rebuild the corpus
+  from the newly uploaded original CSV. Unknown original status is excluded; URL IDs/authors checked.
+- Preserve original branches and old human work there. Do not reuse out-of-period labels, damaged IDs,
+  the incomplete 679-post extract or old generated predictions as revised-study evidence.
+- Hyperparameters, windows and chronological boundaries are configurable, explicit defaults, not
+  tuned claims. Empirical validation/coverage, confounding review and final interpretation remain gates.

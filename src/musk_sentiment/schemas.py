@@ -123,6 +123,7 @@ class SentimentOutput(Record):
 
 
 class NLPRecord(Record):
+    input_sha256: Nonempty | None = None
     output: SentimentOutput
     provider: Nonempty
     model: Nonempty
@@ -194,4 +195,43 @@ class FeatureRow(Record):
     def no_future_features(self):
         if not self.features_available_at <= self.prediction_at < self.label_end:
             raise ValueError("Feature availability or target timing leaks information")
+        return self
+
+
+class StudyRow(Record):
+    """Explanatory close-to-close response and separate next-bar-open prediction target."""
+
+    event_id: Nonempty
+    post_id: Nonempty
+    ticker: Nonempty
+    asset_class: Literal["stock", "etf", "crypto"]
+    interval: Literal["1h", "1d"]
+    horizon_bars: int = Field(gt=0)
+    posted_at: datetime
+    baseline_at: datetime
+    outcome_at: datetime
+    entry_at: datetime
+    label_end: datetime
+    mention_index: int = Field(ge=1)
+    topic_mention_indices: dict[str, int]
+    topics: list[str]
+    sentiment_score: Score
+    raw_return: Finite
+    benchmark_return: Finite | None
+    benchmark_car: Finite | None
+    market_model_car: Finite | None
+    estimation_n: int = Field(ge=0)
+    alpha: Finite | None
+    beta: Finite | None
+    predictive_return: Finite
+    features: dict[str, Finite]
+    synthetic: bool
+    _time = field_validator("posted_at", "baseline_at", "outcome_at", "entry_at", "label_end")(utc)
+
+    @model_validator(mode="after")
+    def chronology(self):
+        if not self.baseline_at <= self.posted_at < self.outcome_at:
+            raise ValueError("Invalid explanatory event endpoints")
+        if not self.posted_at <= self.entry_at < self.label_end:
+            raise ValueError("Invalid next-bar prediction endpoints")
         return self

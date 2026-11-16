@@ -34,3 +34,15 @@ Audit several recent candidate archives at file level, including monthly counts,
 author, original/reply/repost semantics, missing timestamps and licenses. Establish intersection with
 market coverage for each asset/frequency. Present any necessary change to the scientific period or
 hourly scope to the project manager before adopting it. Archive titles are not completeness evidence.
+
+## Verified integration status (2026-11-16)
+The uploaded original dadalyndell `all_musk_posts.csv` is now imported directly with string IDs and
+unknown original-status exclusion. The full archive yields 14,018 originals and the approved study
+window 1,234; 24 nonempty months do not prove completeness. Older branch conversions filled missing
+flags with false and used unsafe numeric inference in sampling; do not reproduce those conversions.
+
+The user successfully tested historical Alpaca SIP with Basic credentials. New collection uses the
+stock bars endpoint with explicit SIP/split adjustment and 30-minute source bars, then regular-session
+aggregation. Unit tests mock requests; full live coverage is not yet verified. Crypto USD coverage is
+still unresolved: Binance's successfully tested public archive is USDT, not USD. An explicit local
+USD candle importer is available without silently changing the research currency.
