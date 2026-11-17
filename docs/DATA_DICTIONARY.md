@@ -94,3 +94,15 @@ financial/market effect (intraday, days, weeks-or-longer), not the scheduled dat
   count/mean/CI/p/q. `loo_min`/`loo_max` are sensitivity bounds, not confidence limits.
 - `figures.json`: group figures and individual post profile paths; missing profiles remain listed
   as rejections rather than interpolated charts.
+
+### 2022 holdout artifacts
+- `study_2022/posts.json`: 876 verified originals in [2022-01-01, 2023-01-01), UTC.
+- `nlp_sol_v7_2022`: frozen V7 Sol Light extraction; separate from development labels.
+- `market_minute_2022`: new minute histories through the January 2023 outcome buffer.
+- `market_minute_combined_2022`: manifest references to old pre-2022 and new 2022+ files.
+- `study_minute_v7_2022`: test-only events/models and comparison with development results.
+- `prior_mentions`: full development label counts, including events rejected for market gaps.
+- `comparison.json`: paired earlier/test day-cluster summaries; missing groups are null.
+- `verification.json`: preservation hashes, empirical recalculation/control audits and checks.
+- `validation_minute_v7_2022`: same three robustness checks, with all observed 2020–2022
+  original posts used for non-post-control screening and isolation.

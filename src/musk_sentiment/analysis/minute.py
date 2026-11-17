@@ -167,7 +167,7 @@ def relative_activity(store, clock, ticker, entry, posted_at, cohort, horizon, s
     return result
 
 
-def build_minute_events(posts, nlp, assets, store, settings):
+def build_minute_events(posts, nlp, assets, store, settings, prior_mentions=None):
     clock = SessionClock(settings["market_start"], settings["market_end"])
     asset_map = {a.ticker: a for a in assets}
     predictions = {r.output.post_id: r for r in nlp}
@@ -177,7 +177,7 @@ def build_minute_events(posts, nlp, assets, store, settings):
     if len(versions) != 1:
         raise ValueError("Mixed NLP versions")
     events, rejected, assignments = [], [], []
-    mentions = Counter()
+    mentions = Counter(prior_mentions or {})
     for post in sorted(posts, key=lambda p: (p.created_at, p.post_id)):
         result = predictions[post.post_id]
         if result.synthetic or post.synthetic:

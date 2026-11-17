@@ -194,3 +194,38 @@ balanced pre/post profiles, historical matched non-post controls, explicit unmat
 leave-one-day-out results, isolated-post tests and individual price charts. Existing completed
 validation runs cannot be overwritten; use `--output` for a separate run. Read the sample counts
 and dependence warnings before presenting a matched-control result as statistically established.
+
+## 8. Frozen 2022 temporal holdout
+
+The user authorized 2022 as a separate test after checkpoint `6d7a2e3`. The original
+2020–2021 results remain unchanged. Actual Alpaca responses and Kraken archive data were
+checked before analysis; evidence lives in `results/oos_2022_preflight/`.
+
+`configs/oos_2022.toml` changes the post period only; `configs/minute_2022.toml` extends
+market coverage and sets the test boundary to 2022-01-01. V7/model/universe and numerical
+analysis settings stay fixed. Frozen model batches are imported with:
+
+```bash
+.venv/bin/musk-sentiment import-nlp-batches data/processed/nlp_sol_v7_2022_full \
+  --posts data/processed/study_2022/posts.json --config configs/oos_2022.toml \
+  --output data/processed/nlp_sol_v7_2022
+.venv/bin/musk-sentiment research-holdout --output results/NEW_HOLDOUT_RUN
+```
+
+Before the holdout command, `analysis.holdout.merge_market_manifests` combines references
+from `data/processed/market_minute_v7` and `data/processed/market_minute_2022` into
+`data/processed/market_minute_combined_2022`. It retains old files before 2022 and new files
+from 2022 onward without overwriting or copying old data. The data collectors use the
+same providers and settings; acquisition was limited to 2022-01-01 through 2023-01-08
+exclusive, with historical reference windows supplied by the earlier store.
+
+The holdout command verifies frozen artifacts, continues mention counts, reuses saved
+2020–2021 training events and fits fixed models strictly before the test boundary.
+Robustness checks use the same `validate-minute` command with the new study/market paths,
+combined 2020–2022 posts for exclusions, original project config (observed control history
+starts in 2020), and `configs/minute_2022.toml`.
+
+Read `results/study_minute_v7_2022/REPORT.md` and `comparison.json`; robustness outputs are
+in `results/validation_minute_v7_2022`. This is a downstream temporal test; the modern
+language model can still know historical events. Now inspected, 2022 cannot be reused as
+an untouched test for later tuning. Do not rerun completed result directories in place.

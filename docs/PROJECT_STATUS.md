@@ -216,5 +216,30 @@
 
 Readiness evidence: results/step7_readiness_v7.json. Run evidence: results/study_v7/manifest.json,
 review_summary.json and event_validation.json. Proceed to interpretation/slides with the explicit
-limitations above. The proposed post-2021 holdout remains unadopted: validation starts 2021-01-01,
-final test starts 2021-07-01. These results are retrospective associations, not causal findings.
+limitations above. The original development run retains validation from 2021-01-01 and its final split from
+2021-07-01. A separately authorized frozen 2022 holdout is now complete, as recorded below.
+These results are retrospective associations, not causal findings.
+
+
+## Frozen 2022 holdout completed (2026-11-17)
+- Prior state committed as `6d7a2e3`; 1,426 frozen input/result files remain hash-identical.
+- Availability validated with actual 2022 Alpaca SIP responses and Kraken archive records.
+  TSLA/AAPL/SPY/QQQ each contain all 97,710 expected regular-session minutes. Crypto gaps
+  remain explicit; no gap filling or proxy quote currencies.
+- 876 original posts, all 12 months, UTC/post-ID timing checked. Identical V7 Sol Light:
+  TSLA 62, AAPL 7, DOGE 4 asset labels. No prompt/universe/settings revisions.
+- 169 accepted event windows, 50 rejected under the original rules. Models trained only
+  on purged pre-2022 events; historical mention counts continued. Both TSLA regular and
+  next-opening cohorts qualify for prediction; other cohorts remain below minimum samples.
+- No NLP improvement interval is wholly positive across price/activity prediction. No
+  day-cluster summary or sentiment association survives correction. AAPL overlap-level
+  correlations narrowly pass but represent six posts on two days, not robust replication.
+- DOGE has only two usable 15-minute posts; insufficient to confirm or refute the earlier
+  association. Retain the adverse observed returns without declaring a general reversal.
+- All three frozen validations rerun: 53 balanced profiles, 90 matched event windows,
+  79 unmatched, influence/isolation checks. Audited 169 outcomes and 450 control uses.
+- Verification: 81 deterministic offline tests; lint, format and synthetic smoke pass.
+- Evidence: `results/study_minute_v7_2022/REPORT.md`, `comparison.json`, `models.json`,
+  `verification.json`; `results/validation_minute_v7_2022/` and `oos_2022_preflight/`.
+- Remaining: presentation; independent human label validation and historical LLM leakage
+  remain unresolved. No further model selection on 2022 can call it untouched testing.

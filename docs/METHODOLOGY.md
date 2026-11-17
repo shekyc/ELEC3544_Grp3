@@ -247,3 +247,24 @@ post from publication minus 30 minutes through response entry plus 60 minutes. S
 bootstrap summaries use day-level outcomes, with BH-FDR across the isolated-outcome test family.
 All earlier minute/coarse artifacts are hash-checked and preserved. Sparse validation subsets must
 not be substituted silently for the original sample or described as independent external testing.
+
+### Reserved 2022 downstream test (authorized 2026-11-17)
+The development checkpoint is `6d7a2e3`. The 2022 extraction uses the byte-identical V7
+system prompt/schema and unchanged asset aliases, Sol Light model and reasoning effort.
+The version name retains its original 2020–2021 suffix. The 876 test posts were not used
+to revise V7 or choose regression parameters. The fixed models are refitted on eligible
+2020–2021 events, with preprocessing fit only there and crossing outcomes/response clusters
+purged at 2022-01-01. First-observed counts continue from the development corpus.
+
+All 5/15/30-minute targets, cohorts, baseline windows, minimum samples, bootstrap seeds,
+FDR families, matching rules and isolation rules remain unchanged. Earlier files and raw
+snapshots are retained. Prior market observations within 2022 can supply activity baselines
+and historical controls, as they would be available before each post; they do not refit
+prediction models. Control screening includes all observed 2020–2022 originals. This tests
+temporal transport of downstream models, not freedom from a modern LLM's historical
+knowledge. The inspected 2022 period cannot be claimed untouched after subsequent tuning.
+
+Preserve sparse/null results: only two 2022 DOGE posts yield complete 5/15-minute windows;
+one yields a 30-minute window. AAPL's six regular-session posts occupy just two days, so
+its overlap-level correlation significance is not robust day-level evidence. Comparisons
+of period means have different asset/topic/sample compositions and are not causal effects.

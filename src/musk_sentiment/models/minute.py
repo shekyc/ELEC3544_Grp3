@@ -18,7 +18,7 @@ def split_minute_rows(rows, cutoff):
     return train, test
 
 
-def evaluate_minute_models(events, settings):
+def evaluate_minute_models(events, settings, test_only=False):
     from sklearn.ensemble import RandomForestRegressor
     from sklearn.feature_extraction import DictVectorizer
     from sklearn.linear_model import LinearRegression, Ridge
@@ -43,7 +43,10 @@ def evaluate_minute_models(events, settings):
             complete = [
                 r for r in group if r.features is not None and getattr(r, target) is not None
             ]
-            for phase, cutoff in [("validation", validation), ("test", final)]:
+            phases = (
+                [("test", final)] if test_only else [("validation", validation), ("test", final)]
+            )
+            for phase, cutoff in phases:
                 pool = complete if phase == "test" else [r for r in complete if r.end_at < final]
                 train, test = split_minute_rows(pool, cutoff)
                 base = {
@@ -150,7 +153,7 @@ def evaluate_minute_models(events, settings):
         "predictions": predictions,
         "skipped": skipped,
         "policy": (
-            "Fixed models/settings; chronological 2021 validation/test; "
+            "Fixed models/settings; chronological validation/test; "
             "response overlap purged; pre-publication market features only"
         ),
         "caveats": [

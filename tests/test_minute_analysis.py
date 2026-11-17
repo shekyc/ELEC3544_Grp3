@@ -282,3 +282,20 @@ def test_minute_pagination_resume_and_no_credentials_in_snapshots(tmp_path, monk
     day.write_text(json.dumps(data))
     with pytest.raises(ValueError, match="hash mismatch"):
         MinuteStore(tmp_path / "out").window("TSLA", dt("2020-01-02T15:00:00Z"), 1)
+
+
+def test_holdout_mentions_continue_instead_of_resetting():
+    post, asset, nlp, settings = event_fixture()
+
+    class Store:
+        def bar(self, ticker, at):
+            return bar(at)
+
+        def window(self, ticker, start, minutes):
+            return [bar(start + timedelta(minutes=i)) for i in range(minutes)]
+
+    rows, _, _ = build_minute_events(
+        [post], [nlp], [asset], Store(), settings, prior_mentions={"X": 23}
+    )
+    assert len(rows) == 3
+    assert {r.mention_index for r in rows} == {24}

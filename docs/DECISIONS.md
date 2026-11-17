@@ -110,3 +110,11 @@
 - Retain all original minute and coarse artifacts. Show reduced profile/control samples explicitly.
 - DOGE matched-placebo evidence is underpowered; do not describe the robustness exercise as proving
   causality or all checks passing. Positive isolated/day-removal results remain observational.
+
+## 2026-11-17: User-authorized frozen 2022 holdout
+Committed prior study/robustness state as `6d7a2e3` before checking 2022 outcomes. Verified
+live 2022 SIP availability and cached native-USD crypto records first. Kept V7, universe,
+model effort, event/model settings and robustness rules fixed. Used a separate configuration,
+corpus, NLP cache, market manifest and result directory; continued mention ordinals and
+refitted downstream models only on pre-2022 development events. No scope expansion to
+Twitter/SpaceX or threshold relaxation for sparse DOGE results. All old files hash-preserved.

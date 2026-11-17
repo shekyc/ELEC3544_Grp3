@@ -74,3 +74,12 @@ pre/post profiles, historical matched controls and influence checks. It verifies
 and market-manifest hashes before execution. `configs/validation.toml` separates validation rules
 from original research settings. `analysis/validation_plots.py` generates group and individual-post
 figures. `validate-minute` and `plot-validation` publish only to a separate validation directory.
+
+### Frozen temporal holdout
+`analysis/holdout.py` orchestrates separate test-period extraction, immutable market-manifest
+composition, frozen input checks, historical mention counts and pre-cutoff model fitting.
+`models/minute.py` accepts a test-only evaluation mode; its default two-phase behavior is
+unchanged. `build_minute_events` optionally accepts prior mention counts. The 2022 runner
+reuses saved development events, checks NLP/universe fingerprints and forbids test-period
+posts in the development corpus. No model hyperparameters or event rules are selected on
+holdout outcomes. Combined market manifests reference the original hashed daily files.

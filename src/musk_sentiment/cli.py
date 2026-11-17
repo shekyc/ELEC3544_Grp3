@@ -4,6 +4,7 @@ import logging
 import tomllib
 from pathlib import Path
 
+from musk_sentiment.analysis.holdout import run_holdout
 from musk_sentiment.analysis.minute import run_minutes
 from musk_sentiment.analysis.minute_plots import plot_minutes
 from musk_sentiment.analysis.run import plot_research, run_research
@@ -126,6 +127,19 @@ def main(argv=None):
     kraken.add_argument("--config", type=Path, default=Path("configs/project.toml"))
     kraken.add_argument("--output", type=Path, default=Path("data/processed/market"))
     kraken.add_argument("--raw-dir", type=Path, default=Path("data/raw/kraken"))
+    holdout = sub.add_parser("research-holdout", help="Frozen V7 2022 temporal holdout")
+    for option, default in {
+        "posts": "data/processed/study_2022/posts.json",
+        "nlp": "data/processed/nlp_sol_v7_2022/sentiments.json",
+        "market": "data/processed/market_minute_combined_2022",
+        "project": "configs/oos_2022.toml",
+        "minute-config": "configs/minute_2022.toml",
+        "training": "results/study_minute_v7",
+        "prior-nlp": "data/processed/nlp_sol_v7/sentiments.json",
+        "freeze-path": "results/oos_2022_preflight/freeze.json",
+        "output": "results/study_minute_v7_2022",
+    }.items():
+        holdout.add_argument("--" + option, type=Path, default=Path(default))
     minute = sub.add_parser("research-minute", help="Separate 5/15/30-minute V7 study")
     minute.add_argument("--posts", type=Path, default=Path("data/processed/study/posts.json"))
     minute.add_argument(
@@ -283,6 +297,18 @@ def main(argv=None):
             daily_bars = daily_crypto(bars)
             save_records(args.output, daily_bars)
             result = {"daily_bars": len(daily_bars), "input_hours": len(bars)}
+        elif args.command == "research-holdout":
+            result = run_holdout(
+                args.posts,
+                args.nlp,
+                args.market,
+                args.project,
+                args.minute_config,
+                args.training,
+                args.prior_nlp,
+                args.freeze_path,
+                args.output,
+            )
         elif args.command == "collect-minute":
             settings = tomllib.loads(args.minute_config.read_text())["minute"]
             if args.provider == "alpaca":
