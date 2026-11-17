@@ -243,3 +243,18 @@ These results are retrospective associations, not causal findings.
   `verification.json`; `results/validation_minute_v7_2022/` and `oos_2022_preflight/`.
 - Remaining: presentation; independent human label validation and historical LLM leakage
   remain unresolved. No further model selection on 2022 can call it untouched testing.
+
+## Baseline sensitivity completed (2026-11-17)
+- Checkpoint `cdd4e0e`; strict default behavior and all frozen empirical artifacts preserved.
+- 2020–2021: 453 → 458 event windows (two DOGE, three TSLA additions).
+- 2022: 169 → 174 windows (five DOGE additions). DOGE 15-minute sample is now four posts.
+- DOGE day-weighted 15-minute mean: development +5.103% → +5.261%; 2022 −3.928% → −2.689%.
+  Four 2022 days remain insufficient for the unchanged inferential minimum; no reversal
+  or causal conclusion established. Prediction samples/results are unchanged.
+- Ten added outcomes recalculated; all 622 common frozen events identical. Full replay
+  verified deterministic. 84 offline tests, lint/format and synthetic smoke passed.
+- Eight replies individually reviewed; five substantive/tentative financial communications,
+  one borderline community endorsement, two without clear directional financial content.
+  All remain excluded under the original-only scope; no V7 revision or new labels.
+- Evidence: `results/baseline_sensitivity_v7/REPORT.md`, `comparison.json`,
+  `reply_review.json`, `verification.json` and period subfolders.

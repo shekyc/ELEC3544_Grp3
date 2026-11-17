@@ -299,3 +299,56 @@ def test_holdout_mentions_continue_instead_of_resetting():
     )
     assert len(rows) == 3
     assert {r.mention_index for r in rows} == {24}
+
+
+@pytest.mark.parametrize("missing_baseline", [True, False])
+def test_forward_sensitivity_missing_or_partial_pre_window(missing_baseline):
+    post, asset, nlp, settings = event_fixture()
+    baseline_end = post.created_at.replace(second=0, microsecond=0)
+    missing = baseline_end - timedelta(minutes=1 if missing_baseline else 3)
+
+    class Store:
+        def bar(self, ticker, at):
+            return None if at == missing else bar(at)
+
+        def window(self, ticker, start, minutes):
+            rows = [self.bar(ticker, start + timedelta(minutes=i)) for i in range(minutes)]
+            if None in rows:
+                raise ValueError("Missing required one-minute bar; no filling")
+            return rows
+
+    frozen, rejected, _ = build_minute_events([post], [nlp], [asset], Store(), settings)
+    relaxed, _, _ = build_minute_events(
+        [post], [nlp], [asset], Store(), settings, allow_missing_baseline=True
+    )
+    assert len(relaxed) == 3
+    assert all(r.features is None and r.features_end_at is None for r in relaxed)
+    assert all(r.forward_return == 0 for r in relaxed)
+    if missing_baseline:
+        assert not frozen and len(rejected) == 3
+        assert all(r.baseline_to_end_return is None for r in relaxed)
+        with pytest.raises(ValueError):
+            MinuteEvent.model_validate(relaxed[0].model_dump())
+    else:
+        assert len(frozen) == 3 and not rejected
+        assert [r.model_dump() for r in frozen] == [r.model_dump() for r in relaxed]
+
+
+def test_forward_sensitivity_still_requires_benchmark_window():
+    post, asset, nlp, settings = event_fixture()
+    asset.benchmark = "BENCH"
+
+    class Store:
+        def bar(self, ticker, at):
+            return None
+
+        def window(self, ticker, start, minutes):
+            if ticker == "BENCH":
+                raise ValueError("Missing required one-minute bar; no filling")
+            return [bar(start + timedelta(minutes=i)) for i in range(minutes)]
+
+    rows, rejected, _ = build_minute_events(
+        [post], [nlp], [asset], Store(), settings, allow_missing_baseline=True
+    )
+    assert not rows and len(rejected) == 3
+    assert all(r["reason"] == "Missing required one-minute bar; no filling" for r in rejected)

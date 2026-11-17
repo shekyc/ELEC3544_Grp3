@@ -106,3 +106,12 @@ financial/market effect (intraday, days, weeks-or-longer), not the scheduled dat
 - `verification.json`: preservation hashes, empirical recalculation/control audits and checks.
 - `validation_minute_v7_2022`: same three robustness checks, with all observed 2020–2022
   original posts used for non-post-control screening and isolation.
+
+### Baseline sensitivity artifacts
+`ForwardMinuteEvent` retains the minute-event chronology and outcome fields but permits
+`baseline_to_end_return=null` when no baseline price exists. `baseline_at` still records
+the intended pre-publication baseline boundary; it does not assert an observed bar.
+`results/baseline_sensitivity_v7/{2020_2021,2022}/added_events.json` contains only newly
+eligible forward windows. `comparison.json` pairs frozen/sensitivity summaries, while
+`reply_review.json` records qualitative source-text/parent-context judgments, not new
+V7 predictions, human ground truth or included events.

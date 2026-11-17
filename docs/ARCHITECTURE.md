@@ -83,3 +83,10 @@ unchanged. `build_minute_events` optionally accepts prior mention counts. The 20
 reuses saved development events, checks NLP/universe fingerprints and forbids test-period
 posts in the development corpus. No model hyperparameters or event rules are selected on
 holdout outcomes. Combined market manifests reference the original hashed daily files.
+
+### Baseline sensitivity
+`analysis/baseline_sensitivity.py` runs both periods into separate artifacts, preserving
+old hashes and checking common-event identity. `build_minute_events` defaults to the
+strict original behavior; an explicit flag selects `ForwardMinuteEvent`, a separate
+contract permitting a null baseline-dependent return. Forward bars and benchmark bars
+remain mandatory. Incomplete predictive features are never filled or admitted to training.

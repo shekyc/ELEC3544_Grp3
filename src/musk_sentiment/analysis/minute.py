@@ -16,7 +16,7 @@ import numpy as np
 from musk_sentiment.config import load_config
 from musk_sentiment.data.corpus import read_posts
 from musk_sentiment.nlp.pipeline import build_user_prompt
-from musk_sentiment.schemas import MinuteBar, MinuteEvent, NLPRecord
+from musk_sentiment.schemas import ForwardMinuteEvent, MinuteBar, MinuteEvent, NLPRecord
 from musk_sentiment.utils.io import digest, save_records, write_json
 
 NY = ZoneInfo("America/New_York")
@@ -167,7 +167,9 @@ def relative_activity(store, clock, ticker, entry, posted_at, cohort, horizon, s
     return result
 
 
-def build_minute_events(posts, nlp, assets, store, settings, prior_mentions=None):
+def build_minute_events(
+    posts, nlp, assets, store, settings, prior_mentions=None, allow_missing_baseline=False
+):
     clock = SessionClock(settings["market_start"], settings["market_end"])
     asset_map = {a.ticker: a for a in assets}
     predictions = {r.output.post_id: r for r in nlp}
@@ -207,7 +209,7 @@ def build_minute_events(posts, nlp, assets, store, settings, prior_mentions=None
                     if boundary and end > boundary:
                         raise ValueError("Window crosses session boundary")
                     baseline = store.bar(ticker, baseline_end - MINUTE)
-                    if baseline is None:
+                    if baseline is None and not allow_missing_baseline:
                         raise ValueError("Missing pre-publication baseline minute")
                     bars = store.window(ticker, entry, horizon)
                     outcome = measurements(bars)
@@ -243,8 +245,9 @@ def build_minute_events(posts, nlp, assets, store, settings, prior_mentions=None
                     except ValueError as exc:
                         if "Missing required" not in str(exc):
                             raise
+                    event_type = ForwardMinuteEvent if allow_missing_baseline else MinuteEvent
                     events.append(
-                        MinuteEvent(
+                        event_type(
                             event_id=f"{post.post_id}:{ticker}:{cohort}:{horizon}m",
                             post_id=post.post_id,
                             ticker=ticker,
@@ -260,9 +263,11 @@ def build_minute_events(posts, nlp, assets, store, settings, prior_mentions=None
                             mention_index=mentions[ticker],
                             **outcome,
                             **refs,
-                            baseline_to_end_return=bars[-1].c / baseline.c - 1,
+                            baseline_to_end_return=bars[-1].c / baseline.c - 1
+                            if baseline is not None
+                            else None,
                             opening_gap_return=bars[0].o / baseline.c - 1
-                            if cohort == "next_opening"
+                            if cohort == "next_opening" and baseline is not None
                             else None,
                             benchmark_return=bench_return,
                             benchmark_adjusted_return=outcome["forward_return"] - bench_return

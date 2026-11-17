@@ -268,3 +268,21 @@ Preserve sparse/null results: only two 2022 DOGE posts yield complete 5/15-minut
 one yields a 30-minute window. AAPL's six regular-session posts occupy just two days, so
 its overlap-level correlation significance is not robust day-level evidence. Comparisons
 of period means have different asset/topic/sample compositions and are not causal effects.
+
+### Baseline-availability sensitivity (2026-11-17)
+User authorized a separate post-hoc relaxation after checkpoint `cdd4e0e`: missing
+immediate pre-post baseline prices no longer invalidate otherwise complete forward
+own-asset and benchmark windows. No prices or predictors are filled; no session, horizon,
+asset, V7 or confidence rules change. Missing baseline-dependent outcomes remain null.
+Partial five-minute pre-post histories already permitted descriptive outcomes when the
+immediate baseline existed, while predicting still required the complete feature history.
+Existing accepted outcomes and prediction-eligible IDs are unchanged in both periods;
+there is no new predictive result from this relaxation. Baseline-dependent pretrend and
+matched-control diagnostics retain their original requirements and are not relaxed here.
+
+Original-only scope still excludes all eight explicit DOGE replies reviewed qualitatively.
+Five convey holding/support/payment content, one is a borderline community endorsement,
+and two lack clear directional financial content. Exclusion is a scope decision, not proof
+of irrelevance. Any future reply extension must apply consistently across periods, avoid
+outcome-selected examples, document context handling and account for thread dependence.
+No reply was added or assigned a new V7 label in this review.

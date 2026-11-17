@@ -313,3 +313,9 @@ class MinuteEvent(Record):
         if self.features_end_at is not None and self.features_end_at > self.posted_at:
             raise ValueError("Future market information in features")
         return self
+
+
+class ForwardMinuteEvent(MinuteEvent):
+    """Sensitivity-only outcome; missing baseline does not invalidate complete forward bars."""
+
+    baseline_to_end_return: Finite | None = None

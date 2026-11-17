@@ -118,3 +118,10 @@ model effort, event/model settings and robustness rules fixed. Used a separate c
 corpus, NLP cache, market manifest and result directory; continued mention ordinals and
 refitted downstream models only on pre-2022 development events. No scope expansion to
 Twitter/SpaceX or threshold relaxation for sparse DOGE results. All old files hash-preserved.
+
+## 2026-11-17: Baseline sensitivity and reply review
+Committed the frozen 2022 workflow as `cdd4e0e` before implementing the user's requested
+separate sensitivity. Kept V7 and existing results unchanged. Relaxed only availability
+of the immediate pre-publication baseline for complete forward windows; no imputation,
+benchmark relaxation or prediction-feature relaxation. Reviewed the eight raw-source
+DOGE replies and available parent text, without including them or modifying scope.

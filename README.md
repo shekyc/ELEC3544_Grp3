@@ -229,3 +229,18 @@ Read `results/study_minute_v7_2022/REPORT.md` and `comparison.json`; robustness 
 in `results/validation_minute_v7_2022`. This is a downstream temporal test; the modern
 language model can still know historical events. Now inspected, 2022 cannot be reused as
 an untouched test for later tuning. Do not rerun completed result directories in place.
+
+## 9. Separate baseline-availability sensitivity
+
+```bash
+.venv/bin/python -m musk_sentiment.analysis.baseline_sensitivity
+```
+
+This writes `results/baseline_sensitivity_v7` and refuses to overwrite a completed run.
+The original study remains strict. The optional sensitivity allows complete forward
+own-asset/benchmark windows without a pre-publication baseline; baseline-dependent
+returns and incomplete pre-post features remain null. Both periods use unchanged V7,
+entry/session/horizon rules, historical references and mention ordinals. Existing events
+and prediction-eligible IDs are verified identical. Results and the qualitative review
+of eight excluded DOGE replies are in `results/baseline_sensitivity_v7/REPORT.md`.
+No replies were added to the study.
