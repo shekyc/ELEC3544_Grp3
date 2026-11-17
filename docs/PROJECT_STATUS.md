@@ -22,7 +22,7 @@
 - Offline orchestration and plots, synthetic-data separation, hashes and diagnostic manifests.
 
 ## Actual verification and local outputs
-- **61 offline tests passed**; Ruff lint/format passed; original smoke passed (2 synthetic events).
+- **77 offline tests passed**; Ruff lint/format passed; original smoke passed (2 synthetic events).
   Extended synthetic integration covers research outputs and figure rendering, not empirical findings.
 - Research dependencies installed and frozen in requirements-lock.txt; pip check passed.
 - Live Alpaca SIP collection now verified with the locally supplied credentials. TSLA/AAPL and
@@ -119,6 +119,77 @@
   settings. Real counts/scores/plots exist, but do not establish causal or prospective validity.
 - Hosted CI has not run; local tests pass. Pandas/NumPy/calendar deprecation warnings remain visible.
 
+## Minute extension: completed after checkpoint a0f6bdf
+- User requested commit first, then timezone verification. All 1,234 original CSV/cleaned UTC
+  timestamps match; ID-derived timestamps agree within the source's second precision. DST checks
+  around both years' transitions and an early close passed before implementation continued.
+- Separate native one-minute collection: 3,173,623 bars including buffers for TSLA/AAPL/SPY/QQQ
+  and BTC/DOGE USD. Four stock/ETF RTH series have 196,354 / 196,354 / 196,349 / 196,354 of
+  196,410 expected study minutes. No filling. Every complete reconstructed hour exactly matches
+  the older hourly OHLCV; the incomplete hours are explicitly recorded in minute_preflight.
+- Source/model labels and previous market/results files preserved. Validation evidence:
+  results/study_minute_v7/validation.json; 3,753 baseline files and all 21 old study input hashes
+  are unchanged. Minute source hashes, timezone audit and deterministic replay are recorded.
+- Separate 5/15/30-minute windows: 453 accepted event/horizon observations, 129 rejected.
+  TSLA regular: 32/32/30; extended: 10/7/3; next-opening: 83/83/83. BTC: 7/7/7;
+  DOGE: 21/21/21; AAPL regular: 2/2/2. These are repeated horizon observations, not 453 posts.
+  Missing pre-publication bars account for 46 rejections, missing window/benchmark minutes for 64,
+  and session boundaries for 19. Extended-hour sparsity is a major limitation, not repaired.
+- DOGE differs from the earlier own-price availability check: one post lacks a baseline, and the
+  July 1, 2021 post fails the aligned BTC benchmark check. Activity reference history is also
+  insufficient for 34 otherwise valid observations; price outcomes remain available for those.
+- Relative volume, trade count and realized volatility use past same-time medians (20 candidate
+  windows, minimum 10 complete). Post-event activity is never used as a prediction input.
+- **Stronger short-window DOGE association:** 15-minute day-cluster mean return +5.10% (21 posts,
+  19 days); volume 8.61×, trades 7.83×, volatility 4.00× reference (13 eligible activity posts).
+  DOGE 5/15-minute return sign tests and activity tests survive BH-FDR and same-day sensitivity;
+  the 30-minute return sign test does not. Effects remain observational and venue/sample-specific.
+- Matched DOGE post comparison (ordinary event means, different entry definitions): new 15-minute
+  forward return +4.48%, old next-hour forward return -0.015%, old next-day forward return -1.17%.
+  The earlier coarse prediction windows can miss the immediate response; this is not proof of an
+  executable trading edge or improved forecast accuracy.
+- No signed/absolute sentiment correlation survives multiplicity correction. TSLA price reactions
+  remain weak; activity averages rise modestly but the corrected median tests are not convincing.
+  BTC and AAPL are small samples. Larger absolute activity does not establish NLP predictive value.
+- Final prediction tests qualify only for TSLA next-opening: 69 training / 14 evaluation events.
+  Regular-hours TSLA has only four final-test events; other groups fail the fixed minimums.
+  NLP adds no dependable advantage: the 30-minute Ridge improvement still underperforms simple
+  no-change/historical-mean forecasts; activity-prediction improvement intervals are not positive.
+- 71 offline tests, lint, formatting and smoke passed. Boundary tests cover DST, holidays, early
+  closes, next-minute alignment, missing bars, past-only references/features, purge boundaries,
+  daily clustering, collector pagination/resume and credential exclusion. All 453 observed returns,
+  volume/trade totals and realized volatilities were independently recalculated successfully.
+- New outputs: results/study_minute_v7, including descriptive/model tables, exclusions, day-cluster
+  and common-horizon sensitivity, old_comparison.json, and minute_outcomes.png. Earlier results
+  remain in results/study_v7; NLP remains V7 and the date scope remains 2020–2021.
+
+## Three follow-up validation checks completed
+- Separate output: results/validation_minute_v7. Frozen V7 labels, 2020–2021 scope and all 43
+  earlier coarse/minute result artifacts remain unchanged. No new market API calls were needed.
+- Balanced event profiles: 126 eligible post/asset paths, 68 exclusions. Counts: DOGE 12 posts
+  on 11 days, BTC 4, TSLA regular 22, extended 3, next-opening 83 and AAPL 2. Next-opening profiles
+  show only 0..60 minutes after opening; closed-market pre-publication paths are not invented.
+  Group figures and 126 individual price charts are saved with an index.
+- DOGE profile subset rose an average 2.59% during the preceding 30 minutes, then 7.61% over the
+  publication-minute-based first five minutes. A visible post-publication jump coexists with prior
+  movement; the pre-return median sign test is not significant. These profile outcomes differ in
+  sample and alignment from the primary next-full-minute returns and must not be mixed silently.
+- Matched controls: 232 of 453 event/horizon cases qualify; 221 do not. Matching uses only prior
+  conditions and non-post times, with strict completeness/caliper requirements. At 15 minutes only
+  four DOGE posts qualify, connected into one component by reused control dates: formal inference
+  is suppressed. TSLA's eligible matched contrasts do not survive multiplicity correction.
+  Thus the matched-placebo check is inconclusive for DOGE, not an additional confirmed effect.
+- DOGE 15-minute result is not driven by a single day: removing each entire day leaves the day-mean
+  return between +4.27% and +5.70%; event median is +2.98%. The largest influence is 2021-04-28.
+- Twelve isolated DOGE posts retain a +6.19% mean 15-minute return (bootstrap 95% interval
+  +3.14% to +9.64%; corrected sign-test q=0.028). Nine with sufficient activity references retain
+  volume 6.66×, trade count 7.19× and volatility 4.03×; corrected q=0.028 for each.
+- Verdict: the DOGE association survives important outlier/isolation checks, but causality and
+  predictive usefulness remain unproven. Pre-existing moves, scarce comparable non-post controls,
+  incomplete original-post coverage and modern-model historical knowledge remain limitations.
+- 77 offline tests pass, including precondition timing, non-post boundaries, matching constant
+  features, session-safe profiles, whole-day omission, strict isolation and historical controls.
+
 ## Remaining work and limitations
 1. Interpret the completed event study and prediction outputs, including overlap sensitivity,
    benchmark dependence, small samples, historical LLM leakage and mixed NLP improvement.
@@ -140,7 +211,7 @@
 | 4. USD crypto history | Collected; gaps preserved; no V7 event-window rejections. |
 | 5. Validate/freeze NLP | V7 frozen; targeted qualitative/structural checks passed. |
 | 6. Full corpus extraction | Complete: 1,234 V7 outputs; earlier runs preserved. |
-| 7. Research analysis | Empirical event study, subgroup/sensitivity analysis and eligible prediction tests executed; remaining methodological limitations above. |
+| 7. Research analysis | Coarse and minute studies completed, including 5/15/30-minute returns/activity, separate sessions, sensitivity and eligible prediction tests; limitations above. |
 | 8. Interpretation/slides | Results available; final presentation pending. |
 
 Readiness evidence: results/step7_readiness_v7.json. Run evidence: results/study_v7/manifest.json,

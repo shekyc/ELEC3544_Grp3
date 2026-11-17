@@ -57,3 +57,20 @@ Additional provider adapters must implement the same Protocol and preserve prove
   loaded prompt to match frozen inputs; old v5 records remain usable directly as baseline data.
 - V7 uses `nlp_sol_v7_full` and `nlp_sol_v7`, preserving both previous runs. Schemas and downstream
   return-window logic are unchanged; the revised prompt affects extraction only.
+
+## Minute research extension
+`data/minute.py` acquires/resumes SIP one-minute pages and reuses verified Kraken archive byte ranges.
+It publishes separate, validated compact `MinuteBar` daily JSON files and hashed manifests under
+`data/processed/market_minute_v7`; old hourly/daily files are untouched. `analysis/minute.py` handles
+DST-aware sessions, strict contiguous windows, past-only activity references, cluster summaries,
+correlations and old/new matched-post comparisons. `models/minute.py` fits fixed chronological,
+overlap-purged models using only pre-publication features. `analysis/minute_plots.py` renders saved
+scientific summaries. `research-minute`, `collect-minute`, and `plot-minute` expose the workflow.
+Minute configuration and artifacts are separate from the original research path. Schema/provenance,
+missing-data policy and synthetic rejection are enforced before empirical use.
+
+`analysis/validation.py` reuses immutable minute inputs and frozen event assignments for balanced
+pre/post profiles, historical matched controls and influence checks. It verifies frozen study input
+and market-manifest hashes before execution. `configs/validation.toml` separates validation rules
+from original research settings. `analysis/validation_plots.py` generates group and individual-post
+figures. `validate-minute` and `plot-validation` publish only to a separate validation directory.

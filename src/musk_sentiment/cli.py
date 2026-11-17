@@ -1,9 +1,14 @@
 import argparse
 import json
 import logging
+import tomllib
 from pathlib import Path
 
+from musk_sentiment.analysis.minute import run_minutes
+from musk_sentiment.analysis.minute_plots import plot_minutes
 from musk_sentiment.analysis.run import plot_research, run_research
+from musk_sentiment.analysis.validation import run_validation
+from musk_sentiment.analysis.validation_plots import plot_validation
 from musk_sentiment.config import load_config
 from musk_sentiment.data.alpaca import collect_alpaca
 from musk_sentiment.data.corpus import (
@@ -16,6 +21,7 @@ from musk_sentiment.data.corpus import (
 from musk_sentiment.data.kraken import audit_crypto_coverage, collect_kraken
 from musk_sentiment.data.local_market import daily_crypto, import_crypto_csv
 from musk_sentiment.data.market import MarketDataUnavailable, collect_market
+from musk_sentiment.data.minute import collect_crypto_minutes, collect_stock_minutes
 from musk_sentiment.data.posts import import_posts
 from musk_sentiment.evaluation.annotations import sample_annotations, score_annotations
 from musk_sentiment.nlp.batches import import_batch_run
@@ -120,6 +126,43 @@ def main(argv=None):
     kraken.add_argument("--config", type=Path, default=Path("configs/project.toml"))
     kraken.add_argument("--output", type=Path, default=Path("data/processed/market"))
     kraken.add_argument("--raw-dir", type=Path, default=Path("data/raw/kraken"))
+    minute = sub.add_parser("research-minute", help="Separate 5/15/30-minute V7 study")
+    minute.add_argument("--posts", type=Path, default=Path("data/processed/study/posts.json"))
+    minute.add_argument(
+        "--nlp", type=Path, default=Path("data/processed/nlp_sol_v7/sentiments.json")
+    )
+    minute.add_argument("--market-dir", type=Path, default=Path("data/processed/market_minute_v7"))
+    minute.add_argument("--config", type=Path, default=Path("configs/project.toml"))
+    minute.add_argument("--minute-config", type=Path, default=Path("configs/minute.toml"))
+    minute.add_argument("--output", type=Path, default=Path("results/study_minute_v7"))
+    minute.add_argument("--old-results", type=Path, default=Path("results/study_v7"))
+    minute_data = sub.add_parser(
+        "collect-minute", help="Explicit live SIP or public USD minute data"
+    )
+    minute_data.add_argument("--provider", choices=["alpaca", "kraken"], required=True)
+    minute_data.add_argument("--tickers", nargs="+", default=["TSLA", "AAPL", "SPY", "QQQ"])
+    minute_data.add_argument("--minute-config", type=Path, default=Path("configs/minute.toml"))
+    minute_data.add_argument("--output", type=Path, default=Path("data/processed/market_minute_v7"))
+    minute_data.add_argument("--raw-dir", type=Path, default=Path("data/raw/market_minute_v7"))
+    minute_data.add_argument("--probe-dir", type=Path, default=Path("results/minute_availability"))
+    minute_plot = sub.add_parser("plot-minute")
+    minute_plot.add_argument("input", type=Path)
+    validation = sub.add_parser(
+        "validate-minute", help="Pre/post, matched placebo and influence checks"
+    )
+    validation.add_argument("--study", type=Path, default=Path("results/study_minute_v7"))
+    validation.add_argument(
+        "--market-dir", type=Path, default=Path("data/processed/market_minute_v7")
+    )
+    validation.add_argument("--posts", type=Path, default=Path("data/processed/study/posts.json"))
+    validation.add_argument("--config", type=Path, default=Path("configs/project.toml"))
+    validation.add_argument("--minute-config", type=Path, default=Path("configs/minute.toml"))
+    validation.add_argument(
+        "--validation-config", type=Path, default=Path("configs/validation.toml")
+    )
+    validation.add_argument("--output", type=Path, default=Path("results/validation_minute_v7"))
+    validation_plot = sub.add_parser("plot-validation")
+    validation_plot.add_argument("input", type=Path)
     args = parser.parse_args(argv)
     logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
     try:
@@ -240,10 +283,56 @@ def main(argv=None):
             daily_bars = daily_crypto(bars)
             save_records(args.output, daily_bars)
             result = {"daily_bars": len(daily_bars), "input_hours": len(bars)}
+        elif args.command == "collect-minute":
+            settings = tomllib.loads(args.minute_config.read_text())["minute"]
+            if args.provider == "alpaca":
+                reports = [
+                    collect_stock_minutes(
+                        t,
+                        settings["market_start"],
+                        settings["market_end"],
+                        args.output,
+                        args.raw_dir / "alpaca",
+                    )
+                    for t in args.tickers
+                ]
+            else:
+                reports = collect_crypto_minutes(
+                    settings["market_start"],
+                    settings["market_end"],
+                    args.output,
+                    args.raw_dir / "kraken",
+                    args.probe_dir,
+                )
+            result = [{"ticker": r["ticker"], "rows": r["rows"]} for r in reports]
+        elif args.command == "plot-validation":
+            result = plot_validation(args.input)
+        elif args.command == "validate-minute":
+            result = run_validation(
+                args.study,
+                args.market_dir,
+                args.posts,
+                args.config,
+                args.minute_config,
+                args.validation_config,
+                args.output,
+            )
+        elif args.command == "research-minute":
+            result = run_minutes(
+                args.posts,
+                args.nlp,
+                args.market_dir,
+                args.config,
+                args.minute_config,
+                args.output,
+                args.old_results,
+            )
         elif args.command == "research":
             result = run_research(
                 args.posts, args.nlp, args.market_dir, args.config, args.output, args.synthetic
             )
+        elif args.command == "plot-minute":
+            result = plot_minutes(args.input)
         elif args.command == "plot-study":
             result = plot_research(args.input)
         elif args.command == "import-nlp-batches":

@@ -62,3 +62,35 @@ whole interpretation, not merely ticker recognition. It remains uncalibrated.
 V7 keeps the v6 sentiment meaning. The assets list includes substantively involved targets even if
 neutral; omission is not a substitute for uncertain direction. impact_horizon refers to a supported
 financial/market effect (intraday, days, weeks-or-longer), not the scheduled date of a business event.
+
+## One-minute extension
+- `MinuteBar`: `t` UTC minute start; `o/h/l/c` prices; `v` base-unit volume; `n` trade count;
+  optional `vw` provider VWAP. Implicit bar end is `t + 60 seconds`. Provenance/adjustment and
+  SHA256 are in each ticker's manifest; JSON files are partitioned by UTC date.
+- `MinuteEvent`: string post/event IDs, asset, `regular/extended/next_opening/crypto_24h` cohort,
+  explicit 5/15/30-minute horizon, UTC publication/baseline/entry/end, and entry delay in seconds.
+- `forward_return`: entry-open to end-close fractional return. `baseline_to_end_return` is separate;
+  `opening_gap_return` applies only to next-opening cases. `benchmark_adjusted_return` is matched
+  compounded-return difference, not the old market-model CAR. BTC's benchmark fields are null.
+- `volume`, `trade_count`, `realized_volatility`: window totals and unannualized sqrt(sum log-return²).
+  `reference_*` are past matching-window medians; `reference_windows` records complete comparisons.
+  `relative_*` are dimensionless ratios; null means insufficient history or zero reference.
+- `features`: only pre-publication five-minute market measurements and their age.
+  `features_end_at <= posted_at` is enforced; missing input bars disable prediction eligibility.
+- `descriptive.json` clusters overlapping windows. `day_cluster_sensitivity.json` clusters dates;
+  `common_horizon_sensitivity.json` holds post membership constant across 5/15/30-minute windows.
+  Summary sign tests concern medians; bootstrap intervals concern equal-cluster means.
+- `old_comparison.json`: same post IDs, different horizon/entry definition; not an accuracy test.
+
+## Minute validation artifacts
+- `event_profiles.json`: one balanced path per eligible post/asset, publication-minute anchor,
+  offsets -30..60 (0..60 for delayed opening), price path, pre/post returns and activity-rate bins.
+  Explicit rejections; group means use equal day weights and pointwise bootstrap intervals.
+- `matched_placebos.json`: accepted and rejected matches, historical control timestamps, observed
+  precondition vectors, RMS distances, actual feature endpoint, raw control outcomes and effect
+  contrasts. `return_difference` is in fractional-return units; activity effects are ratios.
+  `independent_components` joins actual dates that share control dates; it is not the post count.
+- `influence.json`: event/day medians, leave-one-day-out means, influential date, isolated-event
+  count/mean/CI/p/q. `loo_min`/`loo_max` are sensitivity bounds, not confidence limits.
+- `figures.json`: group figures and individual post profile paths; missing profiles remain listed
+  as rejections rather than interpolated charts.

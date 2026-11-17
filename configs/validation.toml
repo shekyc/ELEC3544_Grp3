@@ -1,0 +1,15 @@
+[validation]
+pre_minutes = 30
+post_minutes = 60
+# Matching uses data ending five minutes before publication, never post-event outcomes.
+matching_pre_end_minutes = 5
+candidate_prior_days_or_sessions = 60
+minimum_candidate_pool = 10
+matched_controls = 5
+minimum_matched_controls = 3
+rms_caliper = 2.0
+bootstrap_repetitions = 2000
+seed = 3544
+# Exclude every observed original corpus post, not just asset-labelled posts.
+exclude_other_posts_pre_minutes = 30
+exclude_other_posts_post_minutes = 60

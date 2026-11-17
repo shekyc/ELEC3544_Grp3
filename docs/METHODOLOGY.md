@@ -155,3 +155,95 @@ bars reuse the exact saved 30-minute pages underlying hourly bars. No prompt/mod
 chronological boundaries were changed in response to results. Only TSLA supports prediction tests;
 small other-asset groups and first-mention samples remain limitations. Headline daily explanatory
 returns include pre-publication movement and must not be presented as achievable post-entry profit.
+
+## User-approved minute extension (2026-11-16)
+Checkpoint commit a0f6bdf precedes this extension. A preflight audit matched all 1,234 cleaned UTC
+post timestamps to the original CSV; their ID-derived millisecond times floor to the same seconds.
+Alpaca uses UTC minute starts, Kraken uses UNIX seconds, and exchange sessions use America/New_York
+with explicit DST/holiday/early-close handling. Hong Kong is only the user's display timezone.
+
+The frozen minute settings are in configs/minute.toml. Native one-minute SIP split-adjusted bars
+for TSLA/AAPL and SPY/QQQ, and Kraken spot USD bars for BTC/DOGE, are stored separately. Collection
+buffers start 2019-12-01 and end 2022-01-08; post scope stays 2020–2021. Raw snapshots are immutable,
+minute files are hash-checked, and no absent price, volume or trade count is filled with zero.
+
+A regular-session post uses the next full minute through 5/15/30 elapsed minutes later. Extended
+hours use 04:00–09:30 or regular close–20:00 New York on trading-session dates and are analysed
+separately. A window crossing a session boundary is rejected, not spliced into the next session.
+Posts outside both sessions form the next-opening group, measured from the next regular opening.
+They are delayed responses, not immediate reactions; extended-hours posts are not automatically
+reassigned to this group when their data are sparse. Crypto trades continuously in UTC.
+
+Primary forward return is end close / entry open - 1, excluding the partly elapsed publication
+minute. Record the sub-minute entry delay (or longer next-opening delay). A separate baseline-to-end
+return and next-opening gap retain the prior completed-minute/regular-close comparison; these can
+contain pre-publication movement and are not the primary immediate-response outcome.
+Benchmark-adjusted minute return is the difference of matched compounded forward returns, not the
+older sum-of-bar market-model CAR. BTC has no independent configured benchmark and remains null.
+
+Volume is summed base-asset quantity (split-adjusted shares for SIP; coins for Kraken); trade count
+is the number of trades. Realized volatility is sqrt(sum of squared one-minute log returns), using
+the entry open for the first return and prior minute closes thereafter; it is not annualized.
+Relative activity divides the observed measure by the median of up to 20 earlier same-time windows
+(same New York local time/session for equities, same UTC time on prior days for crypto). At least
+10 complete reference windows and a positive denominator are required. All references end before
+publication. Missing reference history suppresses the relative measure, not the valid price outcome.
+Complete-window selection, sparse DOGE trading and Kraken-only volume limit representativeness.
+
+Summaries use equal overlap-cluster means and bootstrap intervals. Sign tests test cluster medians
+against zero return or activity ratio one; intervals concern means, so their conclusions can differ.
+Sentiment correlations use cluster-level signed and absolute scores. BH-FDR is applied separately
+across summary tests and correlation tests; intervals are unadjusted. Same-day clustering and a
+common-post set across horizons are separate sensitivity outputs. Clustering does not remove
+confounding or dependence across days, and associations do not establish causality.
+
+Prediction retains fixed 2021-01-01 validation / 2021-07-01 test boundaries, 20-train/5-evaluation
+minimums, outcome-overlap purging and training-only preprocessing. Targets are forward return and
+three relative-activity measures. Inputs are strictly pre-publication five-minute return, realized
+volatility, log volume, log trade count and observation age; next-opening cases use the last regular
+close available before the post. NLP adds signed/absolute sentiment, topics and first-mention flag.
+Post-event activity never enters features. Fixed linear/Ridge/random-forest models are compared with
+no-change and historical-mean baselines. Negative activity regression forecasts are not clipped.
+This is an exploratory follow-up after inspecting coarse-window results, not a new untouched test.
+
+Old/new comparisons match post IDs and report the older predictive return, not its explanatory
+return. Different entry times and horizons mean these comparisons are not tests of improved model
+accuracy. Frozen V7 labels and all older result files are preserved and hash-verified.
+
+## Three validation checks: frozen follow-up rules
+The user authorized event-time profiles, matched non-post controls, and influential/isolated-event
+checks. Settings are frozen in configs/validation.toml before running them. No new period, label
+revision or model selection was performed; this remains exploratory validation of inspected results.
+
+Balanced profiles require every minute from 30 minutes before to 60 minutes after publication.
+Zero is the start of the publication minute; the reference is the preceding completed close, and
+actual publication occurs within the shaded [0,1) minute. Thus the first profile minute includes
+some pre-publication seconds, unlike the original next-full-minute prediction target. Whole-window
+session crossings and missing minutes reject a profile. Next-opening profiles start at the opening,
+with no fabricated pre-publication path. Individual paths and equal-day averages are saved; bootstrap
+bands are pointwise and unadjusted. Activity-bin rates divide by the same post's earlier -30 to -5
+minute rate, a different reference from the initial 20-day historical activity ratios.
+
+Matched placebos use earlier same-asset, same-session, same-clock-time windows among 60 prior
+sessions/days. Crypto also matches weekday/weekend status. Market conditions are measured in the
+-30 to -5 minute window; next-opening cases use the prior completed regular-session close before
+publication as the reference endpoint. Features are prior return, log volume, log trade count,
+log realized volatility and benchmark return where available. Candidate-pool IQR scaling (standard
+deviation/constant fallback) defines RMS distance. Select five nearest controls within distance 2,
+requiring at least three and an eligible pool of ten. These values were not relaxed after results.
+No post-window outcome values enter the distance or selection order; complete source data are required.
+
+A control is excluded if any observed original corpus post occurs between pseudo-publication minus
+30 minutes and response entry plus 60 minutes. This covers the longer waiting interval for delayed
+openings. Both controls and exclusion windows must lie within the observed 2020–2021 corpus period,
+and control outcomes must precede the actual post. The archive is not guaranteed complete, so
+"non-post" means no observed corpus post. Actual days that share control dates are joined into
+components for inference; fewer than five components suppress intervals/tests. Matching is not a
+randomized intervention and does not remove unobserved confounding. Unmatched cases are explicit.
+
+Influence checks retain event/day medians and remove one entire day at a time. The resulting range
+is a sensitivity range, not a confidence interval. An isolated event has no other original observed
+post from publication minus 30 minutes through response entry plus 60 minutes. Sign tests and
+bootstrap summaries use day-level outcomes, with BH-FDR across the isolated-outcome test family.
+All earlier minute/coarse artifacts are hash-checked and preserved. Sparse validation subsets must
+not be substituted silently for the original sample or described as independent external testing.

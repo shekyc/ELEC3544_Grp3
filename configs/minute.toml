@@ -1,0 +1,14 @@
+[minute]
+market_start = "2019-12-01"
+market_end = "2022-01-08"
+horizons_minutes = [5, 15, 30]
+baseline_sessions = 20
+minimum_baseline_windows = 10
+bootstrap_repetitions = 1000
+seed = 3544
+validation_start = "2021-01-01"
+test_start = "2021-07-01"
+# Primary outcomes start at the next full minute, or the next regular opening.
+# Extended hours are evaluated separately, never mixed with regular sessions.
+extended_open = "04:00"
+extended_close = "20:00"

@@ -87,3 +87,26 @@
   API downloads. Preserve raw snapshots and disclose missing unneeded files in run manifests.
 - Run the existing fixed chronological analysis into results/study_v7. No date expansion, prompt
   retuning on market outcomes, changed model thresholds or invented first-mention multiplier.
+
+## 2026-11-16 — Authorized minute windows, activity and session separation
+- User requested a commit before any further work: a0f6bdf checkpoints V7/coarse research.
+- Verify timezones first; all 1,234 source/cleaned timestamps and ID-derived times agree, with
+  source second precision; DST calendar checks pass. Preserve the evidence in minute_preflight.
+- User approved 1-minute inputs, 5/15/30-minute windows, volume/trades/volatility, separate regular,
+  extended and next-opening reactions, with old results preserved. Post dates/universe/NLP unchanged.
+- Implement conservative complete-minute windows, reject session crossings, normalize activity
+  against past same-time windows, and keep price outcomes when only activity reference is missing.
+- Keep next-opening outcomes separate; do not backfill missing extended-session prices or pretend
+  that a next-opening reaction occurred immediately after publication.
+- Retain fixed chronological model thresholds/hyperparameters; add same-day and common-horizon
+  sensitivity. No return-based prompt revisions, paid data, new accounts or model downloads.
+
+## 2026-11-16 — User-approved first three robustness checks
+- Perform pre/post profiles, matched non-post placebo comparisons, and median/leave-one-day-out/
+  isolated-post sensitivity. Do not expand dates/assets or refit NLP.
+- Freeze matching on pre-publication conditions, same session/time and historical non-post windows;
+  retain strict data and caliper/pool thresholds even if few cases qualify. Account for reused
+  control dates; do not treat repeated control observations as independent evidence.
+- Retain all original minute and coarse artifacts. Show reduced profile/control samples explicitly.
+- DOGE matched-placebo evidence is underpowered; do not describe the robustness exercise as proving
+  causality or all checks passing. Positive isolated/day-removal results remain observational.

@@ -235,3 +235,81 @@ class StudyRow(Record):
         if not self.posted_at <= self.entry_at < self.label_end:
             raise ValueError("Invalid next-bar prediction endpoints")
         return self
+
+
+class MinuteBar(Record):
+    """Compact one-minute OHLCVT; t is UTC start, v base units, n trade count."""
+
+    t: datetime
+    o: float = Field(gt=0, allow_inf_nan=False)
+    h: float = Field(gt=0, allow_inf_nan=False)
+    l: float = Field(gt=0, allow_inf_nan=False)  # noqa: E741 -- Provider OHLC convention.
+    c: float = Field(gt=0, allow_inf_nan=False)
+    v: float = Field(ge=0, allow_inf_nan=False)
+    n: int = Field(ge=0)
+    vw: float | None = Field(default=None, gt=0, allow_inf_nan=False)
+
+    _time = field_validator("t")(utc)
+
+    @model_validator(mode="after")
+    def valid_minute(self):
+        if self.t.second or self.t.microsecond:
+            raise ValueError("Minute bar start must be minute-aligned")
+        if self.l > min(self.o, self.c) or self.h < max(self.o, self.c):
+            raise ValueError("Inconsistent minute OHLC")
+        return self
+
+
+class MinuteEvent(Record):
+    """Minute outcomes and strictly pre-publication prediction features; returns are fractions."""
+
+    event_id: Nonempty
+    post_id: Nonempty
+    ticker: Nonempty
+    cohort: Literal["regular", "extended", "next_opening", "crypto_24h"]
+    horizon_minutes: Literal[5, 15, 30]
+    posted_at: datetime
+    entry_at: datetime
+    end_at: datetime
+    baseline_at: datetime
+    entry_delay_seconds: float = Field(ge=0)
+    sentiment_score: Score
+    topics: list[str]
+    mention_index: int = Field(ge=1)
+    forward_return: Finite
+    baseline_to_end_return: Finite
+    opening_gap_return: Finite | None = None
+    benchmark_return: Finite | None = None
+    benchmark_adjusted_return: Finite | None = None
+    volume: float = Field(ge=0, allow_inf_nan=False)
+    trade_count: int = Field(ge=0)
+    realized_volatility: float = Field(ge=0, allow_inf_nan=False)
+    reference_windows: int = Field(ge=0)
+    relative_volume: Finite | None = None
+    relative_trade_count: Finite | None = None
+    relative_volatility: Finite | None = None
+    reference_volume: Finite | None = None
+    reference_trade_count: Finite | None = None
+    reference_volatility: Finite | None = None
+    features: dict[str, Finite] | None = None
+    features_end_at: datetime | None = None
+    synthetic: Literal[False] = False
+
+    _time = field_validator("posted_at", "entry_at", "end_at", "baseline_at")(utc)
+
+    @field_validator("features_end_at")
+    @classmethod
+    def feature_time(cls, value):
+        return utc(value) if value is not None else None
+
+    @model_validator(mode="after")
+    def valid_window(self):
+        if not self.baseline_at <= self.posted_at <= self.entry_at < self.end_at:
+            raise ValueError("Invalid minute event chronology")
+        if (self.end_at - self.entry_at).total_seconds() != self.horizon_minutes * 60:
+            raise ValueError("Minute event duration mismatch")
+        if abs((self.entry_at - self.posted_at).total_seconds() - self.entry_delay_seconds) > 1e-6:
+            raise ValueError("Incorrect entry delay")
+        if self.features_end_at is not None and self.features_end_at > self.posted_at:
+            raise ValueError("Future market information in features")
+        return self

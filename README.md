@@ -161,3 +161,36 @@ checks; BTC/DOGE USD prices are present. The user approved skipping remaining un
 `review_summary.json` and `event_validation.json` summarize 1,358 validated event/horizon rows;
 `models.json` includes explicit skips for small samples. Only TSLA qualifies for prediction tests.
 See `docs/PROJECT_STATUS.md` for findings, incomplete scientific objectives and interpretation limits.
+
+## 6. Separate one-minute extension
+
+Checkpoint before extension: `a0f6bdf`. UTC/source/DST verification is saved under
+`results/minute_preflight`; the original hourly/daily results stay in `results/study_v7`.
+With existing Alpaca credentials exported locally (never printed), collection can be reproduced:
+
+```bash
+.venv/bin/musk-sentiment collect-minute --provider alpaca
+.venv/bin/musk-sentiment collect-minute --provider kraken
+.venv/bin/musk-sentiment research-minute
+.venv/bin/musk-sentiment plot-minute results/study_minute_v7
+```
+
+Minute analysis refuses to overwrite an existing completed run: use `--output results/NEW_RUN`
+for a new run. Frozen settings are in `configs/minute.toml`; outputs include 5/15/30-minute price,
+volume, trade-count and volatility summaries, session assignments, explicit exclusions, day-cluster
+and common-horizon sensitivity, prediction scores/skips, and matched-post old/new comparisons.
+Regular, extended, next-opening and 24-hour crypto observations are never pooled into one cohort.
+The plot uses day-cluster uncertainty; significance tests and sample counts are in the JSON tables.
+
+## 7. Validate the minute findings without changing them
+
+```bash
+.venv/bin/musk-sentiment validate-minute
+.venv/bin/musk-sentiment plot-validation results/validation_minute_v7
+```
+
+Rules are in `configs/validation.toml`; results are separate from both earlier runs. Outputs include
+balanced pre/post profiles, historical matched non-post controls, explicit unmatched cases, medians,
+leave-one-day-out results, isolated-post tests and individual price charts. Existing completed
+validation runs cannot be overwritten; use `--output` for a separate run. Read the sample counts
+and dependence warnings before presenting a matched-control result as statistically established.
